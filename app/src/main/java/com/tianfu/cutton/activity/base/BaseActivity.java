@@ -121,6 +121,7 @@ public class BaseActivity extends AppCompatActivity {
         Map<String, String> map = new HashMap();
         map.put("deviceNo", Common.deviceNo);
         map.put("from", Common.from);
+        System.out.println("asdasdasdasdasdasdasdas");
         map.put("version", Common.versionNo);
         HttpManager.getServerApi().isLogin(map).enqueue(new CallBack<IsLogin>() {
             @Override
