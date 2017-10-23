@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#f4f4f4"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20px"
+        android:background="#f4f4f4" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70px"
+        android:background="@drawable/ll_background_normal"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/commodiy_Code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22px"
+            android:layout_weight="1"
+            android:text="65092121019(180/1)"
+            android:textColor="@color/drop_color"
+            android:textSize="32px" />
+
+        <TextView
+            android:id="@+id/commodiy_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="24px"
+            android:text="未上架"
+            android:textColor="@color/tab_tv_selected"
+            android:textSize="28px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="71px"
+        android:background="@drawable/ll_background_normal"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/commodiy_key"
+            android:layout_width="104px"
+            android:layout_height="40px"
+            android:layout_marginLeft="23px"
+            android:background="@drawable/button_style"
+            android:text="1329A"
+            android:textColor="@color/red_translucent"
+            android:textSize="24px" />
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="24px"
+            android:gravity="right">
+
+            <TextView
+                android:id="@+id/commodiy_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="19452"
+                android:textColor="@color/homeTextLongColor"
+                android:textSize="42px" />
+
+            <TextView
+                android:id="@+id/commodiy_danwei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/commodiy_money"
+                android:layout_marginTop="6px"
+                android:layout_toRightOf="@+id/commodiy_money"
+                android:text="元/吨"
+                android:textColor="@color/homeTextLongColor"
+                android:textSize="14px" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="240px"
+            android:layout_height="100px"
+            android:background="@drawable/ll_background_normal"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/iv_length"
+                android:drawableLeft="@mipmap/ic_common_length"
+                android:text="长度"
+                android:textColor="@color/drop_color"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/commodiy_length"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_length"
+                android:layout_marginTop="2px"
+                android:text="29"
+                android:textColor="@color/homeTextLongColor"
+                android:textSize="30px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="240px"
+            android:layout_height="100px"
+            android:background="@drawable/ll_background_normal"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_common_elasticity"
+                android:text="强力"
+                android:textColor="@color/drop_color"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/commodiy_breakLoadAverage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2px"
+                android:text="27.8"
+                android:textSize="30px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="240px"
+            android:layout_height="100px"
+            android:background="@drawable/ll_background_normal"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13px"
+                android:layout_toRightOf="@id/iv_horse"
+                android:drawableLeft="@mipmap/ic_common_horse"
+                android:text="马值"
+                android:textColor="@color/drop_color"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/commodiy_micronAverage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2px"
+                android:text="5"
+                android:textColor="@color/text_commodity"
+                android:textSize="30px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="61px"
+        android:background="@drawable/ll_background_normal"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/commodiy_type"
+            android:layout_width="200px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22px"
+            android:drawableLeft="@mipmap/ic_common_cutton"
+            android:drawablePadding="8px"
+            android:text="锯齿细绒棉"
+            android:textColor="@color/drop_color"
+            android:textSize="26px" />
+
+        <TextView
+            android:id="@+id/commodiy_factory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80px"
+            android:layout_marginRight="26px"
+            android:drawableLeft="@mipmap/ic_common_factory"
+            android:drawablePadding="8px"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="锯齿细绒棉锯齿细绒棉锯齿细绒棉锯齿细绒棉"
+            android:textColor="#333333"
+            android:textSize="26px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/ll_MycommodityButton"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:background="@drawable/ll_background_normal"
+        android:gravity="center_vertical|right">
+
+        <Button
+            android:id="@+id/commodiy_chushou"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="134px"
+            android:layout_height="62px"
+            android:layout_marginRight="20px"
+            android:background="@mipmap/ic_commodity_list"
+            android:text="已出售"
+            android:textColor="@color/drop_color"
+            android:textSize="26px" />
+
+        <Button
+            android:id="@+id/commodiy_xiaohao"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="134px"
+            android:layout_height="62px"
+            android:layout_marginRight="20px"
+            android:background="@mipmap/ic_commodity_list"
+            android:text="消耗"
+            android:textColor="@color/drop_color"
+            android:textSize="26px" />
+
+        <Button
+            android:id="@+id/commodiy_xiajia"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="134px"
+            android:layout_height="62px"
+            android:layout_marginRight="22px"
+            android:background="@mipmap/ic_commodity_list"
+            android:text="下架"
+            android:textColor="@color/drop_color"
+            android:textSize="26px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

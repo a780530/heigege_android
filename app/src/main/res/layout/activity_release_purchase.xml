@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.tianfu.cutton.activity.purchase.ReleasePurchaseActivity">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/deman_title"
+        android:layout_width="match_parent"
+        android:layout_height="146px"
+        android:background="@color/tab_tv_selected"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="50px">
+
+        <TextView
+            android:id="@+id/tv_dismiss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20px"
+            android:paddingLeft="10px"
+            android:paddingRight="10px"
+            android:text="取消"
+            android:textColor="@color/white"
+            android:textSize="28px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="217px"
+            android:text="发布需求"
+            android:textColor="@color/white"
+            android:textSize="34px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bt_save_white"
+        android:layout_below="@+id/deman_title"
+        android:clipChildren="false"
+        android:clipToPadding="false">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:orientation="vertical">
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:id="@+id/rl_keyword"
+                android:layout_width="match_parent"
+                android:layout_height="74px"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22px"
+                    android:drawableLeft="@mipmap/ic_fire_hui"
+                    android:drawablePadding="16px"
+                    android:text="关键词"
+                    android:textColor="#333333"
+                    android:textSize="28px" />
+
+                <ImageView
+                    android:id="@+id/iv_black_keyword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20px"
+                    android:layout_marginTop="12px"
+                    android:src="@mipmap/ic_sort_down" />
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <com.tianfu.cutton.widget.MultiCheckGroupView
+                android:id="@+id/keyword_group"
+                android:paddingRight="20px"
+                android:paddingLeft="20px"
+                android:paddingBottom="24px"
+                android:paddingTop="20px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                 />
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:id="@+id/rl_location"
+                android:layout_width="match_parent"
+                android:layout_height="74px"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22px"
+                    android:drawableLeft="@mipmap/ic_common_location"
+                    android:drawablePadding="16px"
+                    android:text="产地"
+                    android:textColor="#333333"
+                    android:textSize="28px" />
+
+                <ImageView
+                    android:id="@+id/iv_black_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20px"
+                    android:layout_marginTop="12px"
+                    android:src="@mipmap/ic_sort_down" />
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <com.tianfu.cutton.widget.MultiCheckGroupView
+                android:id="@+id/location_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingRight="20px"
+                android:paddingLeft="20px"
+                android:paddingBottom="24px"
+                android:paddingTop="20px"/>
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:id="@+id/rl_origin"
+                android:layout_width="match_parent"
+                android:layout_height="74px"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22px"
+                    android:drawableLeft="@mipmap/ic_common_cuttonblack"
+                    android:drawablePadding="16px"
+                    android:text="加工"
+                    android:textColor="#333333"
+                    android:textSize="28px" />
+
+                <ImageView
+                    android:id="@+id/iv_black_origin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20px"
+                    android:layout_marginTop="12px"
+                    android:src="@mipmap/ic_sort_down" />
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <com.tianfu.cutton.widget.MultiCheckGroupView
+                android:id="@+id/origin_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingRight="20px"
+                android:paddingLeft="20px"
+                android:paddingBottom="24px"
+                android:paddingTop="20px"/>
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:id="@+id/rl_color"
+                android:layout_width="match_parent"
+                android:layout_height="74px"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22px"
+                    android:drawableLeft="@mipmap/ic_common_color"
+                    android:drawablePadding="16px"
+                    android:text="颜色级"
+                    android:textColor="#333333"
+                    android:textSize="28px" />
+
+                <ImageView
+                    android:id="@+id/iv_black_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20px"
+                    android:layout_marginTop="12px"
+                    android:src="@mipmap/ic_sort_down" />
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <com.tianfu.cutton.widget.MultiCheckGroupView
+                android:id="@+id/color_group"
+                android:paddingRight="20px"
+                android:paddingLeft="20px"
+                android:paddingBottom="24px"
+                android:paddingTop="20px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:background="#f4f4f4"
+                android:layout_height="1px" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="26px"
+                    android:layout_marginTop="82px"
+                    android:drawableLeft="@mipmap/ic_common_horse"
+                    android:drawablePadding="22px"
+                    android:text="马值"
+                    android:textColor="#333333"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="82px"
+                    android:text="（"
+                    android:textColor="#333333"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/tv_house"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="82px"
+                    android:text="3.4-5.0"
+                    android:textColor="#333333"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="82px"
+                    android:text="）"
+                    android:textColor="#333333"
+                    android:textSize="28px" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_marginTop="10px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/bt_c1"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="144.9px"
+                    android:layout_height="56px"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="24px"
+                    android:layout_marginTop="2px"
+                    android:background="@drawable/btn_bottom_background_right_press"
+                    android:text="C1"
+                    android:textSize="28px" />
+
+                <Button
+                    android:id="@+id/bt_c2"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="144.9px"
+                    android:layout_height="56px"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="24px"
+                    android:layout_marginTop="2px"
+                    android:background="@drawable/btn_bottom_background_right_press"
+                    android:text="C2"
+                    android:textSize="28px" />
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <com.tianfu.cutton.widget.DoubleSeekBar
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
+                android:id="@+id/doubleseekbar_house"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="5dp"
+                android:background="#fafafa"
+                app:btn_radio="10dp"
+                app:cursor_color="#ededed"
+                app:cursor_height="23dp"
+                app:default_high="50"
+                app:default_low="34"
+                app:high_value="50"
+                app:left_btn_color="@color/white"
+                app:line_color="#d8d8d8"
+                app:low_value="34"
+                app:multiple="0.1"
+                app:right_btn_color="@color/white"
+                app:selected_line_color="@color/red_translucent"
+                app:text_color="@color/drop_color"
+                app:text_size="11dp" />
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="10px"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/bt_B1"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="144.9px"
+                    android:layout_height="56px"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="54px"
+                    android:layout_marginTop="2px"
+                    android:background="@drawable/btn_bottom_background_right_press"
+                    android:text="B1"
+                    android:textSize="28px" />
+
+                <Button
+                    android:id="@+id/bt_A"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="144.9px"
+                    android:layout_height="56px"
+                    android:layout_marginLeft="7.4px"
+                    android:layout_marginRight="24px"
+                    android:layout_marginTop="2px"
+                    android:layout_toRightOf="@+id/bt_B1"
+                    android:background="@drawable/btn_bottom_background_right_press"
+                    android:text="A"
+                    android:textSize="28px" />
+
+                <Button
+                    android:id="@+id/bt_B2"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="144.9px"
+                    android:layout_height="56px"
+                    android:layout_marginLeft="104px"
+                    android:layout_marginRight="24px"
+                    android:layout_marginTop="2px"
+                    android:layout_toRightOf="@+id/bt_A"
+                    android:background="@drawable/btn_bottom_background_right_press"
+                    android:text="B2"
+                    android:textSize="28px" />
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="26px"
+                    android:drawableLeft="@mipmap/ic_common_elasticity"
+                    android:drawablePadding="22px"
+                    android:text="强力"
+                    android:textColor="#333333"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="（"
+                    android:textColor="#333333"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/tv_elasticity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="24-31"
+                    android:textColor="#333333"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="）"
+                    android:textColor="#333333"
+                    android:textSize="28px" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.tianfu.cutton.widget.DoubleSeekBar
+                android:id="@+id/doubleseekbar_elasticity"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="5dp"
+                android:background="#fafafa"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                app:btn_radio="10dp"
+                app:cursor_color="#ededed"
+                app:cursor_height="19dp"
+                app:high_value="31"
+                app:left_btn_color="@color/white"
+                app:line_color="#d8d8d8"
+                app:low_value="24"
+                app:right_btn_color="@color/white"
+                app:selected_line_color="@color/red_translucent"
+                app:text_color="@color/drop_color"
+                app:text_size="11dp" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="26px"
+                    android:drawableLeft="@mipmap/ic_common_length"
+                    android:drawablePadding="22px"
+                    android:text="长度"
+                    android:textColor="#333333"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="（"
+                    android:textColor="#333333"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/tv_length"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="25-32"
+                    android:textColor="#333333"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="）"
+                    android:textColor="#333333"
+                    android:textSize="28px" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.tianfu.cutton.widget.DoubleSeekBar
+                android:id="@+id/doubleseekbar_length"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginBottom="30dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="5dp"
+                android:background="#fafafa"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                app:btn_radio="10dp"
+                app:cursor_color="#ededed"
+                app:cursor_height="19dp"
+                app:high_value="32"
+                app:left_btn_color="@color/white"
+                app:line_color="#d8d8d8"
+                app:low_value="25"
+                app:right_btn_color="@color/white"
+                app:selected_line_color="@color/red_translucent"
+                app:text_color="@color/drop_color"
+                app:text_size="11dp" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/bt_save_white"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:layout_alignParentBottom="true"
+        android:background="@mipmap/ic_mine_long"
+        android:text="下一步"
+        android:textColor="@color/white"
+        android:textSize="32px" />
+</com.zhy.autolayout.AutoRelativeLayout>

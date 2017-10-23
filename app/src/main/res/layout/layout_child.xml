@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back_no_top"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4px"
+        android:layout_marginTop="10px"
+        android:background="@color/red_translucent" />
+
+    <TextView
+        android:id="@+id/pager_textview"
+        android:layout_width="match_parent"
+        android:layout_height="58px"
+        android:background="@drawable/back_left_right"
+        android:gravity="center_vertical"
+        android:paddingLeft="22px"
+        android:text="用户活跃度"
+        android:textColor="@color/drop_color"
+        android:textSize="28px" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="28px"
+        android:layout_marginRight="28px"
+        android:background="#eeeeee" />
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="42px"
+        android:layout_marginTop="14px"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/textTop1"
+            android:layout_width="250px"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="28px"
+            android:drawableLeft="@mipmap/ic_home_sort1"
+            android:drawablePadding="10px"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text=""
+            android:textColor="@color/drop_color"
+            android:textSize="28px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="28px"
+            android:text="第1名"
+            android:textColor="@color/drop_color"
+            android:textSize="28px" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="42px"
+        android:layout_marginTop="14px"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/textTop2"
+            android:layout_width="250px"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="28px"
+            android:drawableLeft="@mipmap/ic_home_sort2"
+            android:drawablePadding="10px"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text=""
+            android:textColor="@color/drop_color"
+            android:textSize="28px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="28px"
+            android:text="第2名"
+            android:textColor="@color/drop_color"
+            android:textSize="28px" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="42px"
+        android:layout_marginTop="14px"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/textTop3"
+            android:layout_width="250px"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="28px"
+            android:drawableLeft="@mipmap/ic_home_sort3"
+            android:drawablePadding="14px"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text=""
+            android:textColor="@color/drop_color"
+            android:textSize="28px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="28px"
+            android:text="第3名"
+            android:textColor="@color/drop_color"
+            android:textSize="28px" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="42px"
+        android:layout_marginTop="14px"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/textTop4"
+            android:layout_width="250px"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="28px"
+            android:drawableLeft="@mipmap/ic_home_sort4"
+            android:drawablePadding="14px"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text=""
+            android:textColor="@color/drop_color"
+            android:textSize="28px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="28px"
+            android:text="第4名"
+            android:textColor="@color/drop_color"
+            android:textSize="28px" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="42px"
+        android:layout_marginBottom="24px"
+        android:layout_marginTop="14px"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/textTop5"
+            android:layout_width="250px"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="28px"
+            android:drawableLeft="@mipmap/ic_home_sort5"
+            android:drawablePadding="10px"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text=""
+            android:textColor="@color/drop_color"
+            android:textSize="28px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="28px"
+            android:text="第5名"
+            android:textColor="@color/drop_color"
+            android:textSize="28px" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>
+

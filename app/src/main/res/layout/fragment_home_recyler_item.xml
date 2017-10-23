@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4px"
+                android:background="@color/red_translucent" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="68.5px"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/bt1"
+                        android:layout_width="104px"
+                        android:layout_height="40px"
+                        android:layout_marginLeft="16px"
+                        android:background="@drawable/button_style"
+                        android:text="1329A"
+                        android:textColor="@color/red_translucent"
+                        android:textSize="24px" />
+
+                    <Button
+                        android:id="@+id/bt2"
+                        android:layout_width="104px"
+                        android:layout_height="40px"
+                        android:layout_marginLeft="16px"
+                        android:background="@drawable/button_style"
+                        android:text="1329A"
+                        android:textColor="@color/red_translucent"
+                        android:textSize="24px" />
+
+                    <Button
+                        android:id="@+id/bt3"
+                        android:layout_width="104px"
+                        android:layout_height="40px"
+                        android:layout_marginLeft="16px"
+                        android:background="@drawable/button_style"
+                        android:text="1329A"
+                        android:textColor="@color/red_translucent"
+                        android:textSize="24px" />
+                </com.zhy.autolayout.AutoLinearLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f2f2f2" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="240px"
+                    android:layout_height="100px"
+                    android:background="@drawable/ll_background_normal"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@mipmap/ic_common_length"
+                        android:drawablePadding="4px"
+                        android:text="长度"
+                        android:textColor="#333333"
+                        android:textSize="28px" />
+
+                    <TextView
+                        android:id="@+id/tv_purchase_length"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/iv_length"
+                        android:layout_marginTop="2px"
+                        android:text="29-31"
+                        android:textColor="@color/drop_color"
+                        android:textSize="30px" />
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="#eeeeee" />
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="240px"
+                    android:layout_height="100px"
+                    android:background="@drawable/ll_background_normal"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@mipmap/ic_common_elasticity"
+                        android:drawablePadding="4px"
+                        android:text="强力"
+                        android:textColor="#333333"
+                        android:textSize="28px" />
+
+                    <TextView
+                        android:id="@+id/tv_purchase_elasticity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2px"
+                        android:text="27.8"
+                        android:textColor="#333333"
+                        android:textSize="30px" />
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="#eeeeee" />
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="240px"
+                    android:layout_height="100px"
+                    android:background="@drawable/ll_background_normal"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@mipmap/ic_common_horse"
+                        android:drawablePadding="4px"
+                        android:text="马值"
+                        android:textColor="#333333"
+                        android:textSize="28px" />
+
+                    <TextView
+                        android:id="@+id/tv_purchase_horse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2px"
+                        android:text="5"
+                        android:textColor="#333333"
+                        android:textSize="30px" />
+                </com.zhy.autolayout.AutoLinearLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+        </com.zhy.autolayout.AutoLinearLayout>
+
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="82px"
+            android:layout_gravity="right"
+            android:background="@mipmap/ic_common_price"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_purchase_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5px"
+                android:layout_marginLeft="30px"
+                android:layout_marginRight="4px"
+                android:text="12345-45678"
+                android:textColor="@color/white"
+                android:textSize="36px" />
+
+            <TextView
+                android:id="@+id/tv_purchase_commany"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10px"
+                android:layout_marginRight="6px"
+                android:text="元/吨"
+                android:textColor="@color/white"
+                android:textSize="14px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoFrameLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ll_background_normal"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24px"
+            android:layout_marginTop="19.5px"
+            android:src="@mipmap/ic_common_factory" />
+
+        <TextView
+            android:id="@+id/tv_purchase_address"
+            android:layout_width="634px"
+            android:layout_height="34px"
+            android:layout_marginBottom="14.5px"
+            android:layout_marginLeft="8px"
+            android:layout_marginRight="16px"
+            android:layout_marginTop="14.5px"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="我的的的的的的的的的的的的的的d ddddddddddddddddddd"
+            android:textColor="#333333"
+            android:textSize="26px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55px"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:id="@+id/tv_supplyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:drawableLeft="@mipmap/ic_common_cuttonblack"
+            android:drawablePadding="8px"
+            android:paddingLeft="20px"
+            android:text="锯齿细绒棉"
+            android:textColor="#333333"
+            android:textSize="26px" />
+
+
+        <TextView
+            android:id="@+id/tv_supplyNum"
+            android:layout_width="240px"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:drawableLeft="@mipmap/ic_commom_date"
+            android:drawablePadding="8px"
+            android:paddingLeft="20px"
+            android:text="2017-5-26"
+            android:textColor="#333333"
+            android:textSize="26px" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20px"
+        android:background="#f4f4f4"></com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

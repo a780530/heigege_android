@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    //注意下面的代码顺序
+    //设置button点击状态的背景
+    //设置默认状态的背景，这里的背景可以使用drawable 也可以使用color，我这里使用drawable目的是要边框圆滑(自定义)
+    <item android:state_pressed="true" android:drawable="@drawable/btn_bottom_background_right_press"/>
+    <item android:drawable="@drawable/btn_bottom_background_right"/>
+
+</selector>

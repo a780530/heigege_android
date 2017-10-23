@@ -1,0 +1,2130 @@
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+<com.zhy.autolayout.AutoLinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentTop="true"
+    android:scrollbars="none">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:orientation="vertical"
+        android:id="@+id/ss_data"
+        android:layout_width="10000dp"
+        android:layout_height="10000dp"
+        android:layout_alignParentTop="true"
+        android:scrollbars="none">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/ll_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/back_all"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="40px">
+
+                <TextView
+                    android:id="@+id/mCompany"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80px"
+                    android:layout_marginRight="80px"
+                    android:gravity="center"
+                    android:lineSpacingExtra="4px"
+                    android:text="--"
+                    android:textColor="@color/drop_color"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20px"
+                    android:text="棉包组批汇总表"
+                    android:textColor="@color/drop_color"
+                    android:textSize="28px" />
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_marginRight="10px"
+                        android:layout_marginTop="10px"
+                        android:text="公检日期:"
+                        android:textColor="#999999"
+                        android:textSize="24px" />
+
+                    <TextView
+                        android:id="@+id/mCheckDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:layout_marginRight="10px"
+                        android:layout_marginTop="10px"
+                        android:text="--"
+                        android:textColor="@color/drop_color"
+                        android:textSize="24px" />
+                </com.zhy.autolayout.AutoLinearLayout>
+
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="86px"
+                android:background="@drawable/back_all"
+                android:orientation="horizontal">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="240px"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="加工批号："
+                        android:textColor="@color/drop_color"
+                        android:textSize="20px" />
+
+                    <TextView
+                        android:id="@+id/collectBatchCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textColor="@color/drop_color"
+                        android:textSize="20px" />
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="240px"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/back_all"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="包数："
+                        android:textColor="@color/drop_color"
+                        android:textSize="20px" />
+
+                    <TextView
+                        android:id="@+id/mTotalBag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textColor="@color/drop_color"
+                        android:textSize="20px" />
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="240px"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="加工单位代码："
+                        android:textColor="@color/drop_color"
+                        android:textSize="20px" />
+
+                    <TextView
+                        android:id="@+id/mFactoryCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textColor="@color/drop_color"
+                        android:textSize="20px" />
+                </com.zhy.autolayout.AutoLinearLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="86px"
+                android:background="@drawable/back_all"
+                android:orientation="horizontal">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="240px"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="产品名称："
+                        android:textColor="@color/drop_color"
+                        android:textSize="20px" />
+
+                    <TextView
+                        android:id="@+id/mType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textColor="@color/drop_color"
+                        android:textSize="20px" />
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="240px"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/back_all"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="执行标准:"
+                        android:textColor="@color/drop_color"
+                        android:textSize="20px" />
+
+                    <TextView
+                        android:id="@+id/mStandard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textColor="@color/drop_color"
+                        android:textSize="20px" />
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="240px"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="产地："
+                        android:textColor="@color/drop_color"
+                        android:textSize="20px" />
+
+                    <TextView
+                        android:id="@+id/mOrigin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textColor="@color/drop_color"
+                        android:textSize="20px" />
+                </com.zhy.autolayout.AutoLinearLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <TextView
+                android:id="@+id/mWeightCode"
+                style="@style/text_12"
+                android:layout_width="match_parent"
+                android:layout_height="86px"
+                android:background="@drawable/back_all"
+                android:gravity="center"
+                android:text="重量结果（证书编号：--）" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="86px"
+                android:background="@drawable/back_all"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/text_12"
+                    android:layout_width="180px"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="合计毛重（kg）" />
+
+                <TextView
+                    android:id="@+id/mGrossweight"
+                    style="@style/text_12"
+                    android:layout_width="180px"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/back_all"
+                    android:gravity="center"
+                    android:text="--" />
+
+                <TextView
+                    style="@style/text_12"
+                    android:layout_width="180px"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/back_all"
+                    android:gravity="center"
+                    android:text="平均回潮（%）" />
+
+                <TextView
+                    android:id="@+id/mMoisture"
+                    style="@style/text_12"
+                    android:layout_width="180px"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="--" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="86px"
+                android:background="@drawable/back_all"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/text_12"
+                    android:layout_width="180px"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="合计皮重（kg）" />
+
+                <TextView
+                    android:id="@+id/mTareweight"
+                    style="@style/text_12"
+                    android:layout_width="180px"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/back_all"
+                    android:gravity="center"
+                    android:text="--" />
+
+                <TextView
+                    style="@style/text_12"
+                    android:layout_width="180px"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/back_all"
+                    android:gravity="center"
+                    android:text="平均含杂（%）" />
+
+                <TextView
+                    android:id="@+id/mTrash"
+                    style="@style/text_12"
+                    android:layout_width="180px"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="--" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="86px"
+                android:background="@drawable/back_all"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/text_12"
+                    android:layout_width="180px"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="合计净重（t）   " />
+
+                <TextView
+                    android:id="@+id/mNetweight"
+                    style="@style/text_12"
+                    android:layout_width="180px"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/back_all"
+                    android:gravity="center"
+                    android:text="--" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    style="@style/text_12"
+                    android:layout_width="180px"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/back_all"
+                    android:gravity="center"
+                    android:text="合计公重（t） " />
+
+                <TextView
+                    android:id="@+id/mStdweight"
+                    style="@style/text_12"
+                    android:layout_width="180px"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="--" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <TextView
+                android:id="@+id/mQualityCode"
+                style="@style/text_12"
+                android:layout_width="match_parent"
+                android:layout_height="86px"
+                android:background="@drawable/back_all"
+                android:gravity="center"
+                android:text="质量结果（证书编号：--）" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="2666px"
+                android:background="@drawable/back_all"
+                android:orientation="horizontal">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="360px"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="86px"
+                        android:background="@drawable/back_all"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/text_12"
+                            android:layout_width="141px"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="质量标识" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/back_all"
+                            android:gravity="center" />
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="344px"
+                        android:background="@drawable/back_all"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/text_12"
+                            android:layout_width="141px"
+                            android:layout_height="match_parent"
+                            android:text="轧工质量" />
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/back_all"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/text_12"
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:text="各级比率（%）" />
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="101.5px"
+                                    android:layout_height="match_parent"
+                                    android:text="P1" />
+
+                                <TextView
+                                    android:id="@+id/mYgP1"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="101.5px"
+                                    android:layout_height="match_parent"
+                                    android:text="P2" />
+
+                                <TextView
+                                    android:id="@+id/mYgP2"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="101.5px"
+                                    android:layout_height="match_parent"
+                                    android:text="P3" />
+
+                                <View
+                                    android:layout_width="1px"
+                                    android:layout_height="match_parent"
+                                    android:background="#E1E1E1" />
+
+                                <TextView
+                                    android:id="@+id/mYgP3"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                android:background="#E1E1E1" />
+                        </com.zhy.autolayout.AutoLinearLayout>
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1204px"
+                        android:background="@drawable/back_all"
+                        android:orientation="horizontal">
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="141px"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/back_all"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/text_12"
+                                android:layout_width="match_parent"
+                                android:layout_height="516px"
+                                android:paddingTop="380px"
+                                android:text="颜色级" />
+
+                            <TextView
+                                android:id="@+id/mColorGrade"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_horizontal"
+                                android:lineSpacingExtra="50px"
+                                android:paddingTop="40px"
+                                android:text="主体颜色级\n--"
+                                android:textColor="@color/drop_color"
+                                android:textSize="24px" />
+                        </com.zhy.autolayout.AutoLinearLayout>
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/back_all"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/text_12"
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:text="各颜色比率（%）" />
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="白棉1级" />
+
+                                <TextView
+                                    android:id="@+id/mWhite1"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="白棉2级" />
+
+                                <TextView
+                                    android:id="@+id/mWhite2"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="白棉3级" />
+
+                                <TextView
+                                    android:id="@+id/mWhite3"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="白棉4级" />
+
+                                <TextView
+                                    android:id="@+id/mWhite4"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="白棉5级" />
+
+                                <TextView
+                                    android:id="@+id/mWhite5"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="淡点污棉1级" />
+
+                                <TextView
+                                    android:id="@+id/mLightSpotted1"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="淡点污棉2级" />
+
+                                <TextView
+                                    android:id="@+id/mLightSpotted2"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="淡点污棉3级" />
+
+                                <TextView
+                                    android:id="@+id/mLightSpotted3"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="淡黄染棉1级" />
+
+                                <TextView
+                                    android:id="@+id/mYellowish1"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="淡黄染棉2级" />
+
+                                <TextView
+                                    android:id="@+id/mYellowish2"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="淡黄染棉3级" />
+
+                                <TextView
+                                    android:id="@+id/mYellowish3"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="黄染棉1级" />
+
+                                <TextView
+                                    android:id="@+id/mYellow1"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="黄染棉2级" />
+
+                                <TextView
+                                    android:id="@+id/mYellow2"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                android:background="#E1E1E1" />
+                        </com.zhy.autolayout.AutoLinearLayout>
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="688px"
+                        android:background="@drawable/back_all"
+                        android:orientation="horizontal">
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="141px"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="344px"
+                                android:gravity="center_horizontal"
+                                android:paddingTop="256px"
+                                android:text="断裂比强度\n（cN/tex）"
+                                android:textColor="@color/drop_color"
+                                android:textSize="24px" />
+
+                            <TextView
+                                android:id="@+id/mBreakLoadAverage"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_horizontal"
+                                android:paddingTop="80px"
+                                android:text="平均值：--"
+                                android:textColor="@color/drop_color"
+                                android:textSize="24px" />
+                        </com.zhy.autolayout.AutoLinearLayout>
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="最大值" />
+
+                                <TextView
+                                    android:id="@+id/mBreakLoadMax"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="最小值" />
+
+                                <TextView
+                                    android:id="@+id/mBreakLoadMin"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <TextView
+                                style="@style/text_12"
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:text="各档平均值及比率（%）" />
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:text="很差" />
+
+                                <TextView
+                                    android:id="@+id/mBreakLoad1"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+
+                                <TextView
+                                    android:id="@+id/mBreakLoad1Rate"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:text="差 " />
+
+                                <TextView
+                                    android:id="@+id/mBreakLoad2"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+
+                                <TextView
+                                    android:id="@+id/mBreakLoad2Rate"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:text="中等" />
+
+                                <TextView
+                                    android:id="@+id/mBreakLoad3"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+
+                                <TextView
+                                    android:id="@+id/mBreakLoad3Rate"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:text="强 " />
+
+                                <TextView
+                                    android:id="@+id/mBreakLoad4"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+
+                                <TextView
+                                    android:id="@+id/mBreakLoad4Rate"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:text="很强" />
+
+                                <TextView
+                                    android:id="@+id/mBreakLoad5"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+
+                                <TextView
+                                    android:id="@+id/mBreakLoad5Rate"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+                        </com.zhy.autolayout.AutoLinearLayout>
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="172px"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/mRdAverage"
+                            style="@style/text_12"
+                            android:layout_width="141px"
+                            android:layout_height="match_parent"
+                            android:lineSpacingExtra="20px"
+                            android:text="Rd(%)\n平均值：--" />
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="最大值" />
+
+                                <TextView
+                                    android:id="@+id/mRdMax"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="最小值" />
+
+                                <TextView
+                                    android:id="@+id/mRdMin"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+                        </com.zhy.autolayout.AutoLinearLayout>
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="172px"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/mPlusBAverage"
+                            style="@style/text_12"
+                            android:layout_width="141px"
+                            android:layout_height="match_parent"
+                            android:lineSpacingExtra="20px"
+                            android:text="+b\n平均值：--" />
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="最大值" />
+
+                                <TextView
+                                    android:id="@+id/mPlusBMax"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="最小值" />
+
+                                <TextView
+                                    android:id="@+id/mPlusBMin"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+                        </com.zhy.autolayout.AutoLinearLayout>
+                    </com.zhy.autolayout.AutoLinearLayout>
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="360px"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="950px"
+                        android:background="@drawable/back_all"
+                        android:orientation="horizontal">
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="141px"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/back_all"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/text_12"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="258px"
+                                android:text="长度（mm）" />
+
+                            <TextView
+                                android:id="@+id/mLengthGrade"
+                                style="@style/text_12"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="40px"
+                                android:text="长度级：--毫米" />
+
+                            <TextView
+                                android:id="@+id/mLengthAverage"
+                                style="@style/text_12"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="40px"
+                                android:text="平均值：--" />
+                        </com.zhy.autolayout.AutoLinearLayout>
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="946px"
+                            android:orientation="vertical">
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="最大值" />
+
+                                <TextView
+                                    android:id="@+id/mLengthMax"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="最小值" />
+
+                                <TextView
+                                    android:id="@+id/mLengthMin"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <TextView
+                                style="@style/text_12"
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:text="各级比率（%）" />
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="25毫米" />
+
+                                <TextView
+                                    android:id="@+id/mLength25"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="26毫米" />
+
+                                <TextView
+                                    android:id="@+id/mLength26"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="27毫米" />
+
+                                <TextView
+                                    android:id="@+id/mLength27"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="28毫米" />
+
+                                <TextView
+                                    android:id="@+id/mLength28"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="29毫米" />
+
+                                <TextView
+                                    android:id="@+id/mLength29"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="30毫米" />
+
+                                <TextView
+                                    android:id="@+id/mLength30"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="31毫米" />
+
+                                <TextView
+                                    android:id="@+id/mLength31"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="32毫米" />
+
+                                <TextView
+                                    android:id="@+id/mLength32"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+                        </com.zhy.autolayout.AutoLinearLayout>
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1032px"
+                        android:orientation="horizontal">
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="141px"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/back_all"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/text_12"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="180px"
+                                android:text="马克隆值" />
+
+                            <TextView
+                                android:id="@+id/mMicronGrade"
+                                style="@style/text_12"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="80px"
+                                android:text="主体马克隆值级：--" />
+
+                            <TextView
+                                android:id="@+id/mMicronAverage"
+                                style="@style/text_12"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="40px"
+                                android:text="平均值：--" />
+                        </com.zhy.autolayout.AutoLinearLayout>
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="最大值" />
+
+                                <TextView
+                                    android:id="@+id/mMicronMax"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="最小值" />
+
+                                <TextView
+                                    android:id="@+id/mMicronMin"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <TextView
+                                style="@style/text_12"
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:text="各马克隆值级比率（%）" />
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="A级" />
+
+                                <TextView
+                                    android:id="@+id/mMicronA"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="B级" />
+
+                                <TextView
+                                    android:id="@+id/mMicronB"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="C级" />
+
+                                <TextView
+                                    android:id="@+id/mMicronC"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <TextView
+                                style="@style/text_12"
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:text="各档平均值及比率（%）" />
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:text="A档" />
+
+                                <TextView
+                                    android:id="@+id/mMicronGradeA1"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+
+                                <TextView
+                                    android:id="@+id/mMicronGradeA1Rate"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:text="B1档" />
+
+                                <TextView
+                                    android:id="@+id/mMicronGradeB1"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+
+                                <TextView
+                                    android:id="@+id/mMicronGradeB1Rate"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:text="B2档" />
+
+                                <TextView
+                                    android:id="@+id/mMicronGradeB2"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+
+                                <TextView
+                                    android:id="@+id/mMicronGradeB2Rate"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:text="C1档" />
+
+                                <TextView
+                                    android:id="@+id/mMicronGradeC1"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+
+                                <TextView
+                                    android:id="@+id/mMicronGradeC1Rate"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:text="C2档" />
+
+                                <TextView
+                                    android:id="@+id/mMicronGradeC2"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+
+                                <TextView
+                                    android:id="@+id/mMicronGradeC2Rate"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+                        </com.zhy.autolayout.AutoLinearLayout>
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="688px"
+                        android:background="@drawable/back_all"
+                        android:orientation="horizontal">
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="141px"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="344px"
+                                android:gravity="center_horizontal"
+                                android:paddingTop="256px"
+                                android:text="长度整齐度（%）"
+                                android:textColor="@color/drop_color"
+                                android:textSize="24px" />
+
+                            <TextView
+                                android:id="@+id/mUniformityIndexAverage"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_horizontal"
+                                android:paddingTop="80px"
+                                android:text="平均值：--"
+                                android:textColor="@color/drop_color"
+                                android:textSize="24px" />
+                        </com.zhy.autolayout.AutoLinearLayout>
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="最大值" />
+
+                                <TextView
+                                    android:id="@+id/mUniformityIndexMax"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="150px"
+                                    android:layout_height="match_parent"
+                                    android:text="最小值" />
+
+                                <TextView
+                                    android:id="@+id/mUniformityIndexMin"
+                                    style="@style/text_12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <TextView
+                                style="@style/text_12"
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:text="各档平均值及比率（%）" />
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:text="很低" />
+
+                                <TextView
+                                    android:id="@+id/uniformityIndex1"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+
+                                <TextView
+                                    android:id="@+id/mUniformityIndex1Rate"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:text="低 " />
+
+                                <TextView
+                                    android:id="@+id/uniformityIndex2"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+
+                                <TextView
+                                    android:id="@+id/mUniformityIndex2Rate"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:text="中等" />
+
+                                <TextView
+                                    android:id="@+id/uniformityIndex3"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+
+                                <TextView
+                                    android:id="@+id/mUniformityIndex3Rate"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:text="高 " />
+
+                                <TextView
+                                    android:id="@+id/uniformityIndex4"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+
+                                <TextView
+                                    android:id="@+id/mUniformityIndex4Rate"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+
+                            <com.zhy.autolayout.AutoLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="86px"
+                                android:background="@drawable/back_all"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:text="很高" />
+
+                                <TextView
+                                    android:id="@+id/uniformityIndex5"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+
+                                <TextView
+                                    android:id="@+id/mUniformityIndex5Rate"
+                                    style="@style/text_12"
+                                    android:layout_width="73px"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/back_all"
+                                    android:text="--" />
+                            </com.zhy.autolayout.AutoLinearLayout>
+                        </com.zhy.autolayout.AutoLinearLayout>
+                    </com.zhy.autolayout.AutoLinearLayout>
+                </com.zhy.autolayout.AutoLinearLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#E1E1E1" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="86px"
+                android:background="@drawable/back_all"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/text_12"
+                    android:layout_width="180px"
+                    android:layout_height="match_parent"
+                    android:text="备注" />
+
+                <TextView
+                    android:id="@+id/mRemark"
+                    style="@style/text_12"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/back_all"
+                    android:text="--" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="86px"
+                android:background="@drawable/back_all"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/text_12"
+                    android:layout_width="180px"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="检验单位" />
+
+                <TextView
+                    android:id="@+id/mLab"
+                    style="@style/text_12"
+                    android:layout_width="180px"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/back_all"
+                    android:gravity="center"
+                    android:text="--" />
+
+                <TextView
+                    style="@style/text_12"
+                    android:layout_width="180px"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/back_all"
+                    android:gravity="center"
+                    android:text="发布日期" />
+
+                <TextView
+                    android:id="@+id/mCreateTime"
+                    style="@style/text_12"
+                    android:layout_width="180px"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="--" />
+            </com.zhy.autolayout.AutoLinearLayout>
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>
+    <!--<com.tianfu.cutton.widget.MyScrollView-->
+    <!--android:id="@+id/myScroll"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content">-->
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20px"
+            android:background="#f4f4f4" />
+
+        <ImageView
+            android:id="@+id/imageCount"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20px"
+            android:background="#f4f4f4" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/ll_goCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/bt_count_bag"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="88px"
+                android:background="@color/white"
+                android:text="查看棉包详情"
+                android:textColor="#343434"
+                android:textSize="28px" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20px"
+                android:background="#f4f4f4" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <!--</com.tianfu.cutton.widget.MyScrollView>-->
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/nodata"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_nodata_commodity" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40px"
+            android:gravity="center"
+            android:text="此商品已下架"
+            android:textColor="#999999"
+            android:textSize="32px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoRelativeLayout>

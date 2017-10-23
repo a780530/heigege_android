@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#ffffff</color>
+    <color name="tabSetectColor">#EE3C36</color>
+    <color name="tabColor">#999999</color>
+    <color name="homeTextMoneyColor">#fcff68</color>
+    <color name="homeTextLongColor">#EE3C36</color>
+    <color name="puuchaseTitle">#fdff5b</color>
+    <color name="detailsColor">#999999</color>
+    <color name="grey_33">#333333</color><!--灰色-->
+    <color name="drop_color">#333333</color>
+    <color name="noselect">#f0f0f0</color>
+    <color name="home_new_price">#414143</color>
+    <color name="bt_bg">#f0f0f0</color>
+    <color name="tv_color">#565656</color>
+    <color name="black">#000000</color>
+    <color name="black_10">#10000000</color>
+    <color name="black_33">#33000000</color>
+    <color name="black_alp">#99000000</color>
+    <color name="transparent">@android:color/transparent</color>
+    <color name="text_commodity">#414141</color>
+    <color name="collection_background">#b8b8b8</color>
+    <!-- TabLayout -->
+    <color name="bt_back">#d8d8d8</color>
+    <color name="white">#FFFFFF</color>
+    <color name="tab_indicator">#fafafa</color>
+    <color name="tab_tv_normal">#323232</color>
+    <color name="tab_tv_selected">#EE3C36</color>
+    <color name="red_translucent">#ED7D77</color>
+    <color name="sts_text_color_green">#61B17E</color>
+    <color name="red_000">#F1D8D5</color>
+    <color name="tab_bg">#fcfcfc</color>
+    <color name="tab_div">#d6d6d6</color>
+    <color name="TM">#00000000</color>
+    <color name="contents_text">#ff000000</color>
+    <color name="encode_view">#ffffffff</color>
+    <color name="possible_result_points">#c0ffbd21</color> <!-- Android standard ICS color -->
+    <color name="result_minor_text">#ffc0c0c0</color>
+    <color name="result_points">#c099cc00</color> <!-- Android standard ICS color -->
+    <color name="result_text">#ffffffff</color>
+    <color name="result_view">#b0000000</color>
+    <color name="status_text">#ffffffff</color>
+    <color name="viewfinder_laser">#EE3C36</color> <!-- Android standard ICS color -->
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="common_botton_bar_blue">#2ea7e0</color>
+    <color name="top_bar_normal_bg">#EE3C36</color>
+    <color name="btn_gray_normal">#c0c0c0</color>
+    <color name="orange">#FFA500</color>
+    <color name="gray_pressed">#b5b5b6</color>
+    <color name="sts_text_color">#d0021b</color>
+</resources>

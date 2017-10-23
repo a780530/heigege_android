@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_item"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_marginTop="20px"
+        android:gravity="center"
+        android:id="@+id/bt_hot"
+        android:layout_width="200px"
+        android:layout_height="72px"
+        android:layout_marginLeft="16px"
+        android:background="@drawable/btn_bottom_background_right_press"
+        android:textColor="#565656"
+        android:textSize="28px" />
+</com.zhy.autolayout.AutoLinearLayout>

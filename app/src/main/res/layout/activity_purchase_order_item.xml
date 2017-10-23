@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:background="@drawable/ll_background_normal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="120px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24px"
+            android:text="供货人"
+            android:textColor="#999999"
+            android:textSize="28px" />
+
+        <TextView
+            android:id="@+id/tv_contacts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:text="妓院"
+            android:textSize="28px" />
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:background="@drawable/ll_background_normal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="120px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24px"
+            android:text="联系电话"
+            android:textColor="#999999"
+            android:textSize="28px" />
+
+        <TextView
+            android:id="@+id/tv_mobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:text="18268931633"
+            android:textSize="28px" />
+
+        <TextView
+            android:id="@+id/tv_callMobile"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50px"
+            android:drawableLeft="@mipmap/ic_common_phone"
+            android:drawablePadding="8px"
+            android:text="点击拨打"
+            android:textSize="28px" />
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:paddingTop="24px"
+        android:paddingBottom="24px"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ll_background_normal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="120px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24px"
+            android:text="留言"
+            android:textColor="#999999"
+            android:textSize="28px" />
+
+        <TextView
+            android:id="@+id/tv_remark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:text="新疆棉新疆新疆棉新疆新疆棉新疆新疆棉新疆新疆棉新疆新疆棉新疆新疆棉新疆新疆棉新疆新疆棉新疆"
+            android:textSize="28px" />
+
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="wrap_content"
+    android:paddingTop="78px"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="#333333"
+            android:textSize="28px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40px"
+            android:text="联系人" />
+
+        <EditText
+            android:id="@+id/et_contacts"
+            android:layout_marginRight="22dp"
+            android:gravity="right"
+            android:textColor="@color/drop_color"
+            android:textSize="26px"
+            android:background="@null"
+            android:layout_width="490px"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:hint="请输入公司名称"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="22dp" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <View
+        android:layout_width="640px"
+        android:layout_height="2px"
+        android:layout_gravity="center"
+        android:layout_marginTop="26px"
+        android:background="#f4f4f4" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25px">
+
+        <TextView
+            android:textColor="#333333"
+            android:textSize="28px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40px"
+            android:layout_weight="1"
+            android:text="手机号码" />
+
+        <EditText
+            android:id="@+id/et_mobile"
+            android:gravity="right"
+            android:inputType="number"
+            android:maxLength="11"
+            android:textColor="@color/drop_color"
+            android:background="@null"
+            android:textSize="26px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="42px"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:hint="请输入手机号码" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <View
+        android:layout_width="640px"
+        android:layout_height="2px"
+        android:layout_gravity="center"
+        android:layout_marginTop="26px"
+        android:background="#f4f4f4" />
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_gravity="center_vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25px">
+
+        <TextView
+            android:id="@+id/asdasdasd"
+            android:textColor="#333333"
+            android:textSize="28px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40px"
+            android:text="备注" />
+
+        <EditText
+            android:id="@+id/et_remark"
+            android:layout_toRightOf="@+id/asdasdasd"
+            android:layout_marginLeft="64px"
+            android:layout_marginTop="4px"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/drop_color"
+            android:textSize="26px"
+            android:background="@null"
+            android:layout_width="wrap_content"
+            android:gravity="right"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="42px"
+            android:hint="选填" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <View
+        android:layout_width="640px"
+        android:layout_height="2px"
+        android:layout_gravity="center"
+        android:layout_marginTop="26px"
+        android:background="#f4f4f4" />
+
+    <Button
+        android:id="@+id/sure_supply"
+        android:textSize="28px"
+        android:layout_width="match_parent"
+        android:text="确认供货"
+        android:textColor="@color/white"
+        android:layout_marginTop="77px"
+        android:background="@mipmap/ic_back_long"
+        android:layout_height="100px" />
+</com.zhy.autolayout.AutoLinearLayout>

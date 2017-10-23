@@ -1,0 +1,668 @@
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="50px"
+    android:background="#f4f4f4"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/sl_haveData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <com.zhy.autolayout.AutoFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="horizontal">
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="94px"
+                            android:layout_weight="1"
+                            android:background="@color/white"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_kun_batch"
+                                android:layout_width="wrap_content"
+                                android:layout_height="44px"
+                                android:layout_marginLeft="18px"
+                                android:text="65092161019(180/1)"
+                                android:textColor="#000"
+                                android:textSize="32px" />
+
+                            <Button
+                                android:id="@+id/bt_kun_key"
+                                android:layout_width="104px"
+                                android:layout_height="40px"
+                                android:layout_marginLeft="16px"
+                                android:background="@drawable/button_style"
+                                android:text="1329A"
+                                android:textColor="@color/red_translucent"
+                                android:textSize="24px" />
+
+                        </com.zhy.autolayout.AutoLinearLayout>
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="#f2f2f2" />
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ll_background_normal"
+                        android:orientation="horizontal">
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="360px"
+                            android:layout_height="80px"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="142px"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="24px"
+                                android:text="产地"
+                                android:textColor="@color/detailsColor"
+                                android:textSize="28px" />
+
+                            <TextView
+                                android:id="@+id/tv_kun_origin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="24px"
+                                android:text="--"
+                                android:textColor="#333333"
+                                android:textSize="28px" />
+                        </com.zhy.autolayout.AutoLinearLayout>
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="360px"
+                            android:layout_height="80px"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="142px"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="主体颜色级"
+                                android:textColor="@color/detailsColor"
+                                android:textSize="28px" />
+
+                            <TextView
+                                android:id="@+id/tv_kun_color"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="24px"
+                                android:text="--"
+                                android:textColor="#333333"
+                                android:textSize="28px" />
+                        </com.zhy.autolayout.AutoLinearLayout>
+                    </com.zhy.autolayout.AutoLinearLayout>
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:layout_gravity="right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="84px"
+                    android:gravity="center"
+                    android:layout_marginTop="20px"
+                    android:background="@mipmap/ic_common_price">
+
+                    <TextView
+                        android:layout_marginBottom="5px"
+                        android:id="@+id/tv_store_kun_money"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="38px"
+                        android:text="19452"
+                        android:textColor="@color/white"
+                        android:textSize="36px" />
+
+                    <TextView
+                        android:id="@+id/tv_kun_commany"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/tv_store_kun_money"
+                        android:layout_marginLeft="4px"
+                        android:layout_marginRight="10px"
+                        android:layout_marginTop="6px"
+                        android:layout_toRightOf="@+id/tv_store_kun_money"
+                        android:text="元/吨"
+                        android:textColor="@color/white"
+                        android:textSize="14px" />
+                </com.zhy.autolayout.AutoRelativeLayout>
+            </com.zhy.autolayout.AutoFrameLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ll_background_normal"
+                android:orientation="horizontal">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="360px"
+                    android:layout_height="80px"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="142px"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="24px"
+                        android:text="总公重"
+                        android:textColor="@color/detailsColor"
+                        android:textSize="28px" />
+
+                    <TextView
+                        android:id="@+id/tv_kun_stdweight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="24px"
+                        android:text="--"
+                        android:textColor="#333333"
+                        android:textSize="28px" />
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="360px"
+                    android:layout_height="80px"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="142px"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="马克隆档次"
+                        android:textColor="@color/detailsColor"
+                        android:textSize="28px" />
+
+                    <TextView
+                        android:id="@+id/tv_kun_horse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="24px"
+                        android:text="--"
+                        android:textColor="#333333"
+                        android:textSize="28px" />
+                </com.zhy.autolayout.AutoLinearLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ll_background_normal"
+                android:orientation="horizontal">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="360px"
+                    android:layout_height="80px"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="142px"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="24px"
+                        android:text="长度"
+                        android:textColor="@color/detailsColor"
+                        android:textSize="28px" />
+
+                    <TextView
+                        android:id="@+id/tv_kun_length"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="24px"
+                        android:text="--"
+                        android:textColor="#333333"
+                        android:textSize="28px" />
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="360px"
+                    android:layout_height="80px"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="142px"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="长度整齐率"
+                        android:textColor="@color/detailsColor"
+                        android:textSize="28px" />
+
+                    <TextView
+                        android:id="@+id/tv_kun_uniformityIndexAverage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="24px"
+                        android:text="--"
+                        android:textColor="#333333"
+                        android:textSize="28px" />
+                </com.zhy.autolayout.AutoLinearLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ll_background_normal"
+                android:orientation="horizontal">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="360px"
+                    android:layout_height="80px"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="142px"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="24px"
+                        android:text="回潮率"
+                        android:textColor="@color/detailsColor"
+                        android:textSize="28px" />
+
+                    <TextView
+                        android:id="@+id/tv_kun_moisture"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="24px"
+                        android:text="--"
+                        android:textColor="#333333"
+                        android:textSize="28px" />
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="360px"
+                    android:layout_height="80px"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="142px"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="含杂率"
+                        android:textColor="@color/detailsColor"
+                        android:textSize="28px" />
+
+                    <TextView
+                        android:id="@+id/tv_kun_trash"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="24px"
+                        android:text="--"
+                        android:textColor="#333333"
+                        android:textSize="28px" />
+                </com.zhy.autolayout.AutoLinearLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ll_background_normal"
+                android:orientation="horizontal">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="360px"
+                    android:layout_height="80px"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="142px"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="24px"
+                        android:text="强力"
+                        android:textColor="@color/detailsColor"
+                        android:textSize="28px" />
+
+                    <TextView
+                        android:id="@+id/tv_kun_breakLoadAverage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="24px"
+                        android:text="--"
+                        android:textColor="#333333"
+                        android:textSize="28px" />
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="360px"
+                    android:layout_height="80px"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="142px"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Rd"
+                        android:textColor="@color/detailsColor"
+                        android:textSize="28px" />
+
+                    <TextView
+                        android:id="@+id/tv_kun_rdAverage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="24px"
+                        android:text="--"
+                        android:textColor="#333333"
+                        android:textSize="28px" />
+                </com.zhy.autolayout.AutoLinearLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="360px"
+                    android:layout_height="80px"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="142px"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="24px"
+                        android:text="+b"
+                        android:textColor="@color/detailsColor"
+                        android:textSize="28px" />
+
+                    <TextView
+                        android:id="@+id/tv_kun_plusBAverage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="24px"
+                        android:text="--"
+                        android:textColor="#333333"
+                        android:textSize="28px" />
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="360px"
+                    android:layout_height="80px"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="142px"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="棉花年度"
+                        android:textColor="@color/detailsColor"
+                        android:textSize="28px" />
+
+                    <TextView
+                        android:id="@+id/tv_kun_createYear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="24px"
+                        android:text="--"
+                        android:textColor="#333333"
+                        android:textSize="28px" />
+                </com.zhy.autolayout.AutoLinearLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#d1d1d1" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="24px"
+                android:paddingTop="24px">
+
+                <TextView
+                    android:layout_width="142px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="公检仓库"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/tv_kun_checkStorage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="--"
+                    android:textColor="#333333"
+                    android:textSize="28px" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="24px"
+                android:paddingTop="24px">
+
+                <TextView
+                    android:layout_width="142px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="所在仓库"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/tv_kun_storage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="--"
+                    android:textColor="#333333"
+                    android:textSize="28px" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="24px"
+                android:paddingTop="24px">
+
+                <TextView
+                    android:layout_width="142px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="距离"
+                    android:textColor="@color/red_translucent"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/tv_kun_distance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="--"
+                    android:textColor="@color/red_translucent"
+                    android:textSize="28px" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="24px"
+                android:paddingTop="24px">
+
+                <TextView
+                    android:layout_width="142px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="联系人"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/tv_kun_contact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="--"
+                    android:textColor="#333333"
+                    android:textSize="28px" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="24px"
+                android:paddingTop="24px">
+
+                <TextView
+                    android:layout_width="142px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="联系电话"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/tv_kun_mobile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="--"
+                    android:textColor="#333333"
+                    android:textSize="28px" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#d1d1d1" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="24px"
+                android:paddingTop="24px">
+
+                <TextView
+                    android:layout_width="142px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="公检日期"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/tv_gongjian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="--"
+                    android:textColor="#333333"
+                    android:textSize="28px" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="24px"
+                android:paddingTop="24px">
+
+                <TextView
+                    android:layout_width="142px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="发布日期"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/tv_kun_releaseDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="--"
+                    android:textColor="#333333"
+                    android:textSize="28px" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20px"
+                android:background="#f4f4f4"></View>
+        </com.zhy.autolayout.AutoLinearLayout>
+    </ScrollView>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/nodata"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_nodata_commodity" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40px"
+            android:gravity="center"
+            android:text="这个商品已下架"
+            android:textColor="#999999"
+            android:textSize="32px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

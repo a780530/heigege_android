@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/ll_sort"
+        android:layout_width="match_parent"
+        android:layout_height="94.5px"
+        android:background="@drawable/ll_background_normal"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_zonghe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="38px"
+            android:layout_weight="1"
+            android:text="综合排序"
+            android:textColor="#333333"
+            android:textSize="26px" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/iv_zonghe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40px"
+            android:src="@mipmap/ic_common_true" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+
+    <com.zhy.autolayout.AutoFrameLayout
+        android:id="@+id/fl_dismiss"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="#e0000000">
+
+    </com.zhy.autolayout.AutoFrameLayout>
+
+    <com.zhy.autolayout.AutoFrameLayout
+        android:id="@+id/afl_dismiss"
+        android:layout_width="match_parent"
+        android:layout_height="96px">
+
+    </com.zhy.autolayout.AutoFrameLayout>
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f4f4"
+    tools:context="com.tianfu.cutton.activity.mine.PurchaseOrderDetailsActivity">
+
+    <include layout="@layout/common_head_back"/>
+ <!--   <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/ll_title"
+        android:layout_width="match_parent"
+        android:layout_height="92px"
+        android:background="@drawable/ll_background_normal">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:padding="24px"
+            android:src="@mipmap/ic_mine_backgreen" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="供货单详情"
+            android:textColor="@color/tab_tv_selected"
+            android:textSize="34px" />
+    </com.zhy.autolayout.AutoRelativeLayout>-->
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/ss"
+        android:layout_marginBottom="20px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_button_supply"
+        android:layout_below="@+id/ll_title">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.zhy.autolayout.AutoFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="160px"
+                    android:background="@color/tab_tv_selected"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/supplyDetails_staus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50px"
+                        android:layout_weight="1"
+                        android:text="已供货"
+                        android:textColor="@color/white"
+                        android:textSize="40px" />
+
+                    <ImageView
+                        android:id="@+id/iv_supplyDetails_staus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="58px"
+                        android:src="@mipmap/ic_mine_over" />
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/iv_outTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:src="@mipmap/ic_mine_overdue" />
+                </com.zhy.autolayout.AutoRelativeLayout>
+            </com.zhy.autolayout.AutoFrameLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ll_background_normal"
+                android:orientation="horizontal"
+                android:paddingTop="20px">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/supplyOrder_recycler"
+                    android:layout_width="445px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="26px"
+                    android:layout_marginLeft="26px"
+                    android:layout_marginTop="5px"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                </android.support.v7.widget.RecyclerView>
+
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:id="@+id/rl_money_supply"
+                    android:layout_width="wrap_content"
+                    android:layout_height="88px"
+                    android:layout_marginBottom="-8px"
+                    android:layout_gravity="bottom"
+                    android:background="@mipmap/ic_common_price"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:id="@+id/moneySupplyDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15px"
+                        android:layout_marginRight="4px"
+                        android:layout_marginTop="15px"
+                        android:text="1-2"
+                        android:textColor="@color/white"
+                        android:textSize="36px" />
+
+                    <TextView
+                        android:id="@+id/companySupplyDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="6px"
+                        android:layout_marginTop="20px"
+                        android:layout_toRightOf="@+id/moneySupplyDetails"
+                        android:text="元/吨"
+                        android:textColor="@color/white"
+                        android:textSize="14px" />
+                </com.zhy.autolayout.AutoRelativeLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="120px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="产地"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/supply_Details_origin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:text="新疆棉"
+                    android:textColor="@color/drop_color"
+                    android:textSize="28px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="120px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="加工"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/supply_Details_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:text="锯齿细绒棉  长绒棉"
+                    android:textColor="@color/drop_color"
+                    android:textSize="28px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical"
+                android:paddingBottom="20px"
+                android:paddingTop="20px">
+
+                <TextView
+                    android:layout_width="120px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="颜色级"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/supply_details_colorGrade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:lineSpacingExtra="4px"
+                    android:text="淡点污棉1级  白棉1级  白棉2级\n白棉3级  白棉4级"
+                    android:textColor="@color/drop_color"
+                    android:textSize="28px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="120px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="马值"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/supply_Details_micron"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:text="4.3-5.0"
+                    android:textColor="@color/drop_color"
+                    android:textSize="28px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="120px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="强力"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/supply_details_breakLoad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:text="25.6-27.8"
+                    android:textColor="@color/drop_color"
+                    android:textSize="28px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="120px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="长度"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/supply_Details_length"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:text="27-29"
+                    android:textColor="@color/drop_color"
+                    android:textSize="28px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="120px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="联系人"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/supply_Details_contacts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:text="李峰"
+                    android:textColor="@color/drop_color"
+                    android:textSize="28px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="120px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="联系电话"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/supply_Details_mobile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:text="18268931633"
+                    android:textColor="@color/drop_color"
+                    android:textSize="28px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="120px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="交易地址"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/supply_Details_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:text="新疆棉新疆棉新疆"
+                    android:textColor="@color/drop_color"
+                    android:textSize="28px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="120px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="截止日期"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/supply_Details_deadtime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:text="2017-6-30"
+                    android:textColor="@color/drop_color"
+                    android:textSize="28px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="120px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="送达日期"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/supply_Details_recevitime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:text="2017-6-30"
+                    android:textColor="@color/drop_color"
+                    android:textSize="28px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ll_background_normal">
+
+                <TextView
+                    android:layout_width="120px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:layout_marginTop="17px"
+                    android:text="需求备注"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/supply_Details_remark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20px"
+                    android:layout_marginLeft="30px"
+                    android:layout_marginTop="20px"
+                    android:lineSpacingExtra="4px"
+                    android:text="本信息息文本信息"
+                    android:textColor="@color/drop_color"
+                    android:textSize="28px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="120px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="创建时间"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/supply_Details_createTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:text="2017-6-30 19：00：00"
+                    android:textColor="@color/drop_color"
+                    android:textSize="28px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/ll_supply_Details_supplyTime"
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="120px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="供货时间"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/supply_Details_supplyTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:text="2017-6-30 19：00：00"
+                    android:textColor="@color/drop_color"
+                    android:textSize="28px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/ll_supply_Details_outTime"
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:background="@color/white"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="120px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="过期时间"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/supply_Details_outTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:text="2017-6-30 19：00：00"
+                    android:textColor="@color/drop_color"
+                    android:textSize="28px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/ll_button_supply"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/call_purchase"
+            android:layout_width="360px"
+            android:layout_height="wrap_content"
+            android:background="#fafafa"
+            android:drawableLeft="@mipmap/ic_common_phone"
+            android:drawablePadding="8px"
+            android:paddingBottom="30px"
+            android:paddingLeft="90px"
+            android:paddingTop="30px"
+            android:text="联系采购人"
+            android:textColor="#333333"
+            android:textSize="32px" />
+
+        <TextView
+            android:id="@+id/call_kefu"
+            android:layout_width="360px"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/ic_back_supply"
+            android:drawableLeft="@mipmap/ic_common_kefu"
+            android:drawablePadding="8px"
+            android:paddingBottom="30px"
+            android:paddingLeft="90px"
+            android:paddingTop="30px"
+            android:text="联系客服"
+            android:textColor="@color/white"
+            android:textSize="32px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/no_supply"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:background="@color/white"
+            android:layout_width="200px"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:paddingTop="16px"
+                android:id="@+id/call_kefu_noSupply"
+                android:layout_width="match_parent"
+                android:layout_height="102px"
+                android:background="@color/white"
+                android:drawablePadding="8px"
+                android:drawableTop="@mipmap/ic_common_kefuback"
+                android:gravity="center_horizontal"
+                android:text="联系客服"
+                android:textColor="#999999"
+                android:textSize="20px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="200px"
+        android:layout_height="match_parent">
+        <TextView
+            android:paddingTop="16px"
+            android:id="@+id/call_purchaseNosupply"
+            android:layout_width="match_parent"
+            android:layout_height="102px"
+            android:background="@color/white"
+            android:drawablePadding="4px"
+            android:drawableTop="@mipmap/ic_common_phone"
+            android:gravity="center_horizontal"
+            android:text="联系采购人"
+            android:textColor="#999999"
+            android:textSize="20px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+        <TextView
+            android:id="@+id/supply_sure"
+            android:layout_width="200px"
+            android:layout_height="102px"
+            android:layout_weight="1"
+            android:background="@mipmap/ic_back_supply"
+            android:drawableLeft="@mipmap/ic_supply_white"
+            android:drawablePadding="8px"
+            android:gravity="center_vertical"
+            android:paddingLeft="80px"
+            android:text="确认供货"
+            android:textColor="@color/white"
+            android:textSize="32px" />
+
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoRelativeLayout>

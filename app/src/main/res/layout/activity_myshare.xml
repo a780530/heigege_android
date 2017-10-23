@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <include layout="@layout/common_head_back_myhistory" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20px"
+        android:layout_above="@+id/recycler_Mycollection"
+        android:layout_below="@+id/ll_title"
+        android:background="#f4f4f4" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/ll_selectAll"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/ll_background_normal"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <CheckBox
+            android:id="@+id/cb_checked"
+            style="@style/CustomCheckBoxTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20px" />
+
+        <TextView
+            android:id="@+id/tv_select_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18px"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="全选"
+            android:textColor="#333333"
+            android:textSize="30px" />
+
+        <Button
+            android:id="@+id/bt_delete"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="274px"
+            android:layout_height="match_parent"
+            android:background="@color/bt_back"
+            android:text="删除分享"
+            android:textColor="@color/white"
+            android:textSize="32px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <in.srain.cube.views.ptr.PtrClassicFrameLayout
+        android:id="@+id/ptr_purchase_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/ll_selectAll"
+        android:layout_below="@id/ll_title">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_shareRecord"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+
+        </android.support.v7.widget.RecyclerView>
+    </in.srain.cube.views.ptr.PtrClassicFrameLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/ll_nodata"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll_title"
+        android:background="#f4f4f4"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200px"
+            android:src="@mipmap/ic_nodata_collection" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32px"
+            android:text="老板，我觉得这里好空哟"
+            android:textColor="#999999"
+            android:textSize="26px" />
+
+        <Button
+            android:id="@+id/go_store"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="320px"
+            android:layout_height="90px"
+            android:layout_marginTop="70px"
+            android:background="@drawable/edittext_collection_background"
+            android:text="再去逛逛"
+            android:textColor="@color/drop_color" />
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoRelativeLayout>

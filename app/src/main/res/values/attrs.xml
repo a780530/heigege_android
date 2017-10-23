@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="UnderlineTextView">
+        <attr name="underline_color" format="color"/>
+        <attr name="underline_height" format="dimension"/>
+    </declare-styleable>
+    <declare-styleable name="DoubleSeekBar">
+        <attr name="cursor_height" format="dimension"/>
+        <attr name="line_width" format="dimension"/>
+        <attr name="btn_radio" format="dimension"/>
+        <attr name="text_size" format="dimension"/>
+
+        <attr name="cursor_color" format="color" />
+        <attr name="line_color" format="color" />
+        <attr name="selected_line_color" format="color" />
+        <attr name="text_color" format="color"/>
+        <attr name="left_btn_color" format="color" />
+        <attr name="right_btn_color" format="color" />
+
+        <attr name="low_value" format="integer"/>
+        <attr name="high_value" format="integer"/>
+        <attr name="default_low" format="integer" />
+        <attr name="default_high" format="integer" />
+
+        <attr name="multiple" format="float"/>
+    </declare-styleable>
+</resources>

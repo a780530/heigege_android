@@ -1,0 +1,124 @@
+<com.zhy.autolayout.AutoFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.tianfu.cutton.fragment.quality.QualityBatchMapFragment">
+
+    <ScrollView
+        android:id="@+id/ss_map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:background="#f4f4f4"
+                android:layout_width="match_parent"
+                android:layout_height="20px" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40px"
+                android:gravity="center"
+                android:text="长度"
+                android:textColor="#333333" />
+            <!--饼状图-->
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/mPieChart"
+                android:layout_width="match_parent"
+                android:layout_height="400px" />
+            <!-- 散点图-->
+            <View
+                android:background="#f4f4f4"
+                android:layout_width="match_parent"
+                android:layout_height="20px" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40px"
+                android:gravity="center"
+                android:text="马值"
+                android:textColor="#333333" />
+
+            <com.github.mikephil.charting.charts.ScatterChart
+                android:id="@+id/mScatterChart"
+                android:layout_width="700px"
+                android:layout_height="300px"
+                android:layout_gravity="center" />
+
+            <!--轧工饼状图-->
+            <View
+                android:background="#f4f4f4"
+                android:layout_width="match_parent"
+                android:layout_height="20px" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40px"
+                android:gravity="center"
+                android:text="轧工质量"
+                android:textColor="#333333" />
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/mYgPieChart1"
+                android:layout_width="match_parent"
+                android:layout_height="400px" />
+
+            <!-- 强力散点图-->
+            <View
+                android:background="#f4f4f4"
+                android:layout_width="match_parent"
+                android:layout_height="20px" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40px"
+                android:gravity="center"
+                android:text="强力"
+                android:textColor="#333333" />
+
+            <com.github.mikephil.charting.charts.ScatterChart
+                android:id="@+id/mBlScatterChart"
+                android:layout_width="700px"
+                android:layout_height="300px"
+                android:layout_gravity="center" />
+            <View
+                android:layout_width="match_parent"
+                android:background="#f4f4f4"
+                android:layout_height="20px"/>
+        </com.zhy.autolayout.AutoLinearLayout>
+    </ScrollView>
+    <ImageView
+        android:id="@+id/imageView"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/nodata"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_nodata_commodity" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40px"
+            android:gravity="center"
+            android:text="此商品已下架"
+            android:textColor="#999999"
+            android:textSize="32px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoFrameLayout>

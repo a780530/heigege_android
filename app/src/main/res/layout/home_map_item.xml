@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/back_all"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:background="@drawable/back_all"
+        android:id="@+id/lineChat"
+        android:layout_width="match_parent"
+        android:layout_height="500px" />
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="330dp"
+    android:layout_height="113dp"
+    android:layout_marginRight="10dp"
+    android:background="@drawable/editbox_background_normal_sort"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/red_translucent" />
+
+    <TextView
+        android:id="@+id/companyNameHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        android:text="新疆阗丰农贸实业有限责任公司新疆阗丰农贸实业有限责任公司"
+        android:textColor="@color/drop_color"
+        android:textSize="14dp" />
+
+    <LinearLayout
+        android:layout_marginBottom="13dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="12.5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="可交易量"
+            android:textColor="@color/drop_color"
+            android:textSize="14dp" />
+        <TextView
+            android:id="@+id/resourceNumHome"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_height="wrap_content"
+            android:text="29批"
+            android:textColor="@color/tab_tv_selected"
+            android:textSize="24dp" />
+    </LinearLayout>
+</LinearLayout>

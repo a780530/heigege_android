@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_collection_item2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20px"
+        android:layout_below="@+id/ll_checkbox"
+        android:background="#f4f4f4"></com.zhy.autolayout.AutoLinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4px"
+        android:background="@color/red_translucent" />
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/ll_checkbox"
+            android:layout_width="74px"
+            android:layout_height="297px"
+            android:background="@drawable/back_left_right"
+            android:gravity="center"
+            >
+
+            <CheckBox
+                android:id="@+id/cb_check"
+                style="@style/CustomCheckBoxTheme"
+                android:layout_width="60px"
+                android:layout_height="60px"
+                android:layout_marginLeft="14px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <View
+            android:layout_width="1px"
+            android:background="#f4f4f4"
+            android:layout_height="match_parent" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/ll_checkbox"
+            android:orientation="vertical">
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="70px"
+                android:background="@color/white"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tv_bitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18px"
+                    android:text="65092161019(180/1)"
+                    android:textColor="@color/drop_color"
+                    android:textSize="32px" />
+
+                <Button
+                    android:id="@+id/bt_key"
+                    android:layout_width="104px"
+                    android:layout_height="40px"
+                    android:layout_marginLeft="16px"
+                    android:layout_toRightOf="@+id/tv_bitch"
+                    android:background="@drawable/button_style"
+                    android:text="1329A"
+                    android:textColor="@color/red_translucent"
+                    android:textSize="24px" />
+
+                <TextView
+                    android:id="@+id/tv_quality_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="16px"
+                    android:layout_marginTop="8px"
+                    android:drawableLeft="@mipmap/ic_common_cutton"
+                    android:drawablePadding="7.24px"
+                    android:text="锯齿细绒棉"
+                    android:textColor="@color/drop_color"
+                    android:textSize="24px" />
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f2f2f2" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="101px"
+                android:orientation="horizontal">
+
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:layout_width="240px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/ll_background_normal"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tvtvtv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@mipmap/ic_common_length"
+                        android:drawablePadding="5px"
+                        android:text="长度"
+                        android:textColor="@color/drop_color"
+                        android:textSize="28px" />
+
+                    <TextView
+                        android:id="@+id/tv_quality_length"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvtvtv"
+                        android:layout_marginLeft="20px"
+                        android:text="29"
+                        android:textColor="@color/drop_color"
+                        android:textSize="30px" />
+                </com.zhy.autolayout.AutoRelativeLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="#f4f4f4" />
+
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:layout_width="240px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/ll_background_normal"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@mipmap/ic_common_elasticity"
+                        android:drawablePadding="5px"
+                        android:text="强力"
+                        android:textColor="@color/drop_color"
+                        android:textSize="28px" />
+
+                    <TextView
+                        android:id="@+id/tv_quality_break"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv"
+                        android:layout_marginLeft="10px"
+                        android:text="27.8"
+                        android:textColor="@color/drop_color"
+                        android:textSize="30px" />
+                </com.zhy.autolayout.AutoRelativeLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="#f4f4f4" />
+
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:layout_width="240px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/ll_background_normal"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tv13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@mipmap/ic_common_horse"
+                        android:drawablePadding="5px"
+                        android:text="马值"
+                        android:textColor="@color/drop_color"
+                        android:textSize="28px" />
+
+                    <TextView
+                        android:id="@+id/tv_quality_horse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv13"
+                        android:layout_marginLeft="30px"
+                        android:text="5"
+                        android:textColor="@color/drop_color"
+                        android:textSize="30px" />
+                </com.zhy.autolayout.AutoRelativeLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ll_background_normal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:layout_marginTop="19px"
+                    android:src="@mipmap/ic_common_factory" />
+
+                <TextView
+                    android:layout_width="116px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.5px"
+                    android:layout_marginTop="11px"
+                    android:text="公检仓库"
+                    android:textColor="@color/drop_color"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/tv_quality_storage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="34px"
+                    android:layout_marginBottom="14.5px"
+                    android:layout_marginLeft="30px"
+                    android:layout_marginRight="16px"
+                    android:layout_marginTop="11px"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="我的的的的的的的的的的的的的"
+                    android:textColor="@color/drop_color"
+                    android:textSize="26px" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:layout_marginTop="19.5px"
+                    android:src="@mipmap/ic_common_factory" />
+
+                <TextView
+                    android:layout_width="116px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.5px"
+                    android:layout_marginTop="14px"
+                    android:text="加工厂"
+                    android:textColor="@color/drop_color"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/tv_quality_factory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="34px"
+                    android:layout_marginBottom="14.5px"
+                    android:layout_marginLeft="30px"
+                    android:layout_marginRight="16px"
+                    android:layout_marginTop="14.5px"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="我的的的的的的的的的的的的的的d ddddddddddddddddddd"
+                    android:textColor="@color/drop_color"
+                    android:textSize="26px" />
+            </com.zhy.autolayout.AutoLinearLayout>
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoRelativeLayout>
+</com.zhy.autolayout.AutoLinearLayout>

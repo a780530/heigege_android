@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_head_back" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/ll_Pwd"
+        android:layout_width="624px"
+        android:layout_height="90px"
+        android:layout_gravity="center"
+        android:layout_marginTop="74px"
+        android:background="@drawable/edittext_background_normal"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="160px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="26px"
+            android:drawableLeft="@mipmap/ic_login_pwd"
+            android:drawablePadding="12px"
+            android:text="新密码"
+            android:textColor="@color/red_translucent"
+            android:textSize="28px" />
+
+        <View
+            android:layout_width="2px"
+            android:layout_height="50px"
+            android:layout_gravity="center"
+            android:background="#ededed" />
+
+        <EditText
+            android:id="@+id/et_pwd"
+            android:layout_width="400px"
+            android:layout_height="60px"
+            android:layout_gravity="center"
+            android:layout_marginLeft="18px"
+            android:background="@null"
+            android:hint="请输入新密码"
+            android:inputType="textPassword"
+            android:maxLength="16"
+            android:textColor="@color/red_translucent"
+            android:textSize="28px" />
+
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_pswError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4px"
+            android:textColor="@color/homeTextLongColor"
+            android:textSize="24px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/ll_pwdConfirm"
+        android:layout_width="624px"
+        android:layout_height="90px"
+        android:layout_gravity="center"
+        android:layout_marginTop="18px"
+        android:background="@drawable/edittext_background_normal"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="160px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="26px"
+            android:drawableLeft="@mipmap/ic_login_pwdconfirm"
+            android:drawablePadding="12px"
+            android:text="确认密码"
+            android:textColor="@color/red_translucent"
+            android:textSize="28px" />
+
+        <View
+            android:layout_width="2px"
+            android:layout_height="50px"
+            android:layout_gravity="center"
+            android:background="#ededed" />
+
+        <EditText
+            android:id="@+id/et_pwdConfirm"
+            android:layout_width="400px"
+            android:layout_height="60px"
+            android:layout_gravity="center"
+            android:layout_marginLeft="18px"
+            android:background="@null"
+            android:hint="请再次输入密码"
+            android:inputType="textPassword"
+            android:maxLength="16"
+            android:textColor="@color/red_translucent"
+            android:textSize="28px" />
+
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_pswConfirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4px"
+            android:textColor="@color/homeTextLongColor"
+            android:textSize="24px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <Button
+        android:id="@+id/bt_sure"
+        android:layout_width="624px"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_height="90px"
+        android:layout_gravity="center"
+        android:layout_marginTop="48px"
+        android:background="@drawable/login__button_background_normal"
+        android:enabled="false"
+        android:text="确认"
+        android:textColor="@color/white"
+        android:textSize="28px" />
+
+    <com.tianfu.cutton.widget.UnderlineTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="40px"
+        android:text="遇到问题？您可以联系客服"
+        android:textColor="#999999"
+        android:textSize="24px" />
+</com.zhy.autolayout.AutoLinearLayout>

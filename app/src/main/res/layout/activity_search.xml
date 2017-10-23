@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/tab_tv_selected"
+    android:orientation="vertical"
+    tools:context="com.tianfu.cutton.activity.store.SearchActivity">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:paddingTop="60px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="10px">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="620px"
+            android:layout_height="66px"
+            android:layout_marginLeft="16px"
+            android:background="@drawable/editbox_background_normal"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20px"
+                android:layout_marginLeft="19.36px"
+                android:layout_marginTop="20px"
+                android:src="@mipmap/ic_home_search" />
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="9.46px"
+                android:background="@null"
+                android:hint="输入批号/捆号/仓库名称/加工厂"
+                android:imeOptions="actionDone"
+                android:singleLine="true"
+                android:textSize="26px" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <TextView
+            android:id="@+id/tv_dismiss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16px"
+            android:text="取消"
+            android:textColor="@color/white"
+            android:textSize="26px" />
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/ll_search"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/ll_hahaha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20px"
+                android:layout_marginTop="32px"
+                android:drawableLeft="@mipmap/ic_fire_hui"
+                android:drawablePadding="17px"
+                android:text="热门搜索"
+                android:textColor="#333333" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/hot_recyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20px"
+            android:layout_marginTop="30px"
+            android:background="#f4f4f4" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80px"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20px"
+                android:layout_weight="1"
+                android:drawableLeft="@mipmap/ic_common_footbaclk"
+                android:drawablePadding="17px"
+                android:text="历史搜索"
+                android:textColor="#333333" />
+
+            <TextView
+                android:id="@+id/delete_His"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16px"
+                android:layout_marginLeft="20px"
+                android:drawableLeft="@mipmap/ic_common_laji"
+                android:drawablePadding="17px"
+                android:text="清空历史记录"
+                android:textColor="#999999" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#f4f4f4" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/historyRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/listRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"></android.support.v7.widget.RecyclerView>
+</com.zhy.autolayout.AutoLinearLayout>

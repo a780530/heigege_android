@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/ll_set"
+    android:layout_height="match_parent"
+    android:background="#f4f4f4"
+    android:orientation="vertical"
+    tools:context="com.tianfu.cutton.activity.mine.SettingActivity">
+
+    <include layout="@layout/common_head_back" />
+<com.zhy.autolayout.AutoLinearLayout
+    android:layout_width="match_parent"
+    android:layout_marginTop="20px"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/ll_modifyPwd"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@drawable/ll_background_normal"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_setPwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22px"
+            android:layout_weight="1"
+            android:text="修改密码"
+            android:textColor="#343434"
+            android:textSize="28px" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="22px"
+            android:src="@mipmap/ic_mine_back" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/ll_aboutTianFu"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22px"
+            android:layout_weight="1"
+            android:text="关于我们"
+            android:textColor="#343434"
+            android:textSize="28px" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="22px"
+            android:src="@mipmap/ic_mine_back" />
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>
+
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_marginTop="58px"
+        android:background="@color/white"
+        android:gravity="center">
+
+        <TextView
+            android:textColor="#343434"
+            android:textSize="28px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="退出当前账号" />
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

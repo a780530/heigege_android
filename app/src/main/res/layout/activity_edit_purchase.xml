@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tianfu.cutton.activity.mine.EditPurchaseActivity">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/common_head_back" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="92px"
+            android:background="@drawable/ll_background_normal"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40px"
+                android:text="状态"
+                android:textColor="#333333"
+                android:textSize="28px" />
+
+            <RadioGroup
+                android:id="@+id/rg_purchaseStatus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="36dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_Purchasing"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/myradiobutton"
+                    android:button="@null" />
+
+                <TextView
+                    android:id="@+id/tv_Purchasing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_weight="1"
+                    android:text="采购中"
+                    android:textColor="#999999"
+                    android:textSize="12dp" />
+
+                <RadioButton
+                    android:id="@+id/rb_Complete"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/myradiobutton"
+                    android:button="@null" />
+
+                <TextView
+                    android:id="@+id/tv_Complete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_weight="1"
+                    android:text="已完成"
+                    android:textColor="#999999"
+                    android:textSize="12dp" />
+
+                <RadioButton
+                    android:id="@+id/rb_Close"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/myradiobutton"
+                    android:button="@null" />
+
+                <TextView
+                    android:id="@+id/tv_Close"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_weight="1"
+                    android:text="已关闭"
+                    android:textColor="#999999"
+                    android:textSize="12dp" />
+
+                <RadioButton
+                    android:id="@+id/rb_Invalid"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/myradiobutton"
+                    android:button="@null" />
+
+                <TextView
+                    android:id="@+id/tv_Invalid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="30px"
+                    android:layout_weight="1"
+                    android:text="已失效"
+                    android:textColor="#999999"
+                    android:textSize="12dp" />
+            </RadioGroup>
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="89px"
+            android:background="@drawable/ll_background_normal"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="120px"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="40px"
+                android:text="联系人"
+                android:textColor="#333333"
+                android:textSize="28px" />
+
+            <EditText
+                android:id="@+id/tv_contacts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="42px"
+                android:background="@null"
+                android:gravity="right"
+                android:hint="公司名称"
+                android:textColor="#333333"
+                android:textSize="26px" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="89px"
+            android:background="@drawable/ll_background_normal"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="120px"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="40px"
+                android:text="手机号码"
+                android:textColor="#333333"
+                android:textSize="28px" />
+
+            <EditText
+                android:id="@+id/tv_telephone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="42px"
+                android:background="@null"
+                android:gravity="right"
+                android:hint="请输入手机号码"
+                android:textColor="#333333"
+                android:textSize="26px" />
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="89px"
+            android:background="@drawable/ll_background_normal"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="120px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40px"
+                android:layout_weight="1"
+                android:text="期望价格"
+                android:textColor="#333333"
+                android:textSize="28px" />
+
+            <EditText
+                android:id="@+id/etPrice_min"
+                android:layout_width="140px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:hint="0代表面议"
+                android:inputType="number"
+                android:maxLength="5"
+                android:textColor="#333333"
+                android:textSize="26px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-" />
+
+            <EditText
+                android:id="@+id/etPrice_max"
+                android:layout_width="140px"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="42px"
+                android:background="@null"
+                android:gravity="right"
+                android:hint="0代表面议"
+                android:inputType="number"
+                android:maxLength="5"
+                android:textColor="#333333"
+                android:textSize="26px" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="89px"
+            android:background="@drawable/ll_background_normal"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="120px"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="40px"
+                android:text="批次数量"
+                android:textColor="#333333"
+                android:textSize="28px" />
+
+            <EditText
+                android:id="@+id/tv_batchCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="42px"
+                android:background="@null"
+                android:gravity="right"
+                android:hint="请输入批次 (选填)"
+                android:inputType="number"
+                android:textColor="#333333"
+                android:textSize="26px" />
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/ll_receiveDate"
+            android:layout_width="match_parent"
+            android:layout_height="89px"
+            android:background="@drawable/ll_background_normal"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="120px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40px"
+                android:layout_weight="1"
+                android:text="送达日期"
+                android:textColor="#333333"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/tv_receiveDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16px"
+                android:gravity="right"
+                android:hint="请选择送达日期"
+                android:textColor="#333333"
+                android:textSize="26px" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="42px"
+                android:src="@mipmap/ic_common_downblack" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/ll_deadline"
+            android:layout_width="match_parent"
+            android:layout_height="89px"
+            android:background="@drawable/ll_background_normal"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="120px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40px"
+                android:layout_weight="1"
+                android:text="截止日期"
+                android:textColor="#333333"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/tv_deadline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16px"
+                android:gravity="right"
+                android:hint="请选择截止日期 (选填)"
+                android:textColor="#333333"
+                android:textSize="26px" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="42px"
+                android:src="@mipmap/ic_common_downblack" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="89px"
+            android:background="@drawable/ll_background_normal"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="120px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40px"
+                android:layout_weight="1"
+                android:text="交易地点"
+                android:textColor="#333333"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/tv_province"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="42px"
+                android:gravity="right"
+                android:text="浙江省 杭州市 上城区"
+                android:textColor="#333333"
+                android:textSize="26px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="89px"
+            android:background="@drawable/ll_background_normal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="120px"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="40px"
+                android:text="详细地址"
+                android:textColor="#333333"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/tcv_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="42px"
+                android:text="解放路26号金衙庄大厦20层"
+                android:textColor="#333333"
+                android:textSize="26px" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ll_background_normal"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:paddingBottom="20px"
+            android:paddingTop="20px">
+
+            <TextView
+                android:layout_width="120px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40px"
+                android:text="备注"
+                android:textColor="#333333"
+                android:textSize="28px" />
+
+            <EditText
+                android:id="@+id/et_remark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="200px"
+                android:layout_marginRight="42px"
+                android:background="@null"
+                android:gravity="left"
+                android:hint="填写备注"
+                android:textColor="#333333"
+                android:textSize="26px" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <Button
+        android:id="@+id/bt_save"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:layout_alignParentBottom="true"
+        android:background="@mipmap/ic_back_long"
+        android:text="保存"
+        android:textColor="@color/white"
+        android:textSize="32px" />
+</com.zhy.autolayout.AutoRelativeLayout>

@@ -1,0 +1,342 @@
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.tianfu.cutton.fragment.mine.MineFragment">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/ic_mine_background">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/ll_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="20px">
+
+            <ImageView
+                android:layout_width="38px"
+                android:layout_height="38px"
+                android:layout_marginLeft="24px"
+                android:layout_marginTop="44px"
+                android:src="@mipmap/ic_mine_set" />
+
+            <TextView
+                android:layout_width="58px"
+                android:layout_height="34px"
+                android:layout_marginLeft="8px"
+                android:layout_marginTop="47px"
+                android:text="设置"
+                android:textColor="@color/white"
+                android:textSize="28px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <ImageView
+            android:id="@+id/im_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="24px"
+            android:layout_marginTop="49.22px"
+            android:paddingTop="20px"
+            android:src="@mipmap/ic_mine_message" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/ll_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_setting"
+            android:layout_marginTop="36px"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ic_mine_head"
+                android:layout_width="130px"
+                android:layout_height="130px"
+                android:src="@mipmap/ic_mine_head" />
+
+            <TextView
+                android:id="@+id/tv_login"
+                android:layout_width="wrap_content"
+                android:layout_height="36px"
+                android:layout_marginBottom="40px"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="40px"
+                android:layout_marginTop="18px"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="登录/注册"
+                android:textColor="@color/white"
+                android:textSize="26px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/ll_myCommodity"
+            android:layout_width="240px"
+            android:layout_height="180px"
+            android:background="@color/white"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="42px"
+                android:layout_height="48.08px"
+                android:layout_marginTop="35px"
+                android:src="@mipmap/ic_mine_commodity" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8px"
+                android:text="我的商品"
+                android:textColor="@color/drop_color"
+                android:textSize="24px" />
+
+            <TextView
+                android:id="@+id/tv_productCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7px"
+                android:text="(0)"
+                android:textColor="@color/red_translucent"
+                android:textSize="24px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#f2f2f2" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/ll_myPurchaseOrder"
+            android:layout_width="240px"
+            android:layout_height="180px"
+            android:background="@color/white"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35.12px"
+                android:src="@mipmap/ic_mine_purchase" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8px"
+                android:text="我的采购单"
+                android:textColor="@color/drop_color"
+                android:textSize="24px" />
+
+            <TextView
+                android:id="@+id/tv_purCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7px"
+                android:text="(0)"
+                android:textColor="@color/red_translucent"
+                android:textSize="24px" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#f2f2f2" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/ll_mySupplyOrder"
+            android:layout_width="240px"
+            android:layout_height="180px"
+            android:background="@color/white"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="42.2px"
+                android:src="@mipmap/ic_mine_supplier" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9.8px"
+                android:text="我的供货单"
+                android:textColor="@color/drop_color"
+                android:textSize="24px" />
+
+            <TextView
+                android:id="@+id/tv_supCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7px"
+                android:text="(0)"
+                android:textColor="@color/red_translucent"
+                android:textSize="24px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20px"
+        android:background="#f4f4f4" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/ll_mycollection"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@drawable/ll_background_normal"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="32px"
+            android:layout_height="30px"
+            android:layout_marginLeft="20px"
+            android:layout_marginTop="28px"
+            android:src="@mipmap/ic_mine_enshrine" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8px"
+            android:layout_marginTop="28px"
+            android:layout_weight="1"
+            android:text="我的收藏"
+            android:textColor="@color/drop_color"
+            android:textSize="28px" />
+
+        <TextView
+            android:id="@+id/tv_favoritesCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="22px"
+            android:layout_marginTop="26px"
+            android:drawablePadding="10px"
+            android:drawableRight="@mipmap/ic_mine_back"
+            android:text="0条"
+            android:textColor="#dbdbdb"
+            android:textSize="24px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/ll_myshare"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@drawable/ll_background_normal"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="32px"
+            android:layout_height="30px"
+            android:layout_marginLeft="20px"
+            android:layout_marginTop="28px"
+            android:src="@mipmap/ic_mine_share" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8px"
+            android:layout_marginTop="28px"
+            android:layout_weight="1"
+            android:text="我的分享"
+            android:textColor="@color/drop_color"
+            android:textSize="28px" />
+
+        <TextView
+            android:id="@+id/tv_shareCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="22px"
+            android:layout_marginTop="26px"
+            android:drawablePadding="10px"
+            android:drawableRight="@mipmap/ic_mine_back"
+            android:text="0条"
+            android:textColor="#dbdbdb"
+            android:textSize="24px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/ll_listHis"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@drawable/ll_background_normal"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="32px"
+            android:layout_height="30px"
+            android:layout_marginLeft="20px"
+            android:layout_marginTop="28px"
+            android:src="@mipmap/ic_mine_footprint" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8px"
+            android:layout_marginTop="28px"
+            android:layout_weight="1"
+            android:text="浏览记录"
+            android:textColor="@color/drop_color"
+            android:textSize="28px" />
+
+        <TextView
+            android:id="@+id/tv_his_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="22px"
+            android:layout_marginTop="26px"
+            android:drawablePadding="10px"
+            android:drawableRight="@mipmap/ic_mine_back"
+            android:text="0条"
+            android:textColor="#dbdbdb"
+            android:textSize="24px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/ll_stsCount"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@drawable/ll_background_normal"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="32px"
+            android:layout_height="30px"
+            android:layout_marginLeft="20px"
+            android:layout_marginTop="28px"
+            android:src="@mipmap/ic_mine_stscount" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8px"
+            android:layout_marginTop="28px"
+            android:layout_weight="1"
+            android:text="升贴水计算"
+            android:textColor="@color/drop_color"
+            android:textSize="28px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="22px"
+            android:layout_marginTop="26px"
+            android:drawablePadding="10px"
+            android:drawableRight="@mipmap/ic_mine_back"
+            android:textColor="#dbdbdb"
+            android:textSize="24px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

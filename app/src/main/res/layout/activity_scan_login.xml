@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.tianfu.cutton.activity.login.LoginActivity">
+
+    <include layout="@layout/common_head_back" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="250px"
+            android:src="@mipmap/ic_scan" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="54px"
+            android:text="XJCE电脑端登录确认"
+            android:textColor="#333333"
+            android:textSize="30px" />
+
+        <Button
+            android:id="@+id/sureLogin"
+            android:layout_width="624px"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150px"
+            android:background="@drawable/login__button_background_green"
+            android:text="确认登录"
+            android:textColor="@color/white"
+            android:textSize="28px" />
+
+        <TextView
+            android:id="@+id/dismissLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="40px"
+            android:text="取消"
+            android:textColor="#333333"
+            android:textSize="28px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

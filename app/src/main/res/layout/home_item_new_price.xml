@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="#F4F4F4"
+        android:orientation="horizontal">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="360px"
+            android:layout_height="88px"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/new_Location1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="40px"
+                android:text=" "
+                android:textColor="@color/home_new_price"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/new_price1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="40px"
+                android:text=""
+                android:textColor="@color/tab_tv_selected"
+                android:textSize="28px" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <View
+            android:layout_width="2px"
+            android:background="#E1E1E1"
+            android:layout_height="match_parent" />
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="360px"
+            android:layout_height="88px"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/new_Location2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="40px"
+                android:text=" "
+                android:textColor="@color/home_new_price"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/new_price2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="40px"
+                android:text="  "
+                android:textColor="@color/tab_tv_selected"
+                android:textSize="28px" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:background="#E1E1E1"
+        android:layout_height="1px"/>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="360px"
+            android:layout_height="88px"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/new_Location3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="40px"
+                android:text=" "
+                android:textColor="@color/home_new_price"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/new_price3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="40px"
+                android:text="  "
+                android:textColor="@color/tab_tv_selected"
+                android:textSize="28px" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <View
+            android:layout_width="2px"
+            android:background="#E1E1E1"
+            android:layout_height="match_parent" />
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="360px"
+            android:layout_height="88px"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/new_Location4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="40px"
+                android:text=" "
+                android:textColor="@color/home_new_price"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/new_price4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="40px"
+                android:text="  "
+                android:textColor="@color/tab_tv_selected"
+                android:textSize="28px" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:background="#E1E1E1"
+        android:layout_height="1px"/>
+    <com.zhy.autolayout.AutoLinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="#F4F4F4"
+        android:orientation="horizontal">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="360px"
+            android:layout_height="88px"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/new_Location5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="40px"
+                android:text=" "
+                android:textColor="@color/home_new_price"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/new_price5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="40px"
+                android:text="  "
+                android:textColor="@color/tab_tv_selected"
+                android:textSize="28px" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <View
+            android:layout_width="2px"
+            android:background="#E1E1E1"
+            android:layout_height="match_parent" />
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="360px"
+            android:layout_height="88px"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/new_Location6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="40px"
+                android:text=" "
+                android:textColor="@color/home_new_price"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/new_price6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="40px"
+                android:text="  "
+                android:textColor="@color/tab_tv_selected"
+                android:textSize="28px" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:background="#E1E1E1"
+        android:layout_height="1px"/>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="360px"
+            android:layout_height="88px"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/new_Location7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="40px"
+                android:text=" "
+                android:textColor="@color/home_new_price"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/new_price7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="40px"
+                android:text="  "
+                android:textColor="@color/tab_tv_selected"
+                android:textSize="28px" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <View
+            android:layout_width="2px"
+            android:background="#E1E1E1"
+            android:layout_height="match_parent" />
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="360px"
+            android:layout_height="88px"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/new_Location8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="40px"
+                android:text=" "
+                android:textColor="@color/home_new_price"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/new_price8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="40px"
+                android:text="  "
+                android:textColor="@color/tab_tv_selected"
+                android:textSize="28px" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:background="#E1E1E1"
+        android:layout_height="1px"/>
+</com.zhy.autolayout.AutoLinearLayout>

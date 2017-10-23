@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:paddingTop="8px"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/bt_guanjianci"
+        android:layout_width="104px"
+        android:layout_height="40px"
+        android:background="@drawable/button_style"
+        android:text="1329A"
+        android:textColor="@color/red_translucent"
+        android:textSize="24px" />
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,112 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:datePickerDialogTheme">@style/MyDatePickerDialogTheme</item>
+        <item name="alertDialogTheme">@style/Theme.AppCompat.Light.Dialog.Alert.Self</item>
+    </style>
+
+    <style name="Theme.AppCompat.Light.Dialog.Alert.Self" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+        <!--修改AlertDialog按钮的颜色-->
+        <item name="colorAccent">@color/tab_tv_selected</item>
+    </style>
+
+    <style name="TabLayoutTextStyle">
+        <item name="android:textSize">@dimen/text_16_sp</item>
+    </style>
+
+    <style name="TabLayoutMy">
+        <item name="android:textSize">@dimen/text_13_sp</item>
+    </style>
+
+    <style name="CustomTab" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/tab_indicator</item>
+        <item name="tabTextColor">@color/tab_tv_normal</item>
+        <item name="tabSelectedTextColor">@color/tab_tv_selected</item>
+        <item name="tabBackground">@drawable/bg_tab_border_selecter</item>
+        <item name="tabIndicatorHeight">0dp</item>
+    </style>
+    <!--
+    1.tabIndicatorColor：TabLayout指示器的颜色
+    2.tabTextColor: tab默认字体的颜色
+    3.tabSelectedTextColor：当前选择的tab的字体颜色
+    4.tabBackground：背景
+    5.tabIndicatorHeight：TabLayout指示器高度
+    -->
+    <!--  popup window  -->
+    <style name="bottom_popwindow_anim_style">
+        <!-- 指定显示的动画xml -->
+        <item name="android:windowEnterAnimation">@anim/popshow_anim</item>
+        <!-- 指定消失的动画xml -->
+        <item name="android:windowExitAnimation">@anim/pophide_anim</item>
+    </style>
+
+    <!-- CustomCheckBox theme -->
+    <style name="CustomCheckBoxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/checkbox_style</item>
+    </style>
+
+    <style name="CustomCheckBoxThemeLogin" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/checkbox_style_login</item>
+    </style>
+
+    <style name="MyDatePickerDialogTheme" parent="android:Theme.Material.Light.Dialog">
+        <item name="android:colorAccent">@color/tab_tv_selected</item>
+    </style>
+
+    <style name="normal_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/tab_indicator</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="CustomDialog1" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+    </style>
+
+    <style name="CustomProgressDialog" parent="@style/CustomDialog1">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="load_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowFrame">@null</item><!--边框-->
+        <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
+        <item name="android:windowIsTranslucent">true</item><!--半透明-->
+        <item name="android:windowNoTitle">true</item><!--无标题-->
+        <item name="android:windowBackground">@color/transparent</item><!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">false</item><!--模糊-->
+    </style>
+
+    <style name="line_e3e9e9">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">#e3e9e9</item>
+    </style>
+
+    <style name="CustomDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@drawable/bg_dialog_confirm</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="text_14">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/drop_color</item>
+    </style>
+    <style name="text_12">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">@color/drop_color</item>
+    </style>
+</resources>

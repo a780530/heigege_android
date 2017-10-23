@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="#f4f4f4"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_marginTop="200px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_nodata_purchase" />
+
+    <TextView
+        android:gravity="center"
+        android:layout_marginTop="32px"
+        android:textSize="26px"
+        android:textColor="#999999"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="居然是空的\n赶快去发布吧" />
+</com.zhy.autolayout.AutoLinearLayout>

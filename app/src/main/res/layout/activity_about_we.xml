@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tab_tv_selected"
+    android:orientation="vertical"
+    tools:context="com.tianfu.cutton.activity.mine.AboutWeActivity">
+
+    <include layout="@layout/common_head_back"></include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="50px"
+            android:text="       以采购业务为核心，查询、采供需求为辅，我们为卖家、买家提供基本的互联网服务，使得棉花产业链信息化，让棉花的生意更简单，通过专业化的运营，完善客户体验，全面优化企业在线贸易的业务模式，支持线下自主交易。\n\n  \t   为买卖双方提供棉花质量信息的快速搜索、线上磋商与议价、采供需求的发布与查找，实现足不出户，轻松交易，简化和降低买卖成本，让棉花信息透明化、双方沟通简单化，从而推动棉花流通方式的变革和棉花产业的进步。\n\n     新疆棉花交易市场是一个品牌的打造，优质优价是平台、市场的共识，平台秉持公平、独立、公正，强化品质管理、流程与跟踪管理、创造更多的市场认可的棉花品牌。\n\n一、商城：实时动态展示商品信息，支持线下自主交易。\n二、质量查询：及时了解棉花质量信息，掌握质量动态，为采购优质棉花提供有利的数据保障。\n三、采购需求：随时发布采购需求，一纸需求链接你我。 \n\n公司：新疆棉花交易市场有限责任公司\n公司地址：新疆乌鲁木齐新市区北京南路506号美克大厦901室\n联系电话：0991-3635660\n传真：0991-3657866\n邮政编码：830011"
+            android:textColor="@color/drop_color"
+            android:textSize="14dp" />
+    </ScrollView>
+
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ll_background_normal"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.tianfu.cutton.widget.MultiCheckGroupView
+            android:id="@+id/originGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:padding="20px" />
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:orientation="horizontal">
+
+        <Button
+            style="?android:attr/borderlessButtonStyle"
+            android:id="@+id/btRset"
+            android:layout_width="360px"
+            android:layout_height="match_parent"
+            android:background="@drawable/ll_background_normal"
+            android:text="重置"
+            android:textColor="#333333"
+            android:textSize="32px" />
+
+        <Button
+            style="?android:attr/borderlessButtonStyle"
+            android:id="@+id/btSure"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@mipmap/ic_back_supply"
+            android:text="确定"
+            android:textColor="@color/white"
+            android:textSize="32px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoFrameLayout
+        android:id="@+id/popBackground"
+        android:background="#000"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        >
+
+    </com.zhy.autolayout.AutoFrameLayout>
+
+    <com.zhy.autolayout.AutoFrameLayout
+        android:id="@+id/aflDissmiss"
+        android:layout_width="match_parent"
+        android:layout_height="96px">
+
+    </com.zhy.autolayout.AutoFrameLayout>
+</com.zhy.autolayout.AutoLinearLayout>

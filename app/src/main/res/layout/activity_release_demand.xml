@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.tianfu.cutton.activity.purchase.ReleaseDemandActivity">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="146px"
+        android:background="@color/tab_tv_selected"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="50px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22px"
+            android:text="取消"
+            android:textColor="@color/white"
+            android:textSize="28px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="218px"
+            android:text="发布需求"
+            android:textColor="@color/white"
+            android:textSize="34px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <ExpandableListView
+        android:id="@+id/expandableList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</com.zhy.autolayout.AutoLinearLayout>

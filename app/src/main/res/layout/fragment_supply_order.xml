@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <in.srain.cube.views.ptr.PtrClassicFrameLayout
+        android:id="@+id/ptr_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/supplyOrder_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </in.srain.cube.views.ptr.PtrClassicFrameLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:visibility="gone"
+        android:id="@+id/ll_notNet"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:src="@mipmap/ic_common_nonet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="34px"
+            android:text="您的网络不太给力哦"
+            android:textColor="#999999"
+            android:textSize="26px" />
+        <Button
+            android:id="@+id/go_purchase"
+            android:text="刷新界面"
+            android:textColor="@color/tab_tv_selected"
+            android:layout_marginTop="70px"
+            android:background="@drawable/edittext_background_greenl"
+            android:layout_width="320px"
+            android:layout_height="90px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,283 @@
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="40px"
+    android:background="#f4f4f4"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#f4f4f4"
+            android:orientation="horizontal">
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="78px"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="9.5px">
+
+                <TextView
+                    android:id="@+id/tv_batch_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18px"
+                    android:text="65092161019(180/1)"
+                    android:textColor="#333333"
+                    android:textSize="32px" />
+
+                <Button
+                    android:id="@+id/bt_batch_key"
+                    android:layout_width="104px"
+                    android:layout_height="40px"
+                    android:layout_marginLeft="16px"
+                    android:layout_toRightOf="@id/tv_batch_code"
+                    android:background="@drawable/button_style"
+                    android:text="1329A"
+                    android:textColor="@color/red_translucent"
+                    android:textSize="24px" />
+
+                <TextView
+                    android:id="@+id/tv_batch_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20px"
+                    android:layout_marginTop="10px"
+                    android:drawableLeft="@mipmap/ic_common_cutton"
+                    android:drawablePadding="7.24px"
+                    android:text="锯齿细绒棉"
+                    android:textColor="#333333"
+                    android:textSize="24px" />
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#d1d1d1" />
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ll_background_normal"
+            android:orientation="horizontal">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="360px"
+                android:layout_height="80px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="142px"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="24px"
+                    android:text="棉花年度"
+                    android:textColor="@color/detailsColor"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/cottonYear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="24px"
+                    android:text="新疆棉"
+                    android:textColor="#333333"
+                    android:textSize="28px" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="360px"
+                android:layout_height="80px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="142px"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="异性纤维"
+                    android:textColor="@color/detailsColor"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/tv_yxxw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="24px"
+                    android:text="淡黄染棉1级"
+                    android:textColor="#333333"
+                    android:textSize="28px" />
+            </com.zhy.autolayout.AutoLinearLayout>
+        </com.zhy.autolayout.AutoLinearLayout>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ll_background_normal"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="20px"
+            android:paddingTop="20px">
+
+            <TextView
+                android:layout_width="142px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="24px"
+                android:text="加工厂编号"
+                android:textColor="@color/detailsColor"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/tv_batch_factoryCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="24px"
+                android:layout_marginRight="20px"
+                android:text="   "
+                android:textColor="#333333"
+                android:textSize="28px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ll_background_normal"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="20px"
+            android:paddingTop="20px">
+
+            <TextView
+                android:layout_width="142px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="24px"
+                android:text="加工厂"
+                android:textColor="@color/detailsColor"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/tv_batch_factory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="24px"
+                android:layout_marginRight="20px"
+                android:text="   "
+                android:textColor="#333333"
+                android:textSize="28px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ll_background_normal"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="20px"
+            android:paddingTop="20px">
+
+            <TextView
+                android:layout_width="142px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="24px"
+                android:text="加工厂地址"
+                android:textColor="@color/detailsColor"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/tv_batch_factoryAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="24px"
+                android:layout_marginRight="20px"
+                android:text="   "
+                android:textColor="#333333"
+                android:textSize="28px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="20px"
+            android:paddingTop="20px">
+
+            <TextView
+                android:layout_width="142px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="24px"
+                android:text="公检仓库"
+                android:textColor="@color/detailsColor"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/tv_batch_checkStorage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="24px"
+                android:layout_marginRight="20px"
+                android:text="   "
+                android:textColor="#333333"
+                android:textSize="28px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#d1d1d1" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ll_background_normal"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="20px"
+            android:paddingTop="20px">
+
+            <TextView
+                android:layout_width="142px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="24px"
+                android:text="公检日期"
+                android:textColor="@color/detailsColor"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/tv_batch_checkDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="24px"
+                android:layout_marginRight="20px"
+                android:text="   "
+                android:textColor="#333333"
+                android:textSize="28px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

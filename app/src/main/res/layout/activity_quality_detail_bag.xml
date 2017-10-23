@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tab_tv_selected"
+    >
+
+  <include layout="@layout/common_head_back"/>
+
+    <com.tianfu.cutton.widget.vhtableview.VHTableView
+        android:id="@+id/vht_table"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll_title"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:scrollbars="none">
+
+    </com.tianfu.cutton.widget.vhtableview.VHTableView>
+</com.zhy.autolayout.AutoRelativeLayout>
