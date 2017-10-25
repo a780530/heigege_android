@@ -36,8 +36,8 @@ public class ResourceAdapter extends BaseQuickAdapter<ResourcesBean.ValueBean, B
             helper.setText(R.id.re_key, item.property);
             re_key.setVisibility(View.VISIBLE);
         }
-        if (!TextUtils.isEmpty(item.price + "")) {
-            helper.setText(R.id.re_price, item.price);
+        if (!TextUtils.isEmpty(item.stdweightPrice + "")) {
+            helper.setText(R.id.re_price, item.stdweightPrice);
         }else {
             helper.setText(R.id.re_price,"--");
         }

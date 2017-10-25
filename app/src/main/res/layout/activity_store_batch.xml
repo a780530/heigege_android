@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/rl_title"
         android:layout_width="match_parent"
         android:layout_height="146px"
         android:background="@color/tab_tv_selected"

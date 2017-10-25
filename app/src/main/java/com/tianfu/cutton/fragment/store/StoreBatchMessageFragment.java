@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.tianfu.cutton.R;
 import com.tianfu.cutton.activity.base.BaseApplication;
+import com.tianfu.cutton.activity.quality.QualityDetailBagActivity;
 import com.tianfu.cutton.activity.store.StsDetadilsActivity;
 import com.tianfu.cutton.model.PremiumJsonBean;
 import com.tianfu.cutton.model.StoreKunMessage;
@@ -29,6 +30,8 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static com.tianfu.cutton.R.id.bt_count_bag;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -76,6 +79,8 @@ public class StoreBatchMessageFragment extends Fragment {
     TextView stsNum;
     @BindView(R.id.go_toSts)
     AutoLinearLayout goToSts;
+    @BindView(bt_count_bag)
+    Button btCountBag;
     private View mRootView;
     private String productId;
     private Map<String, String> map;
@@ -86,6 +91,7 @@ public class StoreBatchMessageFragment extends Fragment {
     private PremiumJsonBean premiumJsonBean;
     private String beasePrice;
     private String premiumJsonString;
+    private String code;
 
     public StoreBatchMessageFragment() {
         // Required empty public constructor
@@ -99,10 +105,10 @@ public class StoreBatchMessageFragment extends Fragment {
         mRootView = inflater.inflate(R.layout.fragment_store_batch_message, container, false);
         ButterKnife.bind(this, mRootView);
         productId = getActivity().getIntent().getStringExtra("productId");
+        code = getActivity().getIntent().getStringExtra("code");
         mobileBaojia = getActivity().getIntent().getStringExtra("mobileBaojia");
         map = new HashMap<>();
         map.put("productIds", productId);//516
-        System.out.println("productId:" + productId);
         initData();
         return mRootView;
     }
@@ -239,17 +245,34 @@ public class StoreBatchMessageFragment extends Fragment {
     }
 
 
-    @OnClick(R.id.go_toSts)
-    public void onViewClicked() {
-        if (TextUtils.isEmpty(premiumJsonString)){
-            ToastUtil.show(BaseApplication.getContextObject(),"暂无升贴水数据");
-            return;
-        }else{
-            Intent intent = new Intent();
-            intent.putExtra("premiumJsonBean", premiumJsonBean);
-            intent.putExtra("beasePrice", beasePrice);
-            intent.setClass(getActivity(), StsDetadilsActivity.class);
-            startActivity(intent);
+    @OnClick({R.id.go_toSts,R.id.bt_count_bag})
+    public void onViewClicked(View view) {
+        switch (view.getId()){
+            case R.id.go_toSts:
+                if (TextUtils.isEmpty(premiumJsonString)) {
+                    ToastUtil.show(BaseApplication.getContextObject(), "暂无升贴水数据");
+                    return;
+                } else {
+                    Intent intent = new Intent();
+                    intent.putExtra("premiumJsonBean", premiumJsonBean);
+                    intent.putExtra("beasePrice", beasePrice);
+                    intent.setClass(getActivity(), StsDetadilsActivity.class);
+                    startActivity(intent);
+                }
+                break;
+            case R.id.bt_count_bag:
+                Intent intent = new Intent(getActivity(), QualityDetailBagActivity.class);
+                intent.putExtra("code", code);
+                startActivity(intent);
+                break;
         }
+
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
+
+
 }

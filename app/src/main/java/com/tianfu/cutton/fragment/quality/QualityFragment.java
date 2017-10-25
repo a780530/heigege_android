@@ -724,6 +724,8 @@ public class QualityFragment extends BaseFragment implements FragmentBackHandler
                 LayoutInflater inflater = (LayoutInflater) getActivity()
                         .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 View conentView = inflater.inflate(R.layout.popup_entrepot, null);
+                TextView tv_select_fatory = (TextView) conentView.findViewById(R.id.tv_select_fatory);
+                tv_select_fatory.setText("请选择加工厂");
                 initModle(conentView);
                 initListView(conentView);
                 popWindowList = new PopupWindow();
@@ -1223,19 +1225,34 @@ public class QualityFragment extends BaseFragment implements FragmentBackHandler
                 break;*/
         }
     }
-
+    public static void showAsDropDown(PopupWindow pw, View anchor, int xoff, int yoff) {
+        if (Build.VERSION.SDK_INT >= 24) {
+            int[] location = new int[2];
+            anchor.getLocationOnScreen(location);
+            if (Build.VERSION.SDK_INT == 25) {
+                WindowManager wm = (WindowManager) pw.getContentView().getContext().getSystemService(Context.WINDOW_SERVICE);
+                int screenHeight = wm.getDefaultDisplay().getHeight();
+                pw.setHeight(screenHeight - location[1] - anchor.getHeight() - yoff);
+            }
+            pw.showAtLocation(anchor, Gravity.NO_GRAVITY, xoff, location[1] + anchor.getHeight() + yoff);
+        } else {
+            pw.showAsDropDown(anchor, xoff, yoff);
+        }
+    }
     private void showSort(int sortType) {
         View conentView = inflater.inflate(R.layout.popup_drop_quality_sort, null);
         popWindowSort = new PopWindow(getActivity(), conentView);
         initSortView(conentView);
-        if (Build.VERSION.SDK_INT < 24) {
+        popWindowSort.showAsDropDown(popWindowSort,ll_sortQuality,0,0);
+        //7.0  24  7.1  25
+      /*  if (Build.VERSION.SDK_INT < 24) {
             popWindowSort.showAsDropDown(ll_sortQuality, 0, 0);
         } else {
             int[] location = new int[2];
             // 获取控件在屏幕的位置
             ll_sortQuality.getLocationOnScreen(location);
             popWindowSort.showAtLocation(ll_sortQuality, Gravity.NO_GRAVITY, 0, location[1] + ll_sortQuality.getHeight() + 0);
-        }
+        }*/
         popWindowSort.setOnDismissListener(new PopupWindow.OnDismissListener() {
             @Override
             public void onDismiss() {
@@ -1318,14 +1335,15 @@ public class QualityFragment extends BaseFragment implements FragmentBackHandler
         View conentView = inflater.inflate(R.layout.popup_drop_quality_horse, null);
         popWindowHors = new PopWindow(getActivity(), conentView);
         initHorseView(conentView);
-        if (Build.VERSION.SDK_INT < 24) {
+        popWindowHors.showAsDropDown(popWindowHors,ll_horseQuality,0,0);
+    /*    if (Build.VERSION.SDK_INT < 24) {
             popWindowHors.showAsDropDown(ll_horseQuality, 0, 0);
         } else {
             int[] location = new int[2];
             // 获取控件在屏幕的位置
             ll_horseQuality.getLocationOnScreen(location);
-            popWindowHors.showAtLocation(ll_horseQuality, Gravity.NO_GRAVITY, 0, location[1] + ll_horseQuality.getHeight() + 0);
-        }
+            popWindowHors.showAtLocation(popWindowHors, Gravity.NO_GRAVITY, 0, location[1] + ll_horseQuality.getHeight() + 0);
+        }*/
         popWindowHors.setOnDismissListener(new PopupWindow.OnDismissListener() {
             @Override
             public void onDismiss() {
@@ -1410,14 +1428,15 @@ public class QualityFragment extends BaseFragment implements FragmentBackHandler
         View conentView = inflater.inflate(R.layout.popup_drop_quality_keyword, null);
         popWindowKey = new PopWindow(getActivity(), conentView);
         initKeyView(conentView);
-        if (Build.VERSION.SDK_INT < 24) {
+        popWindowKey.showAsDropDown(popWindowKey,ll_keyQuality,0,0);
+     /*   if (Build.VERSION.SDK_INT < 24) {
             popWindowKey.showAsDropDown(ll_keyQuality, 0, 0);
         } else {
             int[] location = new int[2];
             // 获取控件在屏幕的位置
             ll_keyQuality.getLocationOnScreen(location);
             popWindowKey.showAtLocation(ll_keyQuality, Gravity.NO_GRAVITY, 0, location[1] + ll_keyQuality.getHeight() + 0);
-        }
+        }*/
         popWindowKey.setOnDismissListener(new PopupWindow.OnDismissListener() {
             @Override
             public void onDismiss() {

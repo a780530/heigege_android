@@ -350,7 +350,7 @@ public class PurchaseOrderDetailsActivity extends BaseActivity {
                     adapterSupplier.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
                         @Override
                         public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-                            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"
+                            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"
                                     + data.value.rows.get(position).mobile));//电话号码
                             if (ActivityCompat.checkSelfPermission(PurchaseOrderDetailsActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                                 return;

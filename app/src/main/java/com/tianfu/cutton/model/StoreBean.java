@@ -65,6 +65,7 @@ public class StoreBean {
             public String longitude;
             public String latitude;
             public int price;
+            public  String stdweightPrice;
             public String settlementMethod;
             public String takeType;
             public String theLocation;

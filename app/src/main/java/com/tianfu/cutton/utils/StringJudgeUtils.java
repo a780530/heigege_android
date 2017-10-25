@@ -76,6 +76,15 @@ public class StringJudgeUtils {
             textView.setText(str);
         }
     }
+    // TODO: 2017/8/24 操作文本
+    public static void judgeStringText(String str, TextView textView) {
+        if (TextUtils.isEmpty(str)) {
+            textView.setText("");
+            return;
+        }else{
+            textView.setText(str);
+        }
+    }
     public static void judgeStringSts(String str, TextView textView){
         if (!TextUtils.isEmpty(str)) {
             if (str.startsWith("-")) {

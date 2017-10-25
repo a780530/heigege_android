@@ -206,7 +206,7 @@ public final class CameraManager {
 	 * 
 	 * @return The rectangle to draw on screen in window coordinates.
 	 */
-	public synchronized Rect getFramingRect() {
+	/*public synchronized Rect getFramingRect() {
 		if (framingRect == null) {
 			if (camera == null) {
 				return null;
@@ -221,7 +221,7 @@ public final class CameraManager {
 //					MIN_FRAME_WIDTH, MAX_FRAME_WIDTH);
 //			int height = findDesiredDimensionInRange(screenResolution.y,
 //					MIN_FRAME_HEIGHT, MAX_FRAME_HEIGHT);
-			
+
 			int width = findDesiredDimensionInRange(screenResolution.x,
 					MIN_FRAME_WIDTH, MAX_FRAME_WIDTH)*4/5;
 			int height = findDesiredDimensionInRange(screenResolution.y,
@@ -234,8 +234,27 @@ public final class CameraManager {
 			Log.d(TAG, "Calculated framing rect: " + framingRect);
 		}
 		return framingRect;
-	}
+	}*/
+	public Rect getFramingRect() {
+		Point screenResolution = configManager.getScreenResolution();
+		if (framingRect == null) {
+			if (camera == null) {
+				return null;
+			}
 
+			//修改之后
+			int width = screenResolution.x * 7 / 10;
+			int height = screenResolution.y * 3 / 10;
+
+			int leftOffset = (screenResolution.x - width) / 2;
+			int topOffset = (screenResolution.y - height) / 3;
+			framingRect = new Rect(leftOffset, topOffset, leftOffset + width, topOffset + height);
+
+
+			Log.d(TAG, "Calculated framing rect: " + framingRect);
+		}
+		return framingRect;
+	}
 	private static int findDesiredDimensionInRange(int resolution, int hardMin,
 			int hardMax) {
 		int dim = 5 * resolution / 8; // Target 5/8 of each dimension

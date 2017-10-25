@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/rl_title"
         android:layout_width="match_parent"
         android:layout_height="146px"
         android:background="@color/tab_tv_selected"
@@ -13,32 +14,43 @@
         android:paddingTop="50px">
 
         <ImageView
-            android:paddingRight="12px"
             android:id="@+id/iv_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="24px"
+            android:layout_alignParentLeft="true"
+            android:paddingBottom="24px"
+            android:paddingLeft="24px"
+            android:paddingRight="24px"
             android:paddingTop="30px"
             android:src="@mipmap/ic_common_back" />
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tlMain"
-            android:layout_toRightOf="@+id/iv_back"
-            android:layout_marginBottom="20px"
-            android:layout_width="400px"
+            app:tabGravity="center"
+            app:tabPaddingBottom="-20dp"
+            app:tabPaddingEnd="-20dp"
+            app:tabPaddingStart="-20dp"
+            app:tabPaddingTop="-20dp"
+            app:tabMode="scrollable"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_width="450px"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="130px"
+            android:layout_marginBottom="20px"
             app:tabIndicatorColor="@color/white"
             app:tabSelectedTextColor="@color/white"
+            app:tabTextAppearance="@style/TabLayoutTextStyle"
             app:tabTextColor="@color/white" />
 
         <ImageView
             android:id="@+id/iv_batch_share"
-            android:layout_marginRight="24px"
-            android:layout_alignParentRight="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="156px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="12px"
+            android:paddingBottom="24px"
+            android:paddingLeft="24px"
+            android:paddingRight="12px"
             android:paddingTop="30px"
             android:src="@mipmap/ic_common_share" />
     </com.zhy.autolayout.AutoRelativeLayout>

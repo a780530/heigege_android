@@ -109,4 +109,9 @@
         <item name="android:textSize">12dp</item>
         <item name="android:textColor">@color/drop_color</item>
     </style>
+    <style name="text_18">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@color/drop_color</item>
+    </style>
 </resources>

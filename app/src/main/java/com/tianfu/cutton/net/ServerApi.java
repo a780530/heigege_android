@@ -438,7 +438,7 @@ public interface ServerApi {
             @FieldMap Map<String, String> params
     );
     @FormUrlEncoded
-    @POST("cottonApp/search/getDetail.json")
+    @POST("cotton/search/getDetail.json")
     Call<TestBean> getTest(
             @FieldMap Map<String, String> params
     );

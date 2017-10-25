@@ -3,7 +3,6 @@ package com.tianfu.cutton.fragment.inquiry;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
@@ -1014,14 +1013,15 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
         mapLocation.put("3", "地产棉");
         mapLocation.put("4", "进口棉");
         originGroup.addValues(mapLocation);
-        if (Build.VERSION.SDK_INT < 24) {
+        popOriginWindow.showAsDropDown(popOriginWindow,ll_purchase_sort,0,0);
+      /*  if (Build.VERSION.SDK_INT < 24) {
             popOriginWindow.showAsDropDown(ll_purchase_sort, 0, 0);
         } else {
             int[] location = new int[2];
             // 获取控件在屏幕的位置
             ll_purchase_sort.getLocationOnScreen(location);
             popOriginWindow.showAtLocation(ll_purchase_sort, Gravity.NO_GRAVITY, 0, location[1] + ll_purchase_sort.getHeight() + 0);
-        }
+        }*/
 //        popOriginWindow.showPopupWindow(ll_purchase_sort);
         popOriginWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
             @Override
@@ -1051,14 +1051,15 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
         tv_zonghe = (TextView) conentView.findViewById(R.id.tv_zonghe);
         iv_zonghe = (ImageView) conentView.findViewById(R.id.iv_zonghe);
         ll_sort.setOnClickListener(this);
-        if (Build.VERSION.SDK_INT < 24) {
+        popWindow.showAsDropDown(popWindow,ll_purchase_sort,0,0);
+     /*   if (Build.VERSION.SDK_INT < 24) {
             popWindow.showAsDropDown(ll_purchase_sort, 0, 0);
         } else {
             int[] location = new int[2];
             // 获取控件在屏幕的位置
             ll_purchase_sort.getLocationOnScreen(location);
             popWindow.showAtLocation(ll_purchase_sort, Gravity.NO_GRAVITY, 0, location[1] + ll_purchase_sort.getHeight() + 0);
-        }
+        }*/
         popWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
             @Override
             public void onDismiss() {

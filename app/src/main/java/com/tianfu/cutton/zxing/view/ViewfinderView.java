@@ -199,7 +199,7 @@ public final class ViewfinderView extends View {
 
         canvas.drawRect(frame, paint);
 
-        paint.setColor(Color.BLUE);
+        paint.setColor(getResources().getColor(R.color.red_translucent));
         paint.setStyle(Paint.Style.FILL);
 
         int corWidth = 15;

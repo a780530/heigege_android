@@ -157,14 +157,13 @@
                 android:layout_height="80px"
                 android:background="@color/white"
                 android:gravity="center_vertical"
-                android:orientation="horizontal"
-              >
+                android:orientation="horizontal">
 
                 <com.zhy.autolayout.AutoLinearLayout
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
                     android:layout_width="360px"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="142px"
@@ -184,11 +183,12 @@
                         android:textColor="#333333"
                         android:textSize="28px" />
                 </com.zhy.autolayout.AutoLinearLayout>
+
                 <com.zhy.autolayout.AutoLinearLayout
                     android:id="@+id/go_toSts"
                     android:layout_width="360px"
-                    android:gravity="center_vertical"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical">
 
                     <TextView
                         android:layout_width="142px"
@@ -199,12 +199,12 @@
 
                     <TextView
                         android:id="@+id/sts_Num"
-                        android:drawablePadding="62px"
-                        android:drawableRight="@mipmap/ic_mine_back"
-                        android:layout_marginLeft="24px"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="24px"
                         android:layout_marginRight="20px"
+                        android:drawablePadding="62px"
+                        android:drawableRight="@mipmap/ic_mine_back"
                         android:text="+400"
                         android:textColor="#333333"
                         android:textSize="28px" />
@@ -477,6 +477,20 @@
                     android:textSize="28px" />
             </com.zhy.autolayout.AutoLinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20px"
+                android:background="#f4f4f4"></View>
+
+            <Button
+                android:id="@+id/bt_count_bag"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="88px"
+                android:background="@color/white"
+                android:text="查看棉包详情"
+                android:textColor="#343434"
+                android:textSize="28px" />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="20px"

@@ -22,6 +22,7 @@
             android:text="返回" />
 
         <TextView
+            android:id="@+id/tv_select_fatory"
             android:layout_centerInParent="true"
             android:layout_width="match_parent"
             android:layout_height="100px"

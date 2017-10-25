@@ -255,7 +255,8 @@ public final class CaptureActivity extends Activity implements
                     startActivity(intent);
                     finish();
                 }else{
-                    ToastUtil.show(BaseApplication.getContextObject(),"无数据");
+                    onBackPressed();
+                    ToastUtil.show(BaseApplication.getContextObject(),"暂无数据");
                 }
             }
 

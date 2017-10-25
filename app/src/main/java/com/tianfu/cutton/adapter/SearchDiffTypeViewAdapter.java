@@ -100,13 +100,14 @@ public class SearchDiffTypeViewAdapter extends RecyclerView.Adapter<RecyclerView
                 holder.bt_store_key.setVisibility(View.GONE);
             }
         }
-        if (itemModel.price != 0) {
-            holder.mMoney.setText(itemModel.price + "");
+        if (!TextUtils.isEmpty(itemModel.stdweightPrice)) {
+            holder.mMoney.setText(itemModel.stdweightPrice);
             holder.tv_store_commany.setVisibility(View.VISIBLE);
         } else {
             holder.tv_store_commany.setVisibility(View.GONE);
             holder.mMoney.setText("价格面议");
         }
+
         if (itemModel.lengthAverage != null && !"".equals(itemModel.lengthAverage)) {
             holder.tv_store_length.setText(itemModel.lengthAverage);
             if (Double.parseDouble(itemModel.lengthAverage) >= 28) {

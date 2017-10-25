@@ -347,15 +347,15 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
         xAxis.setTextColor(Color.BLACK);
         xAxis.setDrawGridLines(false);
         xAxis.setDrawAxisLine(false);
-        if (position % 3 == 0){
+        if (position % 3 == 0) {
             int size = date1.size();
-            xAxis.setLabelCount(size-1);
+            xAxis.setLabelCount(size - 1);
         } else if (position % 3 == 1) {
             int size = date2.size();
-            xAxis.setLabelCount(size-1);
+            xAxis.setLabelCount(size - 1);
         } else if (position % 3 == 2) {
             int size = date3.size();
-            xAxis.setLabelCount(size-1);
+            xAxis.setLabelCount(size - 1);
         }
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setValueFormatter(formatter);
@@ -364,24 +364,24 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
         leftAxis.setDrawAxisLine(false);
         leftAxis.setTextColor(Color.BLACK);
         if (position % 3 == 0) {
-            if (!TextUtils.isEmpty(max1)){
-                leftAxis.setAxisMaximum(Float.parseFloat(max1.substring(0,1))+1f);
+            if (!TextUtils.isEmpty(max1)) {
+                leftAxis.setAxisMaximum(Float.parseFloat(max1.substring(0, 1)) + 1f);
             }
-            if (!TextUtils.isEmpty(min1)){
-                leftAxis.setAxisMinimum(Float.parseFloat(min1.substring(0,1)));
+            if (!TextUtils.isEmpty(min1)) {
+                leftAxis.setAxisMinimum(Float.parseFloat(min1.substring(0, 1)));
             }
         } else if (position % 3 == 1) {
-            if (!TextUtils.isEmpty(max2)){
+            if (!TextUtils.isEmpty(max2)) {
                 leftAxis.setAxisMaximum(Float.parseFloat(max2));
             }
-            if (!TextUtils.isEmpty(min2)){
+            if (!TextUtils.isEmpty(min2)) {
                 leftAxis.setAxisMinimum(Float.parseFloat(min2));
             }
         } else if (position % 3 == 2) {
-            if (!TextUtils.isEmpty(max3)){
+            if (!TextUtils.isEmpty(max3)) {
                 leftAxis.setAxisMaximum(Float.parseFloat(max3));
             }
-            if (!TextUtils.isEmpty(min3)){
+            if (!TextUtils.isEmpty(min3)) {
                 leftAxis.setAxisMinimum(Float.parseFloat(min3));
             }
         }
@@ -746,24 +746,24 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
         HttpManager.getServerApi().getPriceIndexByType(map).enqueue(new CallBack<NewPriceBean>() {
             @Override
             public void success(NewPriceBean data) {
-                if (data.success&&data.value.size()>0) {
-                    if (data.value.get(0).currPage==data.value.get(0).totalPage){
-                        piState=5;
+                if (data.success && data.value.size() > 0) {
+                    if (data.value.get(0).currPage == data.value.get(0).totalPage) {
+                        piState = 5;
                         showState(5);
                     }
-                    if (data.value.get(1).currPage==data.value.get(1).totalPage){
-                        ziState=5;
+                    if (data.value.get(1).currPage == data.value.get(1).totalPage) {
+                        ziState = 5;
                         showState(5);
                     }
-                    if (data.value.get(2).currPage==data.value.get(2).totalPage){
-                        mianState=5;
+                    if (data.value.get(2).currPage == data.value.get(2).totalPage) {
+                        mianState = 5;
                         showState(5);
                     }
                     List<NewPriceBean.ValueBean> valueData = data.value;
                     valueZiCotton = valueData.get(1).value;
                     date1 = valueData.get(1).date;
                     max1 = valueData.get(1).max;
-                    System.out.println("0...."+valueData.get(1).max);
+                    System.out.println("0...." + valueData.get(1).max);
                     min1 = valueData.get(1).min;
                     valuePiCotton = valueData.get(0).value;
                     date2 = valueData.get(0).date;
@@ -774,7 +774,7 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
                     max3 = valueData.get(2).max;
                     min3 = valueData.get(2).min;
                     initMapViewPager(valueZiCotton, valuePiCotton, valueCotton, date1, date2, date3);
-                }else{
+                } else {
                     beforeWeek.setEnabled(false);
                     nextWeek.setEnabled(false);
                 }
@@ -848,7 +848,7 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
     /*    mRootView.findViewById(R.id.ll_quality).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MainActivity) getActivity()).mViewPager.setCurrentItem(2);
+//                ((MainActivity) getActivity()).mViewPager.setCurrentItem(2);
             }
         });*/
         mRootView.findViewById(R.id.go_store).setOnClickListener(new View.OnClickListener() {
@@ -969,7 +969,7 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
                         valueZiCotton = data.value.get(0).value;
                         date1 = data.value.get(0).date;
                         max1 = data.value.get(0).max;
-                        System.out.println("............"+data.value.get(0).max);
+                        System.out.println("............" + data.value.get(0).max);
                         min1 = data.value.get(0).min;
                         initMapViewPager(valueZiCotton, valuePiCotton, valueCotton, date1, date2, date3);
                         mPagerAdapter.notifyDataSetChanged();
@@ -1161,6 +1161,7 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
 
     private void initResourcesData() {
         Map map = new HashMap();
+        map.put("devieNo", Common.deviceNo);
         HttpManager.getServerApi().cheapProduct(map).enqueue(new CallBack<ResourcesBean>() {
             @Override
             public void success(ResourcesBean data) {
@@ -1232,7 +1233,7 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
 
     private void loadLazyData() {
         Map map = new HashMap();
-        map.put("deviceNo",Common.deviceNo);
+        map.put("deviceNo", Common.deviceNo);
         HttpManager.getServerApi().purchaseDynamics(map).enqueue(new CallBack<PurchaseDynamicsBean>() {
             @Override
             public void success(PurchaseDynamicsBean data) {

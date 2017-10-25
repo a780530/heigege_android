@@ -31,12 +31,11 @@ public class HttpUtilsSign {
             stringBuilder.append(key).append(paramMap.get(key));
         }
         stringBuilder.append(secret);
-       /* SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmm");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHH");
         long lt = new Long(System.currentTimeMillis());
         Date date = new Date(lt);
-        String res = simpleDateFormat.format(date);*/
-        String websiteDatetime = getWebsiteDatetime(webUrl);
-        stringBuilder.append(websiteDatetime);
+        String res = simpleDateFormat.format(date);
+        stringBuilder.append(res);
         String codes = stringBuilder.toString();
         String sign = new String(Hex.encodeHex(DigestUtils.sha(codes))).toUpperCase();
         return sign;

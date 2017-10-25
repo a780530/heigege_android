@@ -1,6 +1,7 @@
 package com.tianfu.cutton.fragment.quality;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 import com.tianfu.cutton.R;
 import com.tianfu.cutton.activity.base.BaseApplication;
+import com.tianfu.cutton.activity.quality.QualityDetailBagActivity;
 import com.tianfu.cutton.model.QualityKunMessageBean;
 import com.tianfu.cutton.net.CallBack;
 import com.tianfu.cutton.net.HttpManager;
@@ -22,6 +24,7 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * 质量批次详情
@@ -49,6 +52,8 @@ public class QualityBatchDetalisMessageFragment extends Fragment {
     TextView tvYxxw;
     @BindView(R.id.cottonYear)
     TextView cottonYear;
+    @BindView(R.id.bt_count_bag)
+    Button btCountBag;
     private View mRootview;
     private Map<String, String> hashMap;
     private String id;
@@ -77,6 +82,7 @@ public class QualityBatchDetalisMessageFragment extends Fragment {
             hashMap.put("code", code);
             hashMap.put("batchType", batchType);
             hashMap.put("isProduct", "0");
+            loadLazyData();
             return mRootview;
         }
     }
@@ -106,7 +112,7 @@ public class QualityBatchDetalisMessageFragment extends Fragment {
         if (!isVisible || !isPrepared) {
             return;
         }
-        loadLazyData();
+//        loadLazyData();
     }
 
     private void loadLazyData() {
@@ -142,7 +148,7 @@ public class QualityBatchDetalisMessageFragment extends Fragment {
                         }
                         if (TextUtils.isEmpty(value.createYear)) {
                             cottonYear.setText("-");
-                        }else{
+                        } else {
                             cottonYear.setText(value.createYear);
                         }
 
@@ -202,5 +208,12 @@ public class QualityBatchDetalisMessageFragment extends Fragment {
 
     public QualityKunMessageBean.ValueBean getData() {
         return value;
+    }
+
+    @OnClick(R.id.bt_count_bag)
+    public void onViewClicked() {
+        Intent intent = new Intent(getActivity(), QualityDetailBagActivity.class);
+        intent.putExtra("code", code);
+        startActivity(intent);
     }
 }

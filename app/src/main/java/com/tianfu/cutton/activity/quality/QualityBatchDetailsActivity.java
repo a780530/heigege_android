@@ -451,7 +451,7 @@ public class QualityBatchDetailsActivity extends BaseActivity {
     }
 
     private void initKefuData() {
-        QualityKunMessageBean.ValueBean data = ((QualityBatchDetalisMessageFragment) fragmentList.get(0)).getData();
+        QualityKunMessageBean.ValueBean data = ((QualityBatchDetalisMessageFragment) fragmentList.get(1)).getData();
         String codeKefu = data.code;
         String bagCountKefu = data.bagCount;
         String batchCountKefu = data.batchCount;

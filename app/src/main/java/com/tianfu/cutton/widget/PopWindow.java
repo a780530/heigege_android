@@ -1,7 +1,9 @@
 package com.tianfu.cutton.widget;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
@@ -99,6 +101,20 @@ public class PopWindow extends PopupWindow {
             this.showAtLocation(parent, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
         } else {
             this.dismiss();
+        }
+    }
+    public  void showAsDropDown(PopupWindow pw, View anchor, int xoff, int yoff) {
+        if (Build.VERSION.SDK_INT >= 24) {
+            int[] location = new int[2];
+            anchor.getLocationOnScreen(location);
+            if (Build.VERSION.SDK_INT == 25) {
+                WindowManager wm = (WindowManager) pw.getContentView().getContext().getSystemService(Context.WINDOW_SERVICE);
+                int screenHeight = wm.getDefaultDisplay().getHeight();
+                pw.setHeight(screenHeight - location[1] - anchor.getHeight() - yoff);
+            }
+            pw.showAtLocation(anchor, Gravity.NO_GRAVITY, xoff, location[1] + anchor.getHeight() + yoff);
+        } else {
+            pw.showAsDropDown(anchor, xoff, yoff);
         }
     }
 

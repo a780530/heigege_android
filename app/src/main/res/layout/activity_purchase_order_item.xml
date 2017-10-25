@@ -5,8 +5,10 @@
     android:orientation="vertical">
 
     <com.zhy.autolayout.AutoLinearLayout
+        android:paddingTop="20px"
+        android:paddingBottom="20px"
         android:layout_width="match_parent"
-        android:layout_height="80px"
+        android:layout_height="wrap_content"
         android:background="@drawable/ll_background_normal"
         android:gravity="center_vertical">
 

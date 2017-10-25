@@ -142,6 +142,7 @@ public class SearchTestbean {
             public String fullFactoryAddress;
             public String isRule;
             public String isCheap;
+            public String stdweightPrice;
         }
     }
 }

@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -20,6 +21,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hyphenate.chat.ChatClient;
@@ -106,6 +108,7 @@ public class StoreBatchActivity extends BaseActivity {
     private HashMap<String, String> map;
     private String desc;
     private String price;
+    Handler handler = new Handler();;
     private PopupWindow popWindowShare;
     private static int dip2px(Context context, float dpValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
@@ -127,6 +130,17 @@ public class StoreBatchActivity extends BaseActivity {
         StoreBatchMapFragment storeBatchMapFragment = new StoreBatchMapFragment();
         fragmentList.add(storeBatchCountFragment);
         fragmentList.add(storeBatchMessageFragment);
+
+        int measuredHeight = llNodata.getMeasuredHeight();
+        final RelativeLayout rl_title = (RelativeLayout) findViewById(R.id.rl_title);
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                int measuredHeight = llNodata.getMeasuredHeight();
+                int measuredHeight1 = rl_title.getMeasuredHeight();
+                SharedPreferencesUtil.saveIntValue(BaseApplication.getContextObject(),"hight",measuredHeight+measuredHeight1);
+            }
+        }, 1000);
         fragmentList.add(storeBatchMapFragment);
         adapter = new InquiryDetailsBundleAdpater(getSupportFragmentManager(), titleList, fragmentList);
         vpMain.setAdapter(adapter);
@@ -192,7 +206,7 @@ public class StoreBatchActivity extends BaseActivity {
     }
 
     private void initKefuData() {
-        StoreKunMessage.ValueBean data = ((StoreBatchMessageFragment) fragmentList.get(0)).getData();
+        StoreKunMessage.ValueBean data = ((StoreBatchMessageFragment) fragmentList.get(1)).getData();
         String codeKefu = data.code;
         String bagCountKefu = data.bagCount;
         String batchCountKefu = data.batchCount;

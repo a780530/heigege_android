@@ -747,14 +747,15 @@ public class StoreFragment extends BaseFragment implements View.OnClickListener,
         View conentView = inflater.inflate(R.layout.popup_store_down, null);
         initPopview(conentView);
         popDistance = new PopWindow(getActivity(), conentView);
-        if (Build.VERSION.SDK_INT < 24) {
+        popDistance.showAsDropDown(popDistance,llDropDown,0,0);
+  /*      if (Build.VERSION.SDK_INT < 24) {
             popDistance.showAsDropDown(llDropDown, 0, 0);
         } else {
             int[] location = new int[2];
             // 获取控件在屏幕的位置
             llDropDown.getLocationOnScreen(location);
             popDistance.showAtLocation(llDropDown, Gravity.NO_GRAVITY, 0, location[1] + llDropDown.getHeight() + 0);
-        }
+        }*/
         popDistance.setOnDismissListener(new PopupWindow.OnDismissListener() {
             @Override
             public void onDismiss() {
@@ -1179,10 +1180,10 @@ public class StoreFragment extends BaseFragment implements View.OnClickListener,
                 iv_price_down.setImageResource(imageDown[++num % imageDown.length]);
                 tv_price.setTextColor(getResources().getColor(R.color.tab_tv_selected));
                 if (count % 2 == 0) {
-                    hashMap.put("orderType", "5");
+                    hashMap.put("orderType", "19");
                     loadLazyData();
                 } else {
-                    hashMap.put("orderType", "6");
+                    hashMap.put("orderType", "18");
                     loadLazyData();
                 }
                 break;

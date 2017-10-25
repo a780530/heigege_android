@@ -52,13 +52,12 @@ public class StoreRecylerAdapter extends BaseQuickAdapter<StoreBean.ValueBean.Ro
             button.setVisibility(View.GONE);
         }
         TextView textView = helper.getView(R.id.tv_store_commany);
-        if (item.price != 0) {
-            helper.setText(R.id.tv_store_money, item.price + "");
+        if (!TextUtils.isEmpty(item.stdweightPrice)) {
+            helper.setText(R.id.tv_store_money, item.stdweightPrice);
             textView.setVisibility(View.VISIBLE);
         } else {
             textView.setVisibility(View.GONE);
             helper.setText(R.id.tv_store_money, "价格面议");
-            tv_store_money.setWidth(80);
         }
 
         TextView tv_store_length = helper.getView(R.id.tv_store_length);
