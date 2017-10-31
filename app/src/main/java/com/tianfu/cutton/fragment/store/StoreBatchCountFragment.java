@@ -339,13 +339,14 @@ public class StoreBatchCountFragment extends BaseFragment {
             return mRootview;
         }
     }
+
     private void saveImage(Bitmap bitmap) {
-        if (Environment.getExternalStorageState().equals( Environment.MEDIA_MOUNTED)) // 判断是否可以对SDcard进行操作
+        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) // 判断是否可以对SDcard进行操作
         {    // 获取SDCard指定目录下
-            String  sdCardDir = Environment.getExternalStorageDirectory()+ "/CoolImage";
-            File dirFile  = new File(sdCardDir);  //目录转化成文件夹
-            if (!dirFile .exists()) {              //如果不存在，那就建立这个文件夹
-                dirFile .mkdirs();
+            String sdCardDir = Environment.getExternalStorageDirectory() + "/CoolImage";
+            File dirFile = new File(sdCardDir);  //目录转化成文件夹
+            if (!dirFile.exists()) {              //如果不存在，那就建立这个文件夹
+                dirFile.mkdirs();
             }                          //文件夹有啦，就可以保存图片啦
             File file = new File(sdCardDir, "cotton.jpg");// 在SDcard的目录下创建图片文,以当前时间为其命名
             if (file.exists()) {
@@ -358,7 +359,7 @@ public class StoreBatchCountFragment extends BaseFragment {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
-            }finally {
+            } finally {
                 if (bos != null) {
                     try {
                         bos.flush();
@@ -493,7 +494,7 @@ public class StoreBatchCountFragment extends BaseFragment {
         }
     };
 
-    public void aaa(LinearLayout scrollView) {
+    public void draw(LinearLayout scrollView) {
         int h = 0;
         for (int i = 0; i < scrollView.getChildCount(); i++) {
             h += scrollView.getChildAt(i).getHeight();
@@ -531,11 +532,17 @@ public class StoreBatchCountFragment extends BaseFragment {
  /*       ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
         byte[] b = baos.toByteArray();
-        bitmap = decodeSampledBitmapFromByte(b, bitmap.getWidth()/8, bitmap.getHeight()/8);*/
-        Bitmap waterBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_common_slogo);
-        watermarkBitmap = ImageUtil.createWaterMaskCenter(bitmap, waterBitmap);
-
+        bitmap = decodeSampledBitmapFrom    Byte(b, bitmap.getWidth()/8, bitmap.getHeight()/8);*/
+            Bitmap waterBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_common_slogo);
+            watermarkBitmap = ImageUtil.createWaterMaskCenter(bitmap, waterBitmap);
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        handler.removeCallbacksAndMessages(null);
+    }
+
     private Bitmap decodeSampledBitmapFromByte(byte[] bytes, int reqWidth, int reqHeight) {
 
         // First decode with inJustDecodeBounds=true to check dimensions
@@ -573,6 +580,7 @@ public class StoreBatchCountFragment extends BaseFragment {
 
         return inSampleSize;
     }
+
     private void initIsOn() {
         Map mapIsOn = new HashMap();
         mapIsOn.put("productIds", productId);
@@ -772,14 +780,14 @@ public class StoreBatchCountFragment extends BaseFragment {
                         StringJudgeUtils.judgeStringText(item.plusBMax + "", mPlusBMax);
                         StringJudgeUtils.judgeStringText(item.plusBMin + "", mPlusBMin);
                         StringJudgeUtils.judgeStringText(item.remark, mRemark);
-                        if ("无".equals(mRemark.getText().toString().trim())){
+                        if ("无".equals(mRemark.getText().toString().trim())) {
                             mRemark.setText("");
                         }
                         StringJudgeUtils.judgeStringText(item.lab, mLab);
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                aaa(ssData);
+                                draw(ssData);
 //                                llCount.setVisibility(View.GONE);
 //                                ll_goCount.setVisibility(View.VISIBLE);
 
@@ -789,7 +797,7 @@ public class StoreBatchCountFragment extends BaseFragment {
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                aaa(ssData);
+                                draw(ssData);
 //                                llCount.setVisibility(View.GONE);
 //                                ll_goCount.setVisibility(View.VISIBLE);
 
@@ -801,7 +809,7 @@ public class StoreBatchCountFragment extends BaseFragment {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            aaa(ssData);
+                            draw(ssData);
 //                            llCount.setVisibility(View.GONE);
 //                            ll_goCount.setVisibility(View.VISIBLE);
 

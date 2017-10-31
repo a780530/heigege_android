@@ -27,7 +27,7 @@ import com.tianfu.cutton.model.BagDetailsMessageBean;
 import com.tianfu.cutton.net.CallBack;
 import com.tianfu.cutton.net.HttpManager;
 import com.tianfu.cutton.utils.SharedPreferencesUtil;
-import com.tianfu.cutton.utils.ToastUtil;
+import com.tianfu.cutton.zxing.ScanNodataActivity;
 import com.tianfu.cutton.zxing.camera.CameraManager;
 import com.tianfu.cutton.zxing.view.ViewfinderView;
 
@@ -194,7 +194,6 @@ public final class CaptureActivity extends Activity implements
         if (fromLiveScan) {
             beepManager.playBeepSoundAndVibrate();
             rawText = rawResult.getText();
-            System.out.println("rawText:------------"+rawText);
             int end = rawText.lastIndexOf("@login");
             if (end == rawText.length() - 6) {
                 goLogin();
@@ -255,8 +254,10 @@ public final class CaptureActivity extends Activity implements
                     startActivity(intent);
                     finish();
                 }else{
-                    onBackPressed();
-                    ToastUtil.show(BaseApplication.getContextObject(),"暂无数据");
+                    Intent intent = new Intent(CaptureActivity.this, ScanNodataActivity.class);
+                    intent.putExtra("rawText", rawText);
+                    startActivity(intent);
+                    finish();
                 }
             }
 

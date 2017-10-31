@@ -120,12 +120,14 @@ public class BaseFragment extends Fragment {
                             }else{
                                 SharedPreferencesUtil.saveStringValue(BaseApplication.getContextObject(),"userLevel","");
                             }
-                            System.out.println("userLevel:"+data.value.userLevel);
                             if (!TextUtils.isEmpty(data.value.companyName)) {
                                 SharedPreferencesUtil.saveStringValue(BaseApplication.getContextObject(),"companyName",data.value.companyName);
                             }
                             if (!TextUtils.isEmpty(data.value.userName)) {
                                 SharedPreferencesUtil.saveStringValue(BaseApplication.getContextObject(),"userName",data.value.userName);
+                            }
+                            if (!TextUtils.isEmpty(data.value.pushOffTime)){
+                                SharedPreferencesUtil.saveStringValue(BaseApplication.getContextObject(),"pushOffTime",data.value.pushOffTime);
                             }
                             SharedPreferencesUtil.saveBooleanValue(BaseApplication.getContextObject(), "isLogin", true);
                         } else {

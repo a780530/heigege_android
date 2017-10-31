@@ -34,6 +34,7 @@ import com.tianfu.cutton.model.QualityCountBean;
 import com.tianfu.cutton.model.QualityKunMessageBean;
 import com.tianfu.cutton.model.ResourcesBean;
 import com.tianfu.cutton.model.SearchTestbean;
+import com.tianfu.cutton.model.SelfOutBean;
 import com.tianfu.cutton.model.SellerBean;
 import com.tianfu.cutton.model.SetPwdBean;
 import com.tianfu.cutton.model.StoreBean;
@@ -455,6 +456,16 @@ public interface ServerApi {
     @FormUrlEncoded
     @POST("/cotton/factory/getAllFactorys.json")
     Call<AllFactoryBean> getAllFactorys(
+            @FieldMap Map<String, String> params
+    );
+    @FormUrlEncoded
+    @POST("/productApp/product/outoExpiringCount.json")
+    Call<SelfOutBean> outoExpiringCount(
+            @FieldMap Map<String, String> params
+    );
+    @FormUrlEncoded
+    @POST("/userApp/customer/pushOff.json")
+    Call<SelfOutBean> pushOff(
             @FieldMap Map<String, String> params
     );
 }

@@ -114,25 +114,24 @@
         android:orientation="horizontal">
 
         <com.zhy.autolayout.AutoLinearLayout
-            android:orientation="vertical"
             android:layout_width="240px"
-            android:gravity="center"
             android:layout_height="100px"
-            android:background="@drawable/ll_background_normal">
+            android:background="@drawable/ll_background_normal"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
-                android:textColor="@color/drop_color"
-                android:drawablePadding="5px"
-                android:drawableLeft="@mipmap/ic_common_length"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="13px"
                 android:layout_toRightOf="@+id/iv_length"
+                android:drawableLeft="@mipmap/ic_common_length"
+                android:drawablePadding="5px"
                 android:text="长度"
+                android:textColor="@color/drop_color"
                 android:textSize="28px" />
 
             <TextView
-                android:textColor="@color/drop_color"
                 android:id="@+id/tv_length"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -141,6 +140,7 @@
                 android:layout_marginTop="2px"
                 android:gravity="center"
                 android:text="27-29"
+                android:textColor="@color/drop_color"
                 android:textSize="30px" />
         </com.zhy.autolayout.AutoLinearLayout>
 
@@ -150,25 +150,25 @@
             android:background="#f4f4f4" />
 
         <com.zhy.autolayout.AutoLinearLayout
-            android:orientation="vertical"
-            android:gravity="center"
             android:layout_width="240px"
             android:layout_height="100px"
-            android:background="@drawable/ll_background_normal">
+            android:background="@drawable/ll_background_normal"
+            android:gravity="center"
+            android:orientation="vertical">
+
             <TextView
-                android:textColor="@color/drop_color"
-                android:drawableLeft="@mipmap/ic_common_elasticity"
-                android:drawablePadding="5px"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4.76px"
                 android:layout_marginTop="13px"
                 android:layout_toRightOf="@+id/iv_elasticity"
+                android:drawableLeft="@mipmap/ic_common_elasticity"
+                android:drawablePadding="5px"
                 android:text="强力"
+                android:textColor="@color/drop_color"
                 android:textSize="28px" />
 
             <TextView
-                android:textColor="@color/drop_color"
                 android:id="@+id/tv_elasticity"
                 android:layout_width="142px"
                 android:layout_height="wrap_content"
@@ -177,6 +177,7 @@
                 android:layout_marginTop="2px"
                 android:gravity="center"
                 android:text="25.6-27.8"
+                android:textColor="@color/drop_color"
                 android:textSize="30px" />
         </com.zhy.autolayout.AutoLinearLayout>
 
@@ -186,25 +187,24 @@
             android:background="#f4f4f4" />
 
         <com.zhy.autolayout.AutoLinearLayout
-            android:orientation="vertical"
-            android:gravity="center"
             android:layout_width="240px"
             android:layout_height="100px"
-            android:background="@drawable/ll_background_normal">
+            android:background="@drawable/ll_background_normal"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
-                android:textColor="@color/drop_color"
-                android:drawablePadding="5px"
-                android:drawableLeft="@mipmap/ic_common_horse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="13px"
                 android:layout_toRightOf="@id/iv_horse"
+                android:drawableLeft="@mipmap/ic_common_horse"
+                android:drawablePadding="5px"
                 android:text="马值"
+                android:textColor="@color/drop_color"
                 android:textSize="28px" />
 
             <TextView
-                android:textColor="@color/drop_color"
                 android:id="@+id/tv_horse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -212,6 +212,7 @@
                 android:layout_marginTop="2px"
                 android:gravity="center"
                 android:text="4.3-5.0"
+                android:textColor="@color/drop_color"
                 android:textSize="30px" />
         </com.zhy.autolayout.AutoLinearLayout>
     </com.zhy.autolayout.AutoLinearLayout>
@@ -230,7 +231,6 @@
             android:src="@mipmap/ic_common_factory" />
 
         <TextView
-            android:textColor="@color/drop_color"
             android:id="@+id/tv_factory"
             android:layout_width="634px"
             android:layout_height="34px"
@@ -241,6 +241,7 @@
             android:ellipsize="end"
             android:singleLine="true"
             android:text="我的的的的的的的的的的的的的的的的的的的的的订单的的的"
+            android:textColor="@color/drop_color"
             android:textSize="26px" />
     </com.zhy.autolayout.AutoLinearLayout>
 
@@ -252,7 +253,6 @@
         android:orientation="horizontal">
 
         <TextView
-            android:textColor="@color/drop_color"
             android:id="@+id/tv_cotton"
             android:layout_width="240px"
             android:layout_height="wrap_content"
@@ -260,11 +260,11 @@
             android:drawablePadding="4px"
             android:paddingLeft="22px"
             android:text="淡点污棉1级"
+            android:textColor="@color/drop_color"
             android:textSize="26px" />
 
 
         <TextView
-            android:textColor="@color/drop_color"
             android:id="@+id/tv_type"
             android:layout_width="240px"
             android:layout_height="wrap_content"
@@ -272,11 +272,11 @@
             android:drawablePadding="4px"
             android:paddingLeft="22px"
             android:text="锯齿细绒棉"
+            android:textColor="@color/drop_color"
             android:textSize="26px" />
 
 
         <TextView
-            android:textColor="@color/drop_color"
             android:id="@+id/tv_origin"
             android:layout_width="240px"
             android:layout_height="wrap_content"
@@ -284,6 +284,7 @@
             android:drawablePadding="4px"
             android:paddingLeft="22px"
             android:text="新疆棉"
+            android:textColor="@color/drop_color"
             android:textSize="26px" />
     </com.zhy.autolayout.AutoLinearLayout>
 
@@ -295,8 +296,8 @@
         android:gravity="center_vertical|right">
 
         <Button
-            style="?android:attr/borderlessButtonStyle"
             android:id="@+id/bt_edit"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="134px"
             android:layout_height="62px"
             android:layout_marginRight="20px"
@@ -306,8 +307,8 @@
             android:textSize="26px" />
 
         <Button
-            style="?android:attr/borderlessButtonStyle"
             android:id="@+id/bt_close"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="134px"
             android:layout_height="62px"
             android:layout_marginRight="20px"
@@ -317,8 +318,8 @@
             android:textSize="26px" />
 
         <Button
-            style="?android:attr/borderlessButtonStyle"
             android:id="@+id/bt_finish"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="134px"
             android:layout_height="62px"
             android:layout_marginRight="22px"

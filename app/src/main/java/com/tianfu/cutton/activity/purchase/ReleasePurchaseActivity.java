@@ -2,6 +2,7 @@ package com.tianfu.cutton.activity.purchase;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -10,9 +11,11 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.tianfu.cutton.R;
 import com.tianfu.cutton.activity.base.BaseActivity;
+import com.tianfu.cutton.activity.base.BaseApplication;
 import com.tianfu.cutton.model.MicronAverage;
 import com.tianfu.cutton.model.SerializableMap;
 import com.tianfu.cutton.utils.ListToListString;
+import com.tianfu.cutton.utils.ToastUtil;
 import com.tianfu.cutton.widget.DoubleSeekBar;
 import com.tianfu.cutton.widget.MultiCheckGroupView;
 import com.zhy.autolayout.AutoRelativeLayout;
@@ -83,11 +86,27 @@ public class ReleasePurchaseActivity extends BaseActivity {
     DoubleSeekBar doubleseekbarLength;
     @BindView(R.id.bt_save_white)
     Button btSaveWhite;
+    @BindView(R.id.iv_black_date)
+    ImageView ivBlackDate;
+    @BindView(R.id.rl_date)
+    AutoRelativeLayout rlDate;
+    @BindView(R.id.date_group)
+    MultiCheckGroupView dateGroup;
+    @BindView(R.id.tv_trash)
+    TextView tvTrash;
+    @BindView(R.id.doubleseekbar_trash)
+    DoubleSeekBar doubleseekbarTrash;
+    @BindView(R.id.tv_moisture)
+    TextView tvMoisture;
+    @BindView(R.id.doubleSeekBar_moisture)
+    DoubleSeekBar doubleSeekBarMoisture;
     private HashMap<String, String> mapAll;
     private Map<String, String> mapKeyword;
     private Map<String, String> mapLocation;
     private Map<String, String> mapType;
     private Map<String, String> mapColor;
+    private Map<String, String> dataMap;
+    private String isLong;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,17 +122,17 @@ public class ReleasePurchaseActivity extends BaseActivity {
             @Override
             public void onDoubleValueChange(float lowValue, float highValue) {
                 tvHouse.setText(lowValue + "-" + highValue);
-                if ((lowValue+"").equals("3.5")&&(highValue+"").equals("3.6")){
+                if ((lowValue + "").equals("3.5") && (highValue + "").equals("3.6")) {
                     btB1.setBackgroundResource(R.drawable.btn_bottom_background_left_press);
                     btB1.setTextColor(getResources().getColor(R.color.white));
-                }else if ((lowValue+"").equals("3.7")&&(highValue+"").equals("4.2")){
+                } else if ((lowValue + "").equals("3.7") && (highValue + "").equals("4.2")) {
                     btA.setBackgroundResource(R.drawable.btn_bottom_background_left_press);
                     btA.setTextColor(getResources().getColor(R.color.white));
-                }else if ((lowValue+"").equals("4.3")&&(highValue+"").equals("4.9")){
+                } else if ((lowValue + "").equals("4.3") && (highValue + "").equals("4.9")) {
                     btB2.setBackgroundResource(R.drawable.btn_bottom_background_left_press);
                     btB2.setTextColor(getResources().getColor(R.color.white));
-                }else if (lowValue == highValue) {
-                    if ((highValue+"").equals("3.4")) {
+                } else if (lowValue == highValue) {
+                    if ((highValue + "").equals("3.4")) {
                         btC1.setBackgroundResource(R.drawable.btn_bottom_background_left_press);
                         btC1.setTextColor(getResources().getColor(R.color.white));
                         tvHouse.setText("3.4及以下");
@@ -122,7 +141,7 @@ public class ReleasePurchaseActivity extends BaseActivity {
                         btC2.setBackgroundResource(R.drawable.btn_bottom_background_left_press);
                         btC2.setTextColor(getResources().getColor(R.color.white));
                     }
-                }else {
+                } else {
                     btC1.setBackgroundResource(R.drawable.btn_bottom_background_right_press);
                     btC2.setBackgroundResource(R.drawable.btn_bottom_background_right_press);
                     btA.setBackgroundResource(R.drawable.btn_bottom_background_right_press);
@@ -151,47 +170,56 @@ public class ReleasePurchaseActivity extends BaseActivity {
             }
         });
 
+
         doubleseekbarLength.setOnDoubleValueChangeListener(new DoubleSeekBar.DoubleSeekBarValueChangeListener() {
             @Override
             public void onDoubleValueChange(float lowValue, float highValue) {
                 tvLength.setText((int) lowValue + "-" + (int) highValue);
                 if ((int) lowValue == (int) highValue) {
                     if ((int) lowValue == 25) {
-                        tvLength.setText("25以下");
+                        tvLength.setText("25及以下");
                     } else if ((int) lowValue == 32) {
-                        tvLength.setText("32以上");
+                        tvLength.setText("32及以上");
+                    }
+                }
+                if (!TextUtils.isEmpty(isLong) && isLong.equals("长绒棉")) {
+                    if ((int) lowValue == (int) highValue) {
+                        if ((int) lowValue == 33) {
+                            tvLength.setText("33及以下");
+                        } else if ((int) lowValue == 39) {
+                            tvLength.setText("39及以上");
+                        }
                     }
                 }
             }
         });
 
-
-        mapKeyword = new TreeMap<>();
-        mapKeyword.put("0", "双28");
-        mapKeyword.put("1", "双29");
-        mapKeyword.put("2", "超低价");
-        mapKeyword.put("3", "3128B");
-        mapKeyword.put("4", "兵团棉");
-        mapKeyword.put("5", "无三丝");
-        mapKeyword.put("6", "手摘棉");
-        mapKeyword.put("7", "机采棉");
-        keywordGroup.addValues(mapKeyword);
-
-        mapLocation = new TreeMap<>();
-        mapLocation.put("0", "南疆");
-        mapLocation.put("1", "北疆");
-        mapLocation.put("2", "东疆");
-        mapLocation.put("3", "地产棉");
-        mapLocation.put("4", "进口棉");
-        locationGroup.addValues(mapLocation);
-
-        mapType = new TreeMap<>();
-        mapType.put("0", "锯齿细绒棉");
-        mapType.put("1", "锯齿机采棉");
-        mapType.put("2", "皮辊细绒棉");
-//        mapType.put("3", "长绒棉");
-        originGroup.addValues(mapType);
-
+        doubleseekbarTrash.setOnDoubleValueChangeListener(new DoubleSeekBar.DoubleSeekBarValueChangeListener() {
+            @Override
+            public void onDoubleValueChange(float lowValue, float highValue) {
+                tvTrash.setText((int) lowValue + "-" + (int) highValue);
+                if ((int) lowValue == (int) highValue) {
+                    if ((int) lowValue == 0) {
+                        tvTrash.setText("0以下");
+                    } else if ((int) lowValue == 5) {
+                        tvTrash.setText("5以上");
+                    }
+                }
+            }
+        });
+        doubleSeekBarMoisture.setOnDoubleValueChangeListener(new DoubleSeekBar.DoubleSeekBarValueChangeListener() {
+            @Override
+            public void onDoubleValueChange(float lowValue, float highValue) {
+                tvMoisture.setText((int) lowValue + "-" + (int) highValue);
+                if ((int) lowValue == (int) highValue) {
+                    if ((int) lowValue == 0) {
+                        tvMoisture.setText("0以下");
+                    } else if ((int) lowValue == 10) {
+                        tvMoisture.setText("10以上");
+                    }
+                }
+            }
+        });
         mapColor = new TreeMap<>();
         mapColor.put("0", "白棉1级");
         mapColor.put("1", "白棉2级");
@@ -207,6 +235,99 @@ public class ReleasePurchaseActivity extends BaseActivity {
         mapColor.put("91", "黄染棉1级");
         mapColor.put("92", "黄染棉2级");
         colorGroup.addValues(mapColor);
+        mapKeyword = new TreeMap<>();
+        mapKeyword.put("0", "手摘棉");
+        mapKeyword.put("1", "机采棉");
+        mapKeyword.put("2", "皮辊棉");
+        mapKeyword.put("3", "长绒棉");
+        keywordGroup.setMultiCheck(false);
+        keywordGroup.setOnItemClickListener(new MultiCheckGroupView.OnItemClickListener() {
+            @Override
+            public void itemClick(View view, String value) {
+                isLong = value;
+                int id = view.getId();
+                System.out.println("id:"+id);
+                doubleseekbarLength.setLowHighValue(25, 32, 25, 32);
+                doubleseekbarLength.setValues(25, 32);
+                tvLength.setText("25-32");
+                if (value.equals("手采棉") || value.equals("机采棉")) {
+                    mapColor.put("0", "白棉1级");
+                    mapColor.put("1", "白棉2级");
+                    mapColor.put("2", "白棉3级");
+                    mapColor.put("3", "白棉4级");
+                    mapColor.put("4", "白棉5级");
+                    mapColor.put("5", "淡点污棉1级");
+                    mapColor.put("6", "淡点污棉2级");
+                    mapColor.put("7", "淡点污棉3级");
+                    mapColor.put("8", "淡黄染棉1级");
+                    mapColor.put("9", "淡黄染棉2级");
+                    mapColor.put("90", "淡黄染棉3级");
+                    mapColor.put("91", "黄染棉1级");
+                    mapColor.put("92", "黄染棉2级");
+                    colorGroup.addValues(mapColor);
+                } else {
+                    mapColor.clear();
+                    mapColor.put("0", "1级");
+                    mapColor.put("1", "2级");
+                    mapColor.put("2", "3级");
+                    mapColor.put("3", "4级");
+                    mapColor.put("4", "5级");
+                    mapColor.put("5", "6级");
+                    mapColor.put("6", "7级");
+                    colorGroup.addValues(mapColor);
+                    if (value.equals("长绒棉")) {
+                        mapColor.clear();
+                        mapColor.put("0", "1级");
+                        mapColor.put("1", "2级");
+                        mapColor.put("2", "3级");
+                        mapColor.put("3", "4级");
+                        mapColor.put("4", "5级");
+                        colorGroup.addValues(mapColor);
+                        doubleseekbarLength.setLowHighValue(33, 39, 33, 39);
+                        doubleseekbarLength.setValues(33, 39);
+                        tvLength.setText("33-39");
+                    }
+                    if (keywordGroup.getSelectedList().size() < 1) {
+                        doubleseekbarLength.setLowHighValue(25, 32, 25, 32);
+                        doubleseekbarLength.setValues(25, 32);
+                        tvLength.setText("25-32");
+                        mapColor.put("0", "白棉1级");
+                        mapColor.put("1", "白棉2级");
+                        mapColor.put("2", "白棉3级");
+                        mapColor.put("3", "白棉4级");
+                        mapColor.put("4", "白棉5级");
+                        mapColor.put("5", "淡点污棉1级");
+                        mapColor.put("6", "淡点污棉2级");
+                        mapColor.put("7", "淡点污棉3级");
+                        mapColor.put("8", "淡黄染棉1级");
+                        mapColor.put("9", "淡黄染棉2级");
+                        mapColor.put("90", "淡黄染棉3级");
+                        mapColor.put("91", "黄染棉1级");
+                        mapColor.put("92", "黄染棉2级");
+                        colorGroup.addValues(mapColor);
+                    }
+                }
+            }
+        });
+        keywordGroup.addValues(mapKeyword);
+
+        dataMap = new TreeMap<>();
+        dataMap.put("0", "2017");
+        dataMap.put("1", "2016");
+        dateGroup.addValues(dataMap);
+
+        mapLocation = new TreeMap<>();
+        mapLocation.put("2", "新疆棉");
+        mapLocation.put("3", "地产棉");
+        mapLocation.put("4", "进口棉");
+        locationGroup.addValues(mapLocation);
+
+        mapType = new TreeMap<>();
+        mapType.put("0", "锯齿细绒棉");
+        mapType.put("1", "锯齿机采棉");
+        mapType.put("2", "皮辊细绒棉");
+        originGroup.addValues(mapType);
+
     }
 
     @OnClick({R.id.tv_dismiss, R.id.rl_keyword, R.id.rl_location, R.id.rl_origin, R.id.rl_color, bt_c1, bt_c2, R.id.bt_B1, R.id.bt_A, R.id.bt_B2, R.id.bt_save_white})
@@ -254,7 +375,7 @@ public class ReleasePurchaseActivity extends BaseActivity {
             case R.id.bt_c1:
                 tvHouse.setText("3.4及以下");
 //                doubleseekbarHouse.setValues(3.4f, 3.4f);
-                doubleseekbarHouse.setValues(34,34);
+                doubleseekbarHouse.setValues(34, 34);
                 btC1.setBackgroundResource(R.drawable.btn_bottom_background_left_press);
                 btC2.setBackgroundResource(R.drawable.btn_bottom_background_right_press);
                 btA.setBackgroundResource(R.drawable.btn_bottom_background_right_press);
@@ -328,7 +449,13 @@ public class ReleasePurchaseActivity extends BaseActivity {
                 btB2.setBackgroundResource(R.drawable.btn_bottom_background_left_press);
                 break;
             case R.id.bt_save_white:
+                List<String> selectedDate = dateGroup.getSelectedList();
+                List<String> dateValue = new ArrayList<>();
                 List<String> keywordList = keywordGroup.getSelectedList();
+                if (keywordList.size()==0){
+                    ToastUtil.show(BaseApplication.getContextObject(),"请选择品类");
+                    return;
+                }
                 List<String> keyValue = new ArrayList<>();
                 List<String> colordList = colorGroup.getSelectedList();
                 List<String> colorValue = new ArrayList<>();
@@ -336,6 +463,15 @@ public class ReleasePurchaseActivity extends BaseActivity {
                 List<String> originValue = new ArrayList<>();
                 List<String> locationList = locationGroup.getSelectedList();
                 List<String> locationValue = new ArrayList<>();
+                if (selectedDate.size() < 1) {
+                    mapAll.put("createYear", "");
+                } else {
+                    for (String temp : selectedDate) {
+                        String s = dataMap.get(temp);
+                        dateValue.add(s);
+                    }
+                    mapAll.put("createYear", ListToListString.getString(dateValue));
+                }
                 if (keywordList.size() < 1) {
                     mapAll.put("keyword", "");
                 } else {
@@ -389,6 +525,8 @@ public class ReleasePurchaseActivity extends BaseActivity {
                         } else if (s.equals("黄染棉2级")) {
                             s = "yellow2";
                             colorValue.add(s);
+                        } else {
+                            colorValue.add(s);
                         }
                     }
                     mapAll.put("colorGrade", ListToListString.getString(colorValue));
@@ -401,6 +539,7 @@ public class ReleasePurchaseActivity extends BaseActivity {
                         originValue.add(s);
                     }
                     mapAll.put("type", ListToListString.getString(originValue));
+                    System.out.println("----------------" + ListToListString.getString(originValue));
                 }
                 if (locationList.size() < 1) {
                     mapAll.put("origin", "");
@@ -448,28 +587,21 @@ public class ReleasePurchaseActivity extends BaseActivity {
                     mapAll.put("micronAverage", jsonString);
                     mapAll.put("micronGrade", "");
                 }
-
-
-//                String strLength = tvLength.getText().toString();
-//                String[] split1 = strLength.split("-");
-//                MicronAverage micronAverage1 = new MicronAverage(split1[0].toString(), split1[1].toString());
-//                String jsonString1 = gson.toJson(micronAverage1);
-//                mapAll.put("lengthAverage", jsonString1);
-//
-//
-//                String strElasticity = tvElasticity.getText().toString();
-//                String[] split2 = strElasticity.split("-");
-//                MicronAverage micronAverage2 = new MicronAverage(split2[0].toString(), split2[1].toString());
-//                String jsonString2 = gson.toJson(micronAverage2);
-//                mapAll.put("breakLoadAverage", jsonString2);
-
                 String strLength = tvLength.getText().toString();
-                if (strLength.equals("25以下")) {
+                if (strLength.equals("25及以下")) {
                     MicronAverage micronAverage2 = new MicronAverage("25", "25");
                     String jsonString2 = gson.toJson(micronAverage2);
                     mapAll.put("lengthAverage", jsonString2);
-                } else if (strLength.equals("32以上")) {
+                } else if (strLength.equals("32及以上")) {
                     MicronAverage micronAverage2 = new MicronAverage("32", "32");
+                    String jsonString2 = gson.toJson(micronAverage2);
+                    mapAll.put("lengthAverage", jsonString2);
+                } else if (strLength.equals("39及以上")) {
+                    MicronAverage micronAverage2 = new MicronAverage("39", "39");
+                    String jsonString2 = gson.toJson(micronAverage2);
+                    mapAll.put("lengthAverage", jsonString2);
+                } else if (strLength.equals("33及以下")) {
+                    MicronAverage micronAverage2 = new MicronAverage("33", "33");
                     String jsonString2 = gson.toJson(micronAverage2);
                     mapAll.put("lengthAverage", jsonString2);
                 } else {
@@ -478,7 +610,6 @@ public class ReleasePurchaseActivity extends BaseActivity {
                     String jsonString2 = gson.toJson(micronAverage2);
                     mapAll.put("lengthAverage", jsonString2);
                 }
-
 
                 String strElasticity = tvElasticity.getText().toString();
                 if (strElasticity.equals("24及以下")) {
@@ -494,6 +625,36 @@ public class ReleasePurchaseActivity extends BaseActivity {
                     MicronAverage micronAverage3 = new MicronAverage(split3[0].toString(), split3[1].toString());
                     String jsonString3 = gson.toJson(micronAverage3);
                     mapAll.put("breakLoadAverage", jsonString3);
+                }
+                String strTrash = tvTrash.getText().toString();
+                if (strTrash.equals("0及以下")) {
+                    MicronAverage micronAverage3 = new MicronAverage("0", "0");
+                    String jsonString3 = gson.toJson(micronAverage3);
+                    mapAll.put("trash", jsonString3);
+                } else if (strTrash.equals("5及以上")) {
+                    MicronAverage micronAverage3 = new MicronAverage("5", "5");
+                    String jsonString3 = gson.toJson(micronAverage3);
+                    mapAll.put("trash", jsonString3);
+                } else {
+                    String[] split4 = strTrash.split("-");
+                    MicronAverage micronAverage3 = new MicronAverage(split4[0].toString(), split4[1].toString());
+                    String jsonString3 = gson.toJson(micronAverage3);
+                    mapAll.put("trash", jsonString3);
+                }
+                String strMoisture = tvMoisture.getText().toString();
+                if (strMoisture.equals("0及以下")) {
+                    MicronAverage micronAverage3 = new MicronAverage("0", "0");
+                    String jsonString3 = gson.toJson(micronAverage3);
+                    mapAll.put("moisture", jsonString3);
+                } else if (strMoisture.equals("10及以上")) {
+                    MicronAverage micronAverage3 = new MicronAverage("10", "10");
+                    String jsonString3 = gson.toJson(micronAverage3);
+                    mapAll.put("moisture", jsonString3);
+                } else {
+                    String[] split5 = strMoisture.split("-");
+                    MicronAverage micronAverage3 = new MicronAverage(split5[0].toString(), split5[1].toString());
+                    String jsonString3 = gson.toJson(micronAverage3);
+                    mapAll.put("moisture", jsonString3);
                 }
                 Intent intent = new Intent(ReleasePurchaseActivity.this, FillInTheBasicInformationActivity.class);
                 final SerializableMap myMap = new SerializableMap();
@@ -513,5 +674,16 @@ public class ReleasePurchaseActivity extends BaseActivity {
         originGroup.clearFixed();
         locationGroup.clearFixed();
         colorGroup.clearFixed();
+    }
+
+    @OnClick(R.id.rl_date)
+    public void onViewClicked() {
+        if (dateGroup.isShowMyLayout()) {
+            dateGroup.hideMyLayout();
+            ivBlackDate.setImageResource(R.mipmap.ic_sort_up);
+        } else {
+            ivBlackDate.setImageResource(R.mipmap.ic_sort_down);
+            dateGroup.showMyLayout();
+        }
     }
 }

@@ -221,6 +221,7 @@
             android:orientation="vertical">
 
             <in.srain.cube.views.ptr.PtrClassicFrameLayout
+                android:background="#f4f4f4"
                 android:id="@+id/ptr_purchase_frame"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">

@@ -121,7 +121,6 @@ public class BaseActivity extends AppCompatActivity {
         Map<String, String> map = new HashMap();
         map.put("deviceNo", Common.deviceNo);
         map.put("from", Common.from);
-        System.out.println("nihao tutututututu");
         map.put("version", Common.versionNo);
         HttpManager.getServerApi().isLogin(map).enqueue(new CallBack<IsLogin>() {
             @Override
@@ -138,6 +137,9 @@ public class BaseActivity extends AppCompatActivity {
                         }
                         if (!TextUtils.isEmpty(data.value.userName)) {
                             SharedPreferencesUtil.saveStringValue(BaseApplication.getContextObject(),"userName",data.value.userName);
+                        }
+                        if (!TextUtils.isEmpty(data.value.pushOffTime)){
+                            SharedPreferencesUtil.saveStringValue(BaseApplication.getContextObject(),"pushOffTime",data.value.pushOffTime);
                         }
                         SharedPreferencesUtil.saveBooleanValue(BaseApplication.getContextObject(), "isLogin", true);
                     } else {

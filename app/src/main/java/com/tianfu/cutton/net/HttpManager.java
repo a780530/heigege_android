@@ -19,8 +19,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HttpManager {
 //    public static String ServerUrl = "http://test.efuren.com/";//测试
-//            public static String ServerUrl = "http://yf.xjmcotton.com/";//预发
-    public static String ServerUrl = "http://www.xjce.org/";//线上
+            public static String ServerUrl = "http://yf.xjmcotton.com/";//预发
+//    public static String ServerUrl = "http://www.xjce.org/";//线上
     private static OkHttpClient mClient;
     private static ServerApi mServerApi;
     private static Retrofit retrofit;
@@ -45,6 +45,7 @@ public class HttpManager {
                         if (request.body() instanceof FormBody) {
                             for (int i = 0; i < ((FormBody) request.body()).size(); i++) {
                                 hashMap.put((((FormBody) request.body()).encodedName(i)),((FormBody) request.body()).value(i));
+                                System.out.println((((FormBody) request.body()).encodedName(i))+"---"+((FormBody) request.body()).value(i));
                             }
                         }
                         HttpUtilsSign httpUtilsSign = new HttpUtilsSign();

@@ -7,12 +7,12 @@ import java.util.List;
  * Created by admin on 2017/7/11.
  */
 
-public class PurchaseOrderBySelfBean implements Serializable{
+public class PurchaseOrderBySelfBean implements Serializable {
     public boolean success;
     public Object msg;
     public ValueBean value;
 
-    public static class ValueBean implements Serializable{
+    public static class ValueBean implements Serializable {
 
         public int total;
         public int totalPage;
@@ -20,7 +20,7 @@ public class PurchaseOrderBySelfBean implements Serializable{
         public int pageSize;
         public List<RowsBean> rows;
 
-        public static class RowsBean implements Serializable{
+        public static class RowsBean implements Serializable {
 
             public String id;
             public String createTime;
@@ -63,8 +63,9 @@ public class PurchaseOrderBySelfBean implements Serializable{
             public List<String> colorGrade2;
             public List<String> origin2;
             public List<String> type2;
+            public List<String> createYear;
 
-            public static class MicronAverageBean implements Serializable{
+            public static class MicronAverageBean implements Serializable {
                 /**
                  * min : 1.2
                  * max : 2.3
@@ -74,7 +75,7 @@ public class PurchaseOrderBySelfBean implements Serializable{
                 public double max;
             }
 
-            public static class BreakLoadAverageBean implements Serializable{
+            public static class BreakLoadAverageBean implements Serializable {
                 /**
                  * min : 1
                  * max : 2
@@ -84,7 +85,7 @@ public class PurchaseOrderBySelfBean implements Serializable{
                 public int max;
             }
 
-            public static class LengthAverageBean implements Serializable{
+            public static class LengthAverageBean implements Serializable {
                 /**
                  * min : 3
                  * max : 5

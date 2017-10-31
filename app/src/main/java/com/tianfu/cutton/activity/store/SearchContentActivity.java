@@ -270,6 +270,7 @@ public class SearchContentActivity extends BaseActivity {
         Intent intent = getIntent();
         type = intent.getStringExtra("type");
         value = intent.getStringExtra("value");
+        String contact = intent.getStringExtra("contact");
         keywords1 = intent.getStringExtra("keywords");
         if (value != null) {
             tvSearch.setText(value);
@@ -279,6 +280,9 @@ public class SearchContentActivity extends BaseActivity {
         hashMap = new HashMap<>();
         if (keywords1 != null) {
             hashMap.put("keywords", keywords1);
+        }
+        if (contact != null) {
+            hashMap.put("contact", contact);
         }
         hashMap.put("deviceNo", Common.deviceNo);
         hashMap.put("from", Common.from);
@@ -299,7 +303,6 @@ public class SearchContentActivity extends BaseActivity {
 
             @Override
             public void onRefreshBegin(PtrFrameLayout frame) {
-
                 pageNo = 1;
                 initData();
             }
@@ -315,7 +318,7 @@ public class SearchContentActivity extends BaseActivity {
             hashMap.put("keywordType", type);
         }
         hashMap.put("pageNum", pageNo + "");
-        System.out.println("pageNo:=========" + pageNo);
+        showProgressBar("");
         HttpManager.getServerApi().getSearch(hashMap).enqueue(new CallBack<SearchTestbean>() {
             @Override
             public void success(SearchTestbean data) {
@@ -333,10 +336,13 @@ public class SearchContentActivity extends BaseActivity {
                         }
                         initRecyclerView();
                     } else {
-                        llData.setVisibility(View.GONE);
-                        nodataSearch.setVisibility(View.VISIBLE);
+                        if (pageNo==1){
+                            llData.setVisibility(View.GONE);
+                            nodataSearch.setVisibility(View.VISIBLE);
+                        }
                     }
                 }
+                dismissProgressBar();
             }
 
             @Override
@@ -593,6 +599,7 @@ public class SearchContentActivity extends BaseActivity {
         mapKeyword.put("2", "皮辊棉");
         mapKeyword.put("3", "长绒棉");
         keywordGroup.addValues(mapKeyword);
+        keywordGroup.setMultiCheck(false);
 
 
         mapType = new TreeMap<>();
@@ -618,12 +625,15 @@ public class SearchContentActivity extends BaseActivity {
         colorGroup.addValues(mapColor);
         mapDate = new TreeMap<>();
         mapDate.put("0", "2017");
+        mapDate.put("1", "2016");
         dateGroup.addValues(mapDate);
+        dateGroup.setMultiCheck(false);
         mapLocation = new TreeMap<>();
         mapLocation.put("0", "新疆棉");
         mapLocation.put("3", "地产棉");
         mapLocation.put("4", "进口棉");
         originGroup.addValues(mapLocation);
+        originGroup.setMultiCheck(false);
     }
 
     private void initProdata() {
@@ -699,6 +709,7 @@ public class SearchContentActivity extends BaseActivity {
                 }
                 break;
             case R.id.ll_price:
+                pageNo=1;
                 stsPriceDown.setImageResource(R.mipmap.ic_common_downblack);
                 stsPriceUp.setImageResource(R.mipmap.ic_common_upblack);
                 tvStoreType.setTextColor(getResources().getColor(R.color.drop_color));
@@ -938,7 +949,8 @@ public class SearchContentActivity extends BaseActivity {
                 } else {
                     for (String temp : selectedcolor) {
                         String s = mapColor.get(temp);
-                        if (s.equals("白棉1级")) {
+                        colorValue.add(s);
+           /*             if (s.equals("白棉1级")) {
                             s = "white1";
                             colorValue.add(s);
                         } else if (s.equals("白棉2级")) {
@@ -977,7 +989,7 @@ public class SearchContentActivity extends BaseActivity {
                         } else if (s.equals("黄染棉2级")) {
                             s = "yellow2";
                             colorValue.add(s);
-                        }
+                        }*/
                     }
                     hashMap.put("colorGradeName", ListToListString.getString(colorValue));
                 }
@@ -1047,7 +1059,7 @@ public class SearchContentActivity extends BaseActivity {
                     hashMap.put("lengthAverage", "[" + "32" + "," + "32" + "]");
                 } else {
                     String[] split = length.split("-");
-                    hashMap.put("lengthAverage", "[" + split[0] + "," + "32" + split[1]);
+                    hashMap.put("lengthAverage", "[" + split[0] + "," + split[1]+"]");
                 }
      /*           hashMap.put("breakLoadAverage", "[" + strong[0] + "," + strong[1] + "]");
                 hashMap.put("lengthAverage", "[" + length[0] + "," + length[1] + "]");*/
@@ -1332,8 +1344,10 @@ public class SearchContentActivity extends BaseActivity {
         ll_zhineng.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pageNo = 1;
                 sortType = 1;
                /* typeType = 0;
+
                 ivStoreType.setImageResource(R.mipmap.ic_common_downblack);
                 tvStoreType.setText("关键字");
                 tvStoreType.setTextColor(getResources().getColor(R.color.drop_color));*/

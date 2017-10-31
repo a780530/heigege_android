@@ -12,6 +12,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -23,11 +25,15 @@ import com.tianfu.cutton.activity.mine.MyCommodityKunActivity;
 import com.tianfu.cutton.adapter.MycommodityRecylerAdapter;
 import com.tianfu.cutton.common.Common;
 import com.tianfu.cutton.model.MyStoreBean;
+import com.tianfu.cutton.model.SelfOutBean;
 import com.tianfu.cutton.net.CallBack;
 import com.tianfu.cutton.net.HttpManager;
 import com.tianfu.cutton.utils.SharedPreferencesUtil;
 import com.tianfu.cutton.utils.ToastUtil;
+import com.zhy.autolayout.AutoRelativeLayout;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -54,6 +60,12 @@ public class MycommodityFragment extends BaseFragment {
     private HashMap<String, String> outMap;
     private HashMap<String, String> depleteMap;
     private int pageNo = 1;
+    private TextView tvSelfOut;
+    private AutoRelativeLayout commodityLayout;
+    private String[] splitOffTime;
+    private String[] splitNowTime;
+    private Boolean isTrueSave;
+    private String pushOffTime;
 
     public static MycommodityFragment newInstance(int type) {
         MycommodityFragment mFragment = new MycommodityFragment();
@@ -70,15 +82,122 @@ public class MycommodityFragment extends BaseFragment {
             return view;
         } else {
             view = inflater.inflate(R.layout.fragment_mycommodity, container, false);
+            pushOffTime = SharedPreferencesUtil.getStringValue(getActivity(),"pushOffTime");
+            isTrueSave = SharedPreferencesUtil.getBooleanValue(BaseApplication.getContextObject(), "isTrueSave");
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            long lt = new Long(System.currentTimeMillis());
+            Date date = new Date(lt);
+            String res = simpleDateFormat.format(date);
+            splitNowTime = res.split(" ");
             initView();
             return view;
         }
     }
-
+private boolean isTrue = false;
     private void initView() {
+        tvSelfOut = (TextView) view.findViewById(R.id.tv_selfOut);
+        final ImageView ivTrue = (ImageView) view.findViewById(R.id.ivTrue);
+        LinearLayout commodityTrue = (LinearLayout) view.findViewById(R.id.commodityTrue);
+        commodityTrue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!isTrue){
+                    isTrue = true;
+                    ivTrue.setImageResource(R.mipmap.ic_commodity_truewhite);
+                }else{
+                    isTrue = false;
+                    ivTrue.setImageResource(R.mipmap.ic_commodity_true);
+                }
+                SharedPreferencesUtil.saveBooleanValue(BaseApplication.getContextObject(),"isTrueSave",isTrue);
+            }
+        });
+        final Map map = new HashMap();
+        map.put("deviceNo",Common.deviceNo);
+        map.put("version",Common.versionNo);
+        map.put("from",Common.from);
+
+        commodityLayout = (AutoRelativeLayout) view.findViewById(R.id.commodityLayout);
+        LinearLayout commodityClose = (LinearLayout) view.findViewById(R.id.commodityClose);
+        commodityClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //关闭提醒
+                commodityLayout.setVisibility(View.GONE);
+                HttpManager.getServerApi().pushOff(map).enqueue(new CallBack<SelfOutBean>() {
+                    @Override
+                    public void success(SelfOutBean data) {
+                        if (data != null) {
+                            if (data.success){
+                                if (data.value!=null){
+
+                                }
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void failure(ErrorType type, int httpCode) {
+
+                    }
+                });
+            }
+        });
         mPtrrame = (PtrClassicFrameLayout) view.findViewById(R.id.ptr_purchase_frame);
         recyclerCommodity = (RecyclerView) view.findViewById(R.id.recyclerCommodity);
+        initSelfData();
         initPtr();
+    }
+
+    private void initSelfData() {
+        Map map  = new HashMap();
+        map.put("deviceNo",Common.deviceNo);
+        map.put("version",Common.versionNo);
+        map.put("from",Common.from);
+        HttpManager.getServerApi().outoExpiringCount(map).enqueue(new CallBack<SelfOutBean>() {
+            @Override
+            public void success(SelfOutBean data) {
+                if (data != null) {
+                    if (data.success){
+                        if (data.value!=null){
+                            if (pushOffTime!=null){
+                                splitOffTime = pushOffTime.split(" ");
+                                if (splitOffTime[0].equals(splitNowTime[0])){
+                                    if (!isTrueSave){
+                                        if (Float.parseFloat(data.value)>0){
+                                            tvSelfOut.setText("今天有"+data.value+"批商品自动下架");
+                                        }else{
+                                            commodityLayout.setVisibility(View.GONE);
+                                        }
+                                    }else{
+                                        commodityLayout.setVisibility(View.GONE);
+                                    }
+                                }else{
+                                    if (Float.parseFloat(data.value)>0){
+                                        tvSelfOut.setText("今天有"+data.value+"批商品自动下架");
+                                    }else{
+                                        commodityLayout.setVisibility(View.GONE);
+                                    }
+                                }
+                            }else{
+                                    if (Float.parseFloat(data.value)>0){
+                                        tvSelfOut.setText("今天有"+data.value+"批商品自动下架");
+                                    }else{
+                                        commodityLayout.setVisibility(View.GONE);
+                                    }
+                            }
+
+
+                         /*   */
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void failure(ErrorType type, int httpCode) {
+
+            }
+        });
     }
 
     private void initPtr() {

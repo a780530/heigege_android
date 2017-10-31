@@ -73,9 +73,9 @@ public class BagDetailsActivity extends AppCompatActivity {
     AutoLinearLayout llCall;
     private InquiryDetailsBundleAdpater adapter;
     private ArrayList<String> titleList = new ArrayList<String>() {{
+        add("包信息");
         add("汇总表");
         add("信息");
-        add("包信息");
     }};
     private String eMUserName;
     private String eMPassword;
@@ -90,9 +90,9 @@ public class BagDetailsActivity extends AppCompatActivity {
         return (int) (dpValue * scale + 0.5f);
     }
     private ArrayList<Fragment> fragmentList = new ArrayList<Fragment>() {{
+        add(new BagMessageFragment());
         add(new StoreBatchCountFragment());
         add(new QualityBatchDetalisMessageFragment());
-        add(new BagMessageFragment());
     }};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -354,7 +354,7 @@ public class BagDetailsActivity extends AppCompatActivity {
     }
 
     private void initKefuData() {
-        QualityKunMessageBean.ValueBean data = ((QualityBatchDetalisMessageFragment) fragmentList.get(1)).getData();
+        QualityKunMessageBean.ValueBean data = ((QualityBatchDetalisMessageFragment) fragmentList.get(2)).getData();
         String codeKefu = data.code;
         String bagCountKefu = data.bagCount;
         String batchCountKefu = data.batchCount;

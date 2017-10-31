@@ -3,6 +3,7 @@ package com.tianfu.cutton.activity.purchase;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -26,7 +27,9 @@ import com.tianfu.cutton.activity.login.LoginActivity;
 import com.tianfu.cutton.adapter.PurchaseOrderdetailsRecylerAdapter;
 import com.tianfu.cutton.common.Common;
 import com.tianfu.cutton.model.ListPurchaseOrder;
+import com.tianfu.cutton.model.PurchaseDynamicsBean;
 import com.tianfu.cutton.model.PurchaseOrder;
+import com.tianfu.cutton.model.PurchaseorderbySelfDetailsBean;
 import com.tianfu.cutton.net.CallBack;
 import com.tianfu.cutton.net.HttpManager;
 import com.tianfu.cutton.utils.CharacterFormatUtil;
@@ -36,10 +39,12 @@ import com.zhy.autolayout.AutoRelativeLayout;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
 
 public class PurchaseDetailsActivity extends BaseActivity {
 
@@ -83,12 +88,22 @@ public class PurchaseDetailsActivity extends BaseActivity {
     TextView remark;
     @BindView(R.id.tv_purchase_count)
     TextView tvPurchaseCount;
+    @BindView(R.id.trash)
+    TextView trash;
+    @BindView(R.id.mMoisture)
+    TextView mMoisture;
+    @BindView(R.id.mSettlementMethod)
+    TextView mSettlementMethod;
+    @BindView(R.id.tv_callMobile)
+    TextView tvCallMobile;
+    @BindView(R.id.tv_Color)
+    TextView tvColor;
 
-    private ListPurchaseOrder.ValueBean.RowsBean rowsBean;
-    private int id;
+    private String id;
     private Boolean isLogin;
     private String mobile1;
     private String userName;
+    private String purchaseSn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,21 +112,54 @@ public class PurchaseDetailsActivity extends BaseActivity {
         ButterKnife.bind(this);
         tvTitle.setText("采购单详情");
         Intent intent = getIntent();
-        rowsBean = (ListPurchaseOrder.ValueBean.RowsBean) intent.getSerializableExtra("RowsBeanPurchase");
-        initData(rowsBean);
-//        rlMoney
+        ListPurchaseOrder.ValueBean.RowsBean rowsBean = (ListPurchaseOrder.ValueBean.RowsBean) intent.getSerializableExtra("RowsBeanPurchase");
+        PurchaseDynamicsBean.ValueBean purchaseDynamicsBean = (PurchaseDynamicsBean.ValueBean) intent.getSerializableExtra("PurchaseDynamicsBean");
+        if (rowsBean != null) {
+            purchaseSn = rowsBean.purchaseSn;
+        } else if (purchaseDynamicsBean != null) {
+            purchaseSn = purchaseDynamicsBean.purchaseSn;
+        }
     }
 
-    private void initData(ListPurchaseOrder.ValueBean.RowsBean rowsBean) {
+    private void initData(PurchaseorderbySelfDetailsBean.ValueBean rowsBean) {
         List<String> origin2 = rowsBean.origin2;
         List<String> colorGrade2 = rowsBean.colorGrade2;
-        List<String> type2 = rowsBean.type2;
         List<String> keyword = rowsBean.keyword;
-
+        List<String> createYear = rowsBean.createYear;
         id = rowsBean.id;
-        ListPurchaseOrder.ValueBean.RowsBean.BreakLoadAverageBean breakLoadAverage1 = rowsBean.breakLoadAverage;
-        ListPurchaseOrder.ValueBean.RowsBean.LengthAverageBean lengthAverage = rowsBean.lengthAverage;
-        ListPurchaseOrder.ValueBean.RowsBean.MicronAverageBean micronAverage = rowsBean.micronAverage;
+        PurchaseorderbySelfDetailsBean.ValueBean.BreakLoadAverageBean breakLoadAverage1 = rowsBean.breakLoadAverage;
+        PurchaseorderbySelfDetailsBean.ValueBean.LengthAverageBean lengthAverage = rowsBean.lengthAverage;
+        PurchaseorderbySelfDetailsBean.ValueBean.MicronAverageBean micronAverage = rowsBean.micronAverage;
+        PurchaseorderbySelfDetailsBean.ValueBean.Trash trashBean = rowsBean.trash;
+        PurchaseorderbySelfDetailsBean.ValueBean.Moisture moistureBean = rowsBean.moisture;
+        String settlementMethod = rowsBean.settlementMethod;
+        if (TextUtils.isEmpty(settlementMethod)) {
+            mSettlementMethod.setText("--");
+        } else {
+            mSettlementMethod.setText(settlementMethod);
+        }
+        if (trashBean != null) {
+            trash.setText(trashBean.min + "-" + trashBean.max);
+            if (trashBean.min.equals(trashBean.max)) {
+                trash.setText(trashBean.min);
+                if (trashBean.min.equals("0")) {
+                    trash.setText("0及以下");
+                } else if (trashBean.min.equals("5")) {
+                    trash.setText("5及以上");
+                }
+            }
+        }
+        if (moistureBean != null) {
+            mMoisture.setText(moistureBean.min + "-" + moistureBean.max);
+            if (moistureBean.min.equals(moistureBean.max)) {
+                mMoisture.setText(moistureBean.min);
+                if (moistureBean.min.equals("0")) {
+                    mMoisture.setText("0及以下");
+                } else if (moistureBean.min.equals("10")) {
+                    mMoisture.setText("10及以上");
+                }
+            }
+        }
         String contacts1 = rowsBean.contacts;
         String telephone = rowsBean.telephone;
         String deadline1 = rowsBean.deadline;
@@ -140,6 +188,9 @@ public class PurchaseDetailsActivity extends BaseActivity {
         purchaseKeyword.setLayoutManager(gridLayoutManager);
         PurchaseOrderdetailsRecylerAdapter adapter = new PurchaseOrderdetailsRecylerAdapter(BaseApplication.getContextObject(), keyword);
         purchaseKeyword.setAdapter(adapter);
+        if (rowsBean.baleCotton) {
+            tvColor.setText("品级");
+        }
         if (colorGrade2 == null) {
             color.setText("---");
         } else {
@@ -170,20 +221,18 @@ public class PurchaseDetailsActivity extends BaseActivity {
             }
             origin.setText(str);
         }
-        if (type2 == null) {
-            type.setText("---");
-        } else {
-            String str = "";
-            int count = 0;
-            for (int i = 0; i < type2.size(); i++) {
-                if (count % 3 == 0 && count != 0) {
-                    str += "\n" + type2.get(i) + "   ";
+        if (createYear != null && createYear.size() != 0) {
+            String s = "";
+            for (int i = 0; i < createYear.size(); i++) {
+                if (i != createYear.size() - 1) {
+                    s = s + createYear.get(i) + "/";
                 } else {
-                    str += type2.get(i) + "   ";
+                    s = s + createYear.get(i);
                 }
-                count++;
             }
-            type.setText(str);
+            type.setText(s);
+        } else {
+            type.setText("--");
         }
         mobile.setText(telephone);
         contacts.setText(contacts1);
@@ -209,12 +258,16 @@ public class PurchaseDetailsActivity extends BaseActivity {
         }
         if (lengthAverage != null && !"".equals(lengthAverage)) {
             length.setText(lengthAverage.min + "-" + lengthAverage.max);
-            if (lengthAverage.min.equals(lengthAverage.max)) {
-                length.setText(lengthAverage.min);
-                if (lengthAverage.min.equals("25")){
+            if (lengthAverage.min == lengthAverage.max) {
+                length.setText(lengthAverage.min + "");
+                if (lengthAverage.min == 25) {
                     length.setText("25及以下");
-                }else if (lengthAverage.max.equals("32")){
+                } else if (lengthAverage.max == 32) {
                     length.setText("32及以上");
+                } else if (lengthAverage.max == 33) {
+                    length.setText("33及以下");
+                } else if (lengthAverage.max == 39) {
+                    length.setText("39及以上");
                 }
             }
 
@@ -223,11 +276,11 @@ public class PurchaseDetailsActivity extends BaseActivity {
         }
         if (micronAverage != null && !"".equals(micronAverage)) {
             horse.setText(micronAverage.min + "-" + micronAverage.max);
-            if (micronAverage.min.equals(micronAverage.max)) {
-                horse.setText(micronAverage.min);
-                if (micronAverage.min.equals("3.4")){
+            if (micronAverage.min == micronAverage.max) {
+                horse.setText(micronAverage.min + "");
+                if (micronAverage.min == 3.4) {
                     horse.setText("3.4及以下");
-                }else if (micronAverage.max.equals("5.0")){
+                } else if (micronAverage.max == 5.0) {
                     horse.setText("5.0及以上");
                 }
             }
@@ -237,11 +290,11 @@ public class PurchaseDetailsActivity extends BaseActivity {
         }
         if (breakLoadAverage1 != null && !"".equals(breakLoadAverage1)) {
             breakLoadAverage.setText(breakLoadAverage1.min + "-" + breakLoadAverage1.max);
-            if (breakLoadAverage1.min.equals(breakLoadAverage1.max)) {
-                breakLoadAverage.setText(breakLoadAverage1.min);
-                if (breakLoadAverage1.min.equals("24")){
+            if (breakLoadAverage1.min == breakLoadAverage1.max) {
+                breakLoadAverage.setText(breakLoadAverage1.min + "");
+                if (breakLoadAverage1.min == 24) {
                     breakLoadAverage.setText("24及以下");
-                }else if (breakLoadAverage1.max.equals("31")){
+                } else if (breakLoadAverage1.max == 31) {
                     breakLoadAverage.setText("31及以上");
                 }
             }
@@ -253,12 +306,29 @@ public class PurchaseDetailsActivity extends BaseActivity {
 
     }
 
+    Map map = new HashMap();
+
     @Override
     protected void onStart() {
         super.onStart();
         isLogin = SharedPreferencesUtil.getBooleanValue(BaseApplication.getContextObject(), "isLogin");
         mobile1 = SharedPreferencesUtil.getStringValue(BaseApplication.getContextObject(), "mobile");
         userName = SharedPreferencesUtil.getStringValue(BaseApplication.getContextObject(), "userName");
+        map.put("purchaseSn", purchaseSn);
+        map.put("deviceNo", Common.deviceNo);
+        HttpManager.getServerApi().getPurchaseOrderDetails(map).enqueue(new CallBack<PurchaseorderbySelfDetailsBean>() {
+            @Override
+            public void success(PurchaseorderbySelfDetailsBean data) {
+                if (data.success && data != null) {
+                    initData(data.value);
+                }
+            }
+
+            @Override
+            public void failure(ErrorType type, int httpCode) {
+
+            }
+        });
     }
 
     @OnClick({R.id.iv_back, R.id.ll_supplier})
@@ -302,8 +372,8 @@ public class PurchaseDetailsActivity extends BaseActivity {
         etMobile.setText(mobile1);
         if (userName != null) {
             et_contacts.setText(userName);
-            if(!TextUtils.isEmpty(SharedPreferencesUtil.getStringValue(BaseApplication.getContextObject(),"companyName"))){
-                et_contacts.setText(userName+"("+SharedPreferencesUtil.getStringValue(BaseApplication.getContextObject(),"companyName")+")");
+            if (!TextUtils.isEmpty(SharedPreferencesUtil.getStringValue(BaseApplication.getContextObject(), "companyName"))) {
+                et_contacts.setText(userName + "(" + SharedPreferencesUtil.getStringValue(BaseApplication.getContextObject(), "companyName") + ")");
             }
         }
         Button viewById = (Button) conentView.findViewById(R.id.sure_supply);
@@ -369,4 +439,14 @@ public class PurchaseDetailsActivity extends BaseActivity {
         getWindow().setAttributes(lp);
     }
 
+    @OnClick(R.id.tv_callMobile)
+    public void onViewClicked() {
+        if (!isLogin) {
+            startActivity(new Intent(BaseApplication.getContextObject(), LoginActivity.class));
+            return;
+        }
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"
+                + mobile.getText().toString()));//电话号码
+        startActivity(intent);
+    }
 }

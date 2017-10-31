@@ -17,5 +17,7 @@ public class SellerBean {
 
         public String companyName;
         public String resourceNum;
+        public String id;
+        public String userName;
     }
 }

@@ -2,8 +2,10 @@ package com.tianfu.cutton.activity.purchase;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.View;
@@ -75,6 +77,9 @@ public class FillInTheBasicInformationActivity extends BaseActivity {
     Button btSave;
     @BindView(R.id.tv_province)
     TextView tvProvince;
+    String[] singleList = {"公重", "毛重"};
+    @BindView(R.id.tv_account)
+    TextView tvAccount;
     private Map<String, String> map;
     //省份集合
     ArrayList<String> provinces = new ArrayList<String>();
@@ -97,13 +102,13 @@ public class FillInTheBasicInformationActivity extends BaseActivity {
         map = serializableMap.getMap();
         String mobile = SharedPreferencesUtil.getStringValue(BaseApplication.getContextObject(), "mobile");
         String userName = SharedPreferencesUtil.getStringValue(BaseApplication.getContextObject(), "userName");
-        String companyName = SharedPreferencesUtil.getStringValue(BaseApplication.getContextObject(),"companyName");
-        System.out.println("userName:"+userName);
+        String companyName = SharedPreferencesUtil.getStringValue(BaseApplication.getContextObject(), "companyName");
+        System.out.println("userName:" + userName);
         tvTelephone.setText(mobile);
         if (userName != null) {
             tvContacts.setText(userName);
-            if (!TextUtils.isEmpty(companyName)){
-                tvContacts.setText(userName+"("+companyName+")");
+            if (!TextUtils.isEmpty(companyName)) {
+                tvContacts.setText(userName + "(" + companyName + ")");
             }
         }
     }
@@ -135,6 +140,8 @@ public class FillInTheBasicInformationActivity extends BaseActivity {
                 String deadline = tvDeadline.getText().toString().trim();
                 String address = etAddress.getText().toString().trim();
                 String remark = etRemark.getText().toString().trim();
+                String tvAccountTrim = tvAccount.getText().toString().trim();
+                map.put("settlementMethod",tvAccountTrim);
                 map.put("contacts", contacts);
                 map.put("telephone", telephone);
                 map.put("receiveDate", receiveDate);
@@ -169,11 +176,13 @@ public class FillInTheBasicInformationActivity extends BaseActivity {
                 break;
         }
     }
+
     private void load(Context context) {
         if (address111 == null) {
             address111 = JsonUtil.loadFromJson(context, FILE_PATH, List.class);
         }
     }
+
     private void bindShopper(final List<Map<String, Object>> list) {
         if (list != null) {
             for (int i = 0; i < list.size(); i++) {
@@ -217,9 +226,9 @@ public class FillInTheBasicInformationActivity extends BaseActivity {
             @Override
             public void onDissmiss(String province, String city, String district) {
                 tvProvince.setText(province + "" + city + district);
-                map.put("province",province);
-                map.put("city",city);
-                map.put("area",district);
+                map.put("province", province);
+                map.put("city", city);
+                map.put("area", district);
             }
         });
     }
@@ -233,6 +242,32 @@ public class FillInTheBasicInformationActivity extends BaseActivity {
                 tv.setText(DateFormat.format("yyy-MM-dd", c));
             }
         }, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
+        dialog.show();
+    }
+
+    @OnClick(R.id.tv_account)
+    public void onViewClicked() {
+        showSingleChoiceDialog();
+    }
+
+    private void showSingleChoiceDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("请选择结算类型");
+        String[] split = tvAccount.getText().toString().trim().split(" ");
+        int count = 0;
+        if (split[0].equals("毛重")) {
+            count=1;
+        }
+        builder.setSingleChoiceItems(singleList, count, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String str = singleList[which];
+                tvAccount.setText(str);
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
         dialog.show();
     }
 }

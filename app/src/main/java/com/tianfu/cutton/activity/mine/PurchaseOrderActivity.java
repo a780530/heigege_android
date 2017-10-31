@@ -1,5 +1,6 @@
 package com.tianfu.cutton.activity.mine;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.tianfu.cutton.R;
 import com.tianfu.cutton.activity.base.BaseActivity;
 import com.tianfu.cutton.activity.base.BaseApplication;
+import com.tianfu.cutton.activity.purchase.ReleasePurchaseActivity;
 import com.tianfu.cutton.fragment.adapter.ContentPagerAdapter;
 import com.tianfu.cutton.fragment.mine.PurchaseOrderFragment;
 import com.tianfu.cutton.utils.CallKefu;
@@ -36,6 +38,8 @@ public class PurchaseOrderActivity extends BaseActivity {
     ViewPager vpMyPuechase;
     @BindView(R.id.tv_title)
     TextView tvTitle;
+    @BindView(R.id.releasePurase)
+    TextView releasePurase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,4 +83,8 @@ public class PurchaseOrderActivity extends BaseActivity {
         }
     }
 
+    @OnClick(R.id.releasePurase)
+    public void onViewClicked() {
+        startActivity(new Intent(this, ReleasePurchaseActivity.class));
+    }
 }

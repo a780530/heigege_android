@@ -93,6 +93,7 @@ public class ListSupplyOrderBySelfBean implements Serializable {
             public String contacts;
             public String telephone;
             public String receiveDate;
+            public boolean baleCotton;
             public int minPrice;
             public int maxPrice;
             public String deadline;
@@ -109,6 +110,9 @@ public class ListSupplyOrderBySelfBean implements Serializable {
             public MicronAverageBean micronAverage;
             public BreakLoadAverageBean breakLoadAverage;
             public LengthAverageBean lengthAverage;
+            public TrashBean trash;
+            public String settlementMethod;
+            public MoistureBean moisture;
             public String purchaseStatusName;
             public List<String> colorGrade2;
             public List<String> origin2;
@@ -126,7 +130,25 @@ public class ListSupplyOrderBySelfBean implements Serializable {
             public List<String> origin;
             public List<String> type;
             public List<String> colorGrade;
+            public List<String> createYear;
+            public static class TrashBean implements Serializable{
+                /**
+                 * min : 3.4
+                 * max : 5
+                 */
 
+                public String min;
+                public String max;
+            }
+            public static class MoistureBean implements Serializable{
+                /**
+                 * min : 3.4
+                 * max : 5
+                 */
+
+                public String min;
+                public String max;
+            }
             public static class MicronAverageBean implements Serializable{
                 /**
                  * min : 3.4

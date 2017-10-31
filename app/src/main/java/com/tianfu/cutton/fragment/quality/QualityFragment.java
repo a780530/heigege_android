@@ -103,13 +103,13 @@ public class QualityFragment extends BaseFragment implements FragmentBackHandler
     private TextView tv_key;
     private ImageView iv_key;
     private TextView tv_horse_type1;
-/*    private TextView tv_horse_type2;
-    private TextView tv_horse_type3;
+    private TextView tv_horse_type2;
+/*    private TextView tv_horse_type3;
     private TextView tv_horse_type4;
     private TextView tv_horse_type5;*/
     private ImageView iv_horse_type1;
-  /*  private ImageView iv_horse_type2;
-    private ImageView iv_horse_type3;
+    private ImageView iv_horse_type2;
+/*    private ImageView iv_horse_type3;
     private ImageView iv_horse_type4;
     private ImageView iv_horse_type5;*/
     private PopWindow popWindowHors;
@@ -931,6 +931,7 @@ public class QualityFragment extends BaseFragment implements FragmentBackHandler
 
                 break;
             case R.id.ll_Intelligence_quality://智能排序
+                pageNo=1;
                 isKeyShow = false;
                 if (sortType == 1) {
                     sortType = 0;
@@ -955,6 +956,7 @@ public class QualityFragment extends BaseFragment implements FragmentBackHandler
                 isSortShow = false;
                 break;
             case R.id.ll_StoB_quality://批号从小到大
+                pageNo=1;
                 if (sortType == 2) {
                     sortType = 0;
                     hashMap.remove("orderType");
@@ -979,6 +981,7 @@ public class QualityFragment extends BaseFragment implements FragmentBackHandler
                 break;
 
             case R.id.ll_BtoS_quality://批号从大到小
+                pageNo=1;
                 if (sortType == 3) {
                     sortType = 0;
                     hashMap.remove("orderType");
@@ -1002,6 +1005,7 @@ public class QualityFragment extends BaseFragment implements FragmentBackHandler
                 isSortShow = false;
                 break;
             case R.id.ll_sort_type1:
+                pageNo = 1;
                 if (keyType == 1) {
                     keyType = 0;
                     hashMap.remove("keywords");
@@ -1025,6 +1029,7 @@ public class QualityFragment extends BaseFragment implements FragmentBackHandler
                 isKeyShow = false;
                 break;
             case R.id.ll_sort_type2:
+                pageNo = 1;
                 if (keyType == 2) {
                     keyType = 0;
                     tv_key.setText("品类");
@@ -1048,6 +1053,7 @@ public class QualityFragment extends BaseFragment implements FragmentBackHandler
                 isKeyShow = false;
                 break;
             case R.id.ll_sort_type3:
+                pageNo = 1;
                 if (keyType == 3) {
                     tv_key.setText("品类");
                     hashMap.remove("keywords");
@@ -1065,6 +1071,7 @@ public class QualityFragment extends BaseFragment implements FragmentBackHandler
                 isKeyShow = false;
                 break;
             case R.id.ll_sort_type4:
+                pageNo = 1;
                 if (keyType == 4) {
                     tv_key.setText("品类");
                     hashMap.remove("keywords");
@@ -1099,6 +1106,7 @@ public class QualityFragment extends BaseFragment implements FragmentBackHandler
                 isKeyShow = false;
                 break;*/
             case R.id.ll_horse_type1:
+                pageNo = 1;
                 if (horseType == 1) {
                     hashMap.remove("createYear");
                     if (mDatas != null) {
@@ -1121,32 +1129,31 @@ public class QualityFragment extends BaseFragment implements FragmentBackHandler
                 popWindowHors.dismiss();
                 isHorseShow = false;
                 break;
-  /*          case R.id.ll_horse_type2:
-                if (horseType == 2) {
-                    tv_horseSelect.setText("棉花年度");
-                    hashMap.remove("micronGrade");
-                    hashMap.remove("micronAverage");
-                    if (mDatas != null) {
-                        mDatas.clear();
-                    }
-                    loadLazyData();
-                    tv_horseSelect.setTextColor(getResources().getColor(R.color.drop_color));
-                    horseType = 0;
-                } else {
-                    tv_horseSelect.setText("B1");
-                    hashMap.put("micronGrade", "B1");
-                    hashMap.put("micronAverage", "[3.5,3.6]");
-                    if (mDatas != null) {
-                        mDatas.clear();
-                    }
-                    loadLazyData();
-                    tv_horseSelect.setTextColor(getResources().getColor(R.color.tab_tv_selected));
-                    horseType = 2;
-                }
-                popWindowHors.dismiss();
-                isHorseShow = false;
+          case R.id.ll_horse_type2:
+              pageNo = 1;
+              if (horseType == 2) {
+                  hashMap.remove("createYear");
+                  if (mDatas != null) {
+                      mDatas.clear();
+                  }
+                  loadLazyData();
+                  tv_horseSelect.setText("棉花年度");
+                  tv_horseSelect.setTextColor(getResources().getColor(R.color.drop_color));
+                  horseType = 0;
+              } else {
+                  tv_horseSelect.setText("2016");
+                  hashMap.put("createYear", "2016");
+                  if (mDatas != null) {
+                      mDatas.clear();
+                  }
+                  loadLazyData();
+                  tv_horseSelect.setTextColor(getResources().getColor(R.color.tab_tv_selected));
+                  horseType = 2;
+              }
+              popWindowHors.dismiss();
+              isHorseShow = false;
                 break;
-            case R.id.ll_horse_type3:
+           /* case R.id.ll_horse_type3:
                 if (horseType == 3) {
                     tv_horseSelect.setText("棉花年度");
                     hashMap.remove("micronGrade");
@@ -1359,11 +1366,15 @@ public class QualityFragment extends BaseFragment implements FragmentBackHandler
         switch (horseType) {
             case 1:
                 tv_horse_type1.setTextColor(getResources().getColor(R.color.tab_tv_selected));
+                tv_horse_type2.setTextColor(getResources().getColor(R.color.drop_color));
                 iv_horse_type1.setVisibility(View.VISIBLE);
+                iv_horse_type2.setVisibility(View.GONE);
                 break;
             case 2:
                 tv_horse_type1.setTextColor(getResources().getColor(R.color.drop_color));
+                tv_horse_type2.setTextColor(getResources().getColor(R.color.tab_tv_selected));
                 iv_horse_type1.setVisibility(View.GONE);
+                iv_horse_type2.setVisibility(View.VISIBLE);
                 break;
             case 3:
                 tv_horse_type1.setTextColor(getResources().getColor(R.color.drop_color));
@@ -1373,9 +1384,11 @@ public class QualityFragment extends BaseFragment implements FragmentBackHandler
                 tv_horse_type1.setTextColor(getResources().getColor(R.color.drop_color));
                 iv_horse_type1.setVisibility(View.GONE);
                 break;
-            case 5:
+            case 0:
                 tv_horse_type1.setTextColor(getResources().getColor(R.color.drop_color));
+                tv_horse_type2.setTextColor(getResources().getColor(R.color.drop_color));
                 iv_horse_type1.setVisibility(View.GONE);
+                iv_horse_type2.setVisibility(View.GONE);
                 break;
         }
     }
@@ -1383,6 +1396,8 @@ public class QualityFragment extends BaseFragment implements FragmentBackHandler
     private void initHorseView(View conentView) {
         LinearLayout ll_horse_type1 = (LinearLayout) conentView.findViewById(R.id.ll_horse_type1);
         ll_horse_type1.setOnClickListener(this);
+        LinearLayout ll_horse_type2 = (LinearLayout) conentView.findViewById(R.id.ll_horse_type2);
+        ll_horse_type2.setOnClickListener(this);
 /*        LinearLayout ll_horse_type2 = (LinearLayout) conentView.findViewById(R.id.ll_horse_type2);
         ll_horse_type2.setOnClickListener(this);*//*
         LinearLayout ll_horse_type3 = (LinearLayout) conentView.findViewById(R.id.ll_horse_type3);
@@ -1393,16 +1408,14 @@ public class QualityFragment extends BaseFragment implements FragmentBackHandler
         ll_horse_type5.setOnClickListener(this);*/
 
         tv_horse_type1 = (TextView) conentView.findViewById(R.id.tv_horse_type1);
-/*
         tv_horse_type2 = (TextView) conentView.findViewById(R.id.tv_horse_type2);
-        tv_horse_type3 = (TextView) conentView.findViewById(R.id.tv_horse_type3);
+/*        tv_horse_type3 = (TextView) conentView.findViewById(R.id.tv_horse_type3);
         tv_horse_type4 = (TextView) conentView.findViewById(R.id.tv_horse_type4);
-        tv_horse_type5 = (TextView) conentView.findViewById(R.id.tv_horse_type5);
-*/
+        tv_horse_type5 = (TextView) conentView.findViewById(R.id.tv_horse_type5);*/
 
         iv_horse_type1 = (ImageView) conentView.findViewById(R.id.iv_horse_type1);
-     /*   iv_horse_type2 = (ImageView) conentView.findViewById(R.id.iv_horse_type2);
-        iv_horse_type3 = (ImageView) conentView.findViewById(R.id.iv_horse_type3);
+        iv_horse_type2 = (ImageView) conentView.findViewById(R.id.iv_horse_type2);
+/*        iv_horse_type3 = (ImageView) conentView.findViewById(R.id.iv_horse_type3);
         iv_horse_type4 = (ImageView) conentView.findViewById(R.id.iv_horse_type4);
         iv_horse_type5 = (ImageView) conentView.findViewById(R.id.iv_horse_type5);*/
         FrameLayout fl_dismiss = (FrameLayout) conentView.findViewById(R.id.fl_dismiss);

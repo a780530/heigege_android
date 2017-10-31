@@ -118,10 +118,23 @@ public class SupplyOrderAdapter extends BaseQuickAdapter<ListSupplyOrderBySelfBe
         } else {
             helper.setText(R.id.tv_suppl_cotton, item.colorGrade2.get(0));
         }
-        if (item.type2 == null) {
+    /*    if (item.type2 == null) {
             helper.setText(R.id.tv_suppl_type, "-");
         } else {
             helper.setText(R.id.tv_suppl_type, item.type2.get(0));
+        }*/
+        if (item.createYear != null && item.createYear.size() != 0) {
+            String s = "";
+            for (int i = 0; i < item.createYear.size(); i++) {
+                if (i != item.createYear.size() - 1) {
+                    s = s + item.createYear.get(i) + "/";
+                } else {
+                    s = s + item.createYear.get(i);
+                }
+            }
+            helper.setText(R.id.tv_suppl_type, s);
+        } else {
+            helper.setText(R.id.tv_suppl_type, "--");
         }
         if (item.origin2 == null) {
             helper.setText(R.id.tv_suppl_origin, "-");

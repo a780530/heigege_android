@@ -8,31 +8,6 @@
     tools:context="com.tianfu.cutton.activity.mine.PurchaseOrderDetailsActivity">
 
     <include layout="@layout/common_head_back" />
-    <!--   <com.zhy.autolayout.AutoRelativeLayout
-           android:id="@+id/ll_title"
-           android:layout_width="match_parent"
-           android:layout_height="96px"
-           android:background="@drawable/ll_background_normal">
-
-           <ImageView
-               android:id="@+id/ivBack"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_alignParentLeft="true"
-               android:layout_centerVertical="true"
-               android:padding="24px"
-               android:src="@mipmap/ic_mine_backgreen" />
-
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_centerInParent="true"
-               android:text="采购单详情"
-               android:textColor="@color/tab_tv_selected"
-               android:textSize="34px" />
-       </com.zhy.autolayout.AutoRelativeLayout>-->
-
-
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/ss"
         android:layout_width="match_parent"
@@ -160,7 +135,7 @@
                     android:layout_width="120px"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="24px"
-                    android:text="加工"
+                    android:text="棉花年度"
                     android:textColor="#999999"
                     android:textSize="28px" />
 
@@ -182,6 +157,7 @@
                 android:gravity="center_vertical">
 
                 <TextView
+                    android:id="@+id/tvColor"
                     android:layout_width="120px"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="24px"
@@ -277,6 +253,55 @@
                     android:textSize="28px" />
 
             </com.zhy.autolayout.AutoLinearLayout>
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="120px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="含杂率"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/trash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:text="27-29"
+                    android:textColor="@color/drop_color"
+                    android:textSize="28px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:background="@drawable/ll_background_normal"
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="120px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="回潮率"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/mMoisture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:text="27-29"
+                    android:textColor="@color/drop_color"
+                    android:textSize="28px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
 
             <com.zhy.autolayout.AutoLinearLayout
                 android:layout_width="match_parent"
@@ -353,7 +378,30 @@
                     android:textSize="28px" />
 
             </com.zhy.autolayout.AutoLinearLayout>
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:background="@drawable/ll_background_normal"
+                android:gravity="center_vertical">
 
+                <TextView
+                    android:layout_width="120px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="结算类型"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/mSettlementMethod"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:text="新疆棉新疆棉新疆"
+                    android:textColor="@color/drop_color"
+                    android:textSize="28px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
             <com.zhy.autolayout.AutoLinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="80px"
@@ -389,7 +437,7 @@
                     android:layout_width="120px"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="24px"
-                    android:text="送达日期"
+                    android:text="送到时间"
                     android:textColor="#999999"
                     android:textSize="28px" />
 

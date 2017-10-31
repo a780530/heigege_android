@@ -237,13 +237,13 @@
             android:ellipsize="end"
             android:singleLine="true"
             android:id="@+id/tv_supplyName"
-            android:layout_width="wrap_content"
+            android:layout_width="400px"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:drawableLeft="@mipmap/ic_common_cuttonblack"
+            android:drawableLeft="@mipmap/ic_common_rentou"
             android:drawablePadding="8px"
             android:paddingLeft="20px"
-            android:text="锯齿细绒棉"
+            android:text="--"
             android:textColor="#333333"
             android:textSize="26px" />
 

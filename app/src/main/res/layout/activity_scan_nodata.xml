@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="com.tianfu.cutton.zxing.ScanNodataActivity">
+
+    <include layout="@layout/common_head_back_myhistory" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200px"
+        android:background="#BFBFBF"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="106px"
+            android:text="当前条形码："
+            android:textColor="@color/white"
+            android:textSize="28px" />
+
+        <TextView
+            android:id="@+id/tv_scan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="106px"
+            android:layout_marginTop="16px"
+            android:text="--"
+            android:textColor="@color/white"
+            android:textSize="28px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="220px"
+        android:src="@mipmap/ic_scan_nodata" />
+
+    <TextView
+        android:textColor="@color/drop_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="暂无公检数据"
+        android:textSize="28px" />
+</com.zhy.autolayout.AutoLinearLayout>

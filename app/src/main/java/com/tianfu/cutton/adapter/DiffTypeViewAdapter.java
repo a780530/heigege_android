@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.tianfu.cutton.R;
@@ -115,13 +116,21 @@ public class DiffTypeViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             }
         }
 
-        if (itemModel.price != 0) {
-            holder.mMoney.setText(itemModel.price + "");
+        if (!TextUtils.isEmpty(itemModel.stdweightPrice)) {
+            holder.mMoney.setText(itemModel.stdweightPrice);
             holder.tv_store_commany.setVisibility(View.VISIBLE);
+            holder.rl_yuan.setVisibility(View.GONE);
         } else {
-            holder.tv_store_commany.setVisibility(View.GONE);
-            holder.mMoney.setText("价格面议");
+            holder.rl_yuan.setVisibility(View.VISIBLE);
+            if (itemModel.price != 0) {
+                holder.mMoney1.setText(itemModel.price+"");
+                holder.tv_store_commany1.setVisibility(View.VISIBLE);
+            }else{
+                holder.mMoney1.setText("价格面议");
+                holder.tv_store_commany1.setVisibility(View.GONE);
+            }
         }
+
         if (itemModel.lengthAverage != null && !"".equals(itemModel.lengthAverage)) {
             holder.tv_store_length.setText(itemModel.lengthAverage);
             if (parseDouble(itemModel.lengthAverage) > 28) {
@@ -167,11 +176,11 @@ public class DiffTypeViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         }*/
         if (TextUtils.isEmpty(itemModel.isRule)) {
             holder.tv_store_range.setText("--");
-        }else{
+        } else {
             if (itemModel.isRule.equals("0")) {
                 holder.tv_store_range.setText("--");
-            }else{
-                StringJudgeUtils.judgeStringSts(itemModel.sts,holder.tv_store_range);
+            } else {
+                StringJudgeUtils.judgeStringSts(itemModel.sts, holder.tv_store_range);
             }
         }
         if (itemModel.releaseDate != null && !"".equals(itemModel.releaseDate)) {
@@ -352,7 +361,9 @@ public class DiffTypeViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         public AutoLinearLayout aLL;
         public CheckBox cbCheck;
         public TextView mMoney;
+        public TextView mMoney1;
         public TextView tv_store_commany;
+        public TextView tv_store_commany1;
         public TextView tv_store_length;
         public TextView tv_store_strong;
         public TextView tv_store_horse;
@@ -362,6 +373,7 @@ public class DiffTypeViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         public TextView tv_store_date;
         public Button bt_store_key;
         public ImageView ivIsCheap;
+        public RelativeLayout rl_yuan;
 
         public TypeOneViewHolder(View itemView) {
             super(itemView);
@@ -370,6 +382,9 @@ public class DiffTypeViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             cbCheck = (CheckBox) itemView.findViewById(R.id.cb_check);
             aLL = (AutoLinearLayout) itemView.findViewById(R.id.ll_checkbox);
             mMoney = (TextView) itemView.findViewById(R.id.tv_store_money);
+            mMoney1 = (TextView) itemView.findViewById(R.id.tv_store_money1);
+            tv_store_commany1 = (TextView) itemView.findViewById(R.id.tv_store_commany1);
+            rl_yuan = (RelativeLayout) itemView.findViewById(R.id.rl_yuan);
             bt_store_key = (Button) itemView.findViewById(R.id.bt_store_key);
             tv_store_commany = (TextView) itemView.findViewById(R.id.tv_store_commany);
             tv_store_length = (TextView) itemView.findViewById(R.id.tv_store_length);

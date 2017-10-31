@@ -59,7 +59,7 @@ public class SearchDiffTypeViewAdapter extends RecyclerView.Adapter<RecyclerView
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         if (viewType == TYPE_IMG_ONE) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_mycollection_item, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_mycollection_search_item, parent, false);
             TypeOneViewHolder threeViewHolder = new TypeOneViewHolder(view);
             return threeViewHolder;
         } else if (viewType == TYPE_IMG_TWO) {

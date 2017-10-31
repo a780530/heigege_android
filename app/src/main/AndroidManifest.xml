@@ -44,7 +44,11 @@
             android:name="design_height"
             android:value="1280" />
 
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            >
+
+        </activity>
         <activity android:name=".activity.quality.QualityKunDetailsActivity" />
         <activity android:name=".activity.login.LoginActivity" />
         <activity android:name=".activity.login.RegisterActivity" />
@@ -122,7 +126,8 @@
         <activity android:name=".activity.purchase.HomePurchaseDetailsActivity" />
         <activity android:name=".activity.store.StsDetadilsActivity" />
         <activity android:name=".activity.quality.UpBatchAllActivity" />
-        <activity android:name=".activity.mine.ChangeBatchActivity"></activity>
+        <activity android:name=".activity.mine.ChangeBatchActivity" />
+        <activity android:name=".zxing.ScanNodataActivity"></activity>
     </application>
 
 </manifest>

@@ -23,14 +23,15 @@ import java.util.TreeMap;
 /**
  * Created by xiaohei on 2017/7/15.
  */
-public class MultiCheckGroupView extends ViewGroup {
+public class MultiCheckGroupView extends ViewGroup implements View.OnClickListener{
+
 
     private static final String TAG = "MultiCheckGroupView";
 
     private Scroller mScroller;
 
     private int verticalSpace = dip2px(BaseApplication.getContextObject(), 6);//button 横着的间隙
-    private int horizontalSpace =dip2px(BaseApplication.getContextObject(), 7);//button竖着的间隙
+    private int horizontalSpace = dip2px(BaseApplication.getContextObject(), 7);//button竖着的间隙
 
     private int rowNum = 3;//有几排button
 
@@ -43,6 +44,8 @@ public class MultiCheckGroupView extends ViewGroup {
     private List<State> selectedList = new ArrayList<>();
 
     private SharedPreferences sp;
+
+    private boolean isMultiCheck = true;    //是否是多选模式
 
     public MultiCheckGroupView(Context context) {
         this(context, null);
@@ -138,21 +141,32 @@ public class MultiCheckGroupView extends ViewGroup {
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
             box.setStateListAnimator(null);
         }
-        box.setTextColor(AppCompatResources.getColorStateList(BaseApplication.getContextObject(),R.drawable.set_color));
+        box.setTextColor(AppCompatResources.getColorStateList(BaseApplication.getContextObject(), R.drawable.set_color));
         box.setBackgroundResource(R.drawable.item_button);
         box.setSelected(selectedList.get(index).seleted);
 
-        box.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                boolean isSelected = v.isSelected();
-                //selectedList.get(index).seleted = !isSelected;
-                v.setSelected(!isSelected);
-            }
-        });
+        box.setOnClickListener(this);
         LayoutParams l = new LayoutParams(buttonWidth, buttonHeight);
         addView(box, l);
         return box;
+    }
+
+    @Override
+    public void onClick(View v) {
+        boolean isSelected = v.isSelected();
+        if (!isSelected && !isMultiCheck) {
+            int count = getChildCount();
+            for(int i = 0; i < count; i++) {
+                View child = getChildAt(i);
+                if (child.isSelected()) {
+                    child.setSelected(false);
+                }
+            }
+        }
+        v.setSelected(!isSelected);
+        if (itemClickListener != null) {
+            itemClickListener.itemClick(v, values.get(v.getTag()));
+        }
     }
 
     public void commit(){
@@ -275,6 +289,11 @@ public class MultiCheckGroupView extends ViewGroup {
         boolean seleted = false;
     }
 
+    public void setMultiCheck(boolean flag) {
+        isMultiCheck = flag;
+        requestLayout();
+    }
+
     /**
      * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
      */
@@ -283,256 +302,13 @@ public class MultiCheckGroupView extends ViewGroup {
         return (int) (dpValue * scale + 0.5f);
     }
 
+    public interface OnItemClickListener{
+        void itemClick(View view, String value);
+    }
+
+    private OnItemClickListener itemClickListener;
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.itemClickListener = listener;
+    }
 }
-
-
-/*
-package com.xiaoyu.doubleseekbardemo;
-
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.graphics.Canvas;
-import android.util.AttributeSet;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ScrollView;
-import android.widget.Scroller;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-
-*/
-/**
- * Created by xiaoyu on 2017/7/15.
- *//*
-
-public class MultiCheckGroupView extends ViewGroup {
-
-    private static final String TAG = "MultiCheckGroupView";
-
-    private Scroller mScroller;
-
-    private int verticalSpace = 10;
-    private int horizontalSpace = 10;
-
-    private int rowNum = 3;
-
-    private int buttonWidth;
-    private int buttonHeight = 120;
-
-    private int currentHeight;
-
-    private SharedPreferences sp;
-
-    private Map<String, String> values = new TreeMap<>();
-
-    public MultiCheckGroupView(Context context) {
-        this(context, null);
-    }
-
-    public MultiCheckGroupView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
-    }
-
-    public MultiCheckGroupView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        prepare();
-    }
-
-
-    private void prepare() {
-        mScroller = new Scroller(getContext());
-        sp = getContext().getSharedPreferences(TAG, Context.MODE_PRIVATE);
-        setWillNotDraw(false);
-    }
-
-    private int myExactlyHeight;
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        measureChildren(widthMeasureSpec, heightMeasureSpec);
-        int widthSpecSize = MeasureSpec.getSize(widthMeasureSpec);
-        int heightSpecMode = MeasureSpec.getMode(heightMeasureSpec);
-        int heightSpecSize = MeasureSpec.getSize(heightMeasureSpec);
-
-        if (heightSpecMode == MeasureSpec.AT_MOST || heightSpecMode == MeasureSpec.UNSPECIFIED) {
-            if (!mScroller.computeScrollOffset()) {
-                if (isShow) {
-                    myExactlyHeight = getHeightSize();
-                }else{
-                    myExactlyHeight = 0;
-                }
-            }
-        }else {
-            myExactlyHeight = heightSpecSize;
-        }
-
-        buttonWidth = getButtonWidth(widthSpecSize);
-        setMeasuredDimension(widthSpecSize, myExactlyHeight);
-    }
-
-    private int getButtonWidth(int widthSpecSize) {
-        int contentWidth = widthSpecSize - getPaddingLeft() - getPaddingRight();
-        int verticalSpaceNum = rowNum - 1;
-        int truelyWidth = contentWidth - verticalSpaceNum * horizontalSpace;
-        return truelyWidth / rowNum;
-    }
-
-    private int getHeightSize() {
-        int heightSpecSize = 0;
-        int lineNum = getButtonLineNum();
-        if (lineNum != 0) {
-            heightSpecSize = lineNum * buttonHeight + ((lineNum - 1) * verticalSpace) + getPaddingBottom() + getPaddingTop();
-        }
-
-        return heightSpecSize;
-    }
-
-    private int getButtonLineNum() {
-        int lineNum = 0;
-
-        if (values != null && values.size() > 0) {
-            lineNum = values.size() / rowNum;
-            lineNum = values.size() % rowNum == 0 ? lineNum : lineNum + 1;
-        }
-
-        return lineNum;
-    }
-
-    @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        removeAllViews();
-        Set<Map.Entry<String, String>> entries = values.entrySet();
-        for (Map.Entry<String, String> entry : entries) {
-            Button box = createCheckBox(getContext(), entry);
-            layoutMyChild(box, getChildCount() - 1);
-        }
-    }
-
-    private Button createCheckBox(Context context, Map.Entry<String, String> entry) {
-        Button box = new Button(context);
-        box.setTag(entry.getKey());
-        box.setText(entry.getValue());
-        box.setPadding(0, 30, 0, 0);
-
-        box.setSelected(sp.getBoolean(entry.getKey(), false));
-        box.setBackgroundResource(R.drawable.item_button);
-
-        box.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                boolean isSelected = v.isSelected();
-                v.setSelected(!isSelected);
-                sp.edit().putBoolean((String) v.getTag(), !isSelected).apply();
-            }
-        });
-        LayoutParams l = new LayoutParams(buttonWidth, buttonHeight);
-        addView(box, l);
-        return box;
-    }
-
-    private void layoutMyChild(View child, int position) {
-        int cLeft = getPaddingLeft();
-        int cTop = getPaddingTop();
-        int horizontalNum = position % rowNum;
-        int verticalNum = position / rowNum;
-        cLeft = (buttonWidth + horizontalSpace) * horizontalNum + cLeft;
-        cTop = (buttonHeight + verticalSpace) * verticalNum + cTop;
-        if (verticalNum == 0 && cTop + buttonHeight > getHeight()) {
-            return;
-        }
-        child.layout(cLeft, cTop, cLeft + buttonWidth, cTop + buttonHeight);
-    }
-
-    @Override
-    protected void dispatchDraw(Canvas canvas) {
-
-        super.dispatchDraw(canvas);
-        int childCount = getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            View child = getChildAt(i);
-            if (child instanceof Button) {
-                String id = (String) child.getTag();
-                child.setSelected(sp.getBoolean(id, false));
-            }
-        }
-    }
-
-    public void addValues(Map<String, String> values) {
-        this.values = values;
-        requestLayout();
-    }
-
-    private boolean isShow = true;
-    public boolean isShowMyLayout() {
-        return isShow;
-    }
-
-    public void hideMyLayout() {
-        isShow = false;
-        if (mScroller.computeScrollOffset()) {
-            mScroller.forceFinished(true);
-            smoothScrollRun(getHeight(), 0);
-        } else {
-            currentHeight = getHeight();
-            smoothScrollRun(currentHeight, 0);
-        }
-
-    }
-
-    public void showMyLayout(){
-        isShow = true;
-        if (mScroller.computeScrollOffset()) {
-            mScroller.forceFinished(true);
-            scrollSetHeight(1);
-            smoothScrollRun(getHeight(), currentHeight);
-        }else {
-            smoothScrollRun(0, currentHeight);
-        }
-    }
-
-    @Override
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        List<String> list = getSelectedList();
-        for (String l : list) {
-            sp.edit().putBoolean(l, false).apply();
-        }
-    }
-
-    private void smoothScrollRun(int currentX, int destX) {
-        mScroller.startScroll(currentX, 0, destX - currentX, 0, 300);
-        invalidate();
-    }
-
-    @Override
-    public void computeScroll() {
-        if (mScroller.computeScrollOffset()) {
-            scrollSetHeight(mScroller.getCurrX());
-            postInvalidate();
-        }
-    }
-
-    private void scrollSetHeight(int height) {
-        ScrollView.LayoutParams lp = (ScrollView.LayoutParams) getLayoutParams();
-        myExactlyHeight = height;
-        lp.height = myExactlyHeight;
-        setLayoutParams(lp);
-    }
-
-    public List<String> getSelectedList(){
-        int count = getChildCount();
-        List<String> l = new ArrayList<>();
-        for (int i = 0; i < count; i++) {
-            View view = getChildAt(i);
-            if (view.isSelected()) {
-                l.add((String) view.getTag());
-            }
-        }
-        return l;
-    }
-}*/

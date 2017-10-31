@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
@@ -81,7 +82,19 @@ public class EditPurchaseActivity extends BaseActivity implements RadioGroup.OnC
     @BindView(R.id.tv_title)
     TextView tvTitle;
     @BindView(R.id.tv_telephone)
-    EditText tvTelephone;
+    TextView tvTelephone;
+    @BindView(R.id.iv_account1)
+    ImageView ivAccount1;
+    @BindView(R.id.tv_account1)
+    TextView tvAccount1;
+    @BindView(R.id.account1)
+    AutoLinearLayout account1;
+    @BindView(R.id.iv_account2)
+    ImageView ivAccount2;
+    @BindView(R.id.tv_account2)
+    TextView tvAccount2;
+    @BindView(R.id.account2)
+    AutoLinearLayout account2;
     private String purchaseStatus;
     private String contacts;
     private String telephone;
@@ -154,10 +167,14 @@ public class EditPurchaseActivity extends BaseActivity implements RadioGroup.OnC
             tcvAddress.setText(address);
         }
 
-        if (province == null) {
+        if (TextUtils.isEmpty(province)) {
             tvProvince.setText("--");
-        } else {
-            tvProvince.setText(province + city + area);
+        } else if (TextUtils.isEmpty(city)){
+            tvProvince.setText(province + area);
+        }else if(TextUtils.isEmpty(area)){
+            tvProvince.setText(province + city);
+        }else{
+            tvProvince.setText(province + city+ area);
         }
         if (purchaseStatus1.equals("Purchasing")) {
             rbPurchasing.setChecked(true);
@@ -203,8 +220,8 @@ public class EditPurchaseActivity extends BaseActivity implements RadioGroup.OnC
                 break;
         }
     }
-
-    @OnClick({R.id.ll_receiveDate, R.id.ll_deadline, R.id.iv_back})
+    private int accountNum = 1;
+    @OnClick({R.id.ll_receiveDate, R.id.ll_deadline, R.id.iv_back, R.id.account1, R.id.account2})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.ll_receiveDate:
@@ -215,6 +232,20 @@ public class EditPurchaseActivity extends BaseActivity implements RadioGroup.OnC
                 break;
             case R.id.iv_back:
                 onBackPressed();
+                break;
+            case R.id.account1:
+                accountNum = 1;
+                tvAccount1.setTextColor(getResources().getColor(R.color.red_translucent));
+                tvAccount2.setTextColor(getResources().getColor(R.color.tabColor));
+                ivAccount1.setImageResource(R.drawable.ic_mine_sec);
+                ivAccount2.setImageResource(R.drawable.ic_mine_nosec);
+                break;
+            case R.id.account2:
+                accountNum = 2;
+                tvAccount2.setTextColor(getResources().getColor(R.color.red_translucent));
+                tvAccount1.setTextColor(getResources().getColor(R.color.tabColor));
+                ivAccount2.setImageResource(R.drawable.ic_mine_sec);
+                ivAccount1.setImageResource(R.drawable.ic_mine_nosec);
                 break;
         }
     }
@@ -249,6 +280,11 @@ public class EditPurchaseActivity extends BaseActivity implements RadioGroup.OnC
         hashmap.put("batchCount", tv_batchCount);
         hashmap.put("remark", et_remark);
         hashmap.put("purchaseStatus", purchaseStatus);
+        if (accountNum==1){
+            hashmap.put("settlementMethod","公重");
+        }else{
+            hashmap.put("settlementMethod","毛重");
+        }
         HttpManager.getServerApi().updatePurchase(hashmap).enqueue(new CallBack<PurchaseOrder>() {
             @Override
             public void success(PurchaseOrder data) {
@@ -269,5 +305,6 @@ public class EditPurchaseActivity extends BaseActivity implements RadioGroup.OnC
             }
         });
     }
+
 
 }

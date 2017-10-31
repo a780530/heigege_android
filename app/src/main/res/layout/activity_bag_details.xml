@@ -67,6 +67,7 @@
 
         <com.zhy.autolayout.AutoLinearLayout
             android:id="@+id/llgohome"
+            android:background="@drawable/ll_background_normal"
             android:gravity="center"
             android:layout_width="360px"
             android:layout_height="match_parent"

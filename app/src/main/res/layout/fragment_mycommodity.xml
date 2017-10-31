@@ -3,15 +3,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/commodityLayout"
+        android:layout_width="match_parent"
+        android:layout_height="56px"
+        android:gravity="center_vertical"
+        android:background="#F6AC00"
+       >
+
+        <TextView
+            android:id="@+id/tv_selfOut"
+            android:textColor="@color/white"
+            android:layout_marginLeft="24px"
+            android:textSize="26px"
+            android:text="今天有4批商品自动下架"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/commodityTrue"
+            android:layout_toRightOf="@+id/tv_selfOut"
+            android:layout_marginLeft="150px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:src="@mipmap/ic_commodity_true"
+                android:id="@+id/ivTrue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginLeft="4px"
+                android:textColor="@color/white"
+                android:textSize="26px"
+                android:text="今日不再提醒"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </com.zhy.autolayout.AutoLinearLayout>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/commodityClose"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_marginLeft="20px"
+                android:layout_marginTop="6px"
+                android:layout_marginRight="20px"
+                android:src="@mipmap/ic_commodity_close"
+                android:layout_width="20px"
+                android:layout_height="20px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoRelativeLayout>
+
     <in.srain.cube.views.ptr.PtrClassicFrameLayout
         android:id="@+id/ptr_purchase_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerCommodity"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-    </android.support.v7.widget.RecyclerView>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerCommodity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
     </in.srain.cube.views.ptr.PtrClassicFrameLayout>
 </com.zhy.autolayout.AutoLinearLayout>

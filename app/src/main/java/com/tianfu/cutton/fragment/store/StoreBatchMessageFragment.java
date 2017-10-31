@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -81,6 +82,8 @@ public class StoreBatchMessageFragment extends Fragment {
     AutoLinearLayout goToSts;
     @BindView(bt_count_bag)
     Button btCountBag;
+    @BindView(R.id.ivIsCheap)
+    ImageView ivIsCheap;
     private View mRootView;
     private String productId;
     private Map<String, String> map;
@@ -225,7 +228,16 @@ public class StoreBatchMessageFragment extends Fragment {
                             receviType.setText("送到/毛重");
                         }
                     }
+                    if (TextUtils.isEmpty(item.isCheap)){
+                        ivIsCheap.setVisibility(View.GONE);
+                    }else{
+                        if (item.isCheap.equals("0")){
+                            ivIsCheap.setVisibility(View.GONE);
+                        }else{
+                            ivIsCheap.setVisibility(View.VISIBLE);
+                        }
 
+                    }
                 } else {
                     nodata.setVisibility(View.VISIBLE);
                     slHaveData.setVisibility(View.GONE);
@@ -245,9 +257,9 @@ public class StoreBatchMessageFragment extends Fragment {
     }
 
 
-    @OnClick({R.id.go_toSts,R.id.bt_count_bag})
+    @OnClick({R.id.go_toSts, R.id.bt_count_bag})
     public void onViewClicked(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.go_toSts:
                 if (TextUtils.isEmpty(premiumJsonString)) {
                     ToastUtil.show(BaseApplication.getContextObject(), "暂无升贴水数据");

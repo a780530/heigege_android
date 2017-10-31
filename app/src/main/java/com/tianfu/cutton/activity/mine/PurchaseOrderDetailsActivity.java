@@ -14,6 +14,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -113,6 +114,14 @@ public class PurchaseOrderDetailsActivity extends BaseActivity {
     TextView tvTitle;
     @BindView(R.id.ll_title)
     AutoRelativeLayout llTitle;
+    @BindView(R.id.trash)
+    TextView trash;
+    @BindView(R.id.mMoisture)
+    TextView mMoisture;
+    @BindView(R.id.mSettlementMethod)
+    TextView mSettlementMethod;
+    @BindView(R.id.tvColor)
+    TextView tvColor;
     private Intent intent;
     private String purchaseSn;
     private SupplierRecylerAdapter adapterSupplier;
@@ -177,7 +186,7 @@ public class PurchaseOrderDetailsActivity extends BaseActivity {
                     }
                     //产地
                     if (data.value.origin2 == null) {
-                        originDetails.setText("---");
+                        originDetails.setText("--");
                     } else {
                         List<String> list = data.value.origin2;
                         String str = "";
@@ -186,11 +195,24 @@ public class PurchaseOrderDetailsActivity extends BaseActivity {
                         }
                         originDetails.setText(str);
                     }
-                    //加工
-                    if (data.value.type2 == null) {
-                        typeDetails.setText("---");
+                    //棉花年度
+                    if (data.value.createYear != null && data.value.createYear.size() != 0) {
+                        String s = "";
+                        for (int i = 0; i < data.value.createYear.size(); i++) {
+                            if (i != data.value.createYear.size() - 1) {
+                                s = s + data.value.createYear.get(i) + "/";
+                            } else {
+                                s = s + data.value.createYear.get(i);
+                            }
+                        }
+                        typeDetails.setText(s);
                     } else {
-                        List<String> list = data.value.type2;
+                        typeDetails.setText("--");
+                    }
+                /*    if (data.value.createYear == null) {
+                        typeDetails.setText("--");
+                    } else {
+                        List<String> list = data.value.createYear;
                         String str = "";
                         int count = 0;
                         for (int i = 0; i < list.size(); i++) {
@@ -202,10 +224,10 @@ public class PurchaseOrderDetailsActivity extends BaseActivity {
                             count++;
                         }
                         typeDetails.setText(str);
-                    }
+                    }*/
                     //颜色及
                     if (data.value.colorGrade2 == null) {
-                        colorDetails.setText("---");
+                        colorDetails.setText("--");
                     } else {
                         List<String> list = data.value.colorGrade2;
                         String str = "";
@@ -274,25 +296,25 @@ public class PurchaseOrderDetailsActivity extends BaseActivity {
                     }
                     //截止日期
                     if (data.value.deadline == null) {
-                        lastDate.setText("---");
+                        lastDate.setText("--");
                     } else {
                         lastDate.setText(data.value.deadline);
                     }
                     //送达日期
                     if (data.value.receiveDate == null) {
-                        toDate.setText("---");
+                        toDate.setText("--");
                     } else {
                         toDate.setText(data.value.receiveDate);
                     }
 //                    批次数量
                     if (data.value.batchCount == null) {
-                        numberDetails.setText("---");
+                        numberDetails.setText("--");
                     } else {
                         numberDetails.setText(data.value.batchCount);
                     }
                     //备注
                     if (data.value.remark == null) {
-                        moreDetails.setText("--------------------");
+                        moreDetails.setText("--------------");
                     } else {
                         moreDetails.setText(data.value.remark);
                     }
@@ -310,6 +332,40 @@ public class PurchaseOrderDetailsActivity extends BaseActivity {
                             moneyDtails.setText(data.value.minPrice + "-" + data.value.maxPrice);
                         }
 
+                    }
+                    PurchaseorderbySelfDetailsBean.ValueBean.Trash trashBean = data.value.trash;
+                    PurchaseorderbySelfDetailsBean.ValueBean.Moisture moistureBean = data.value.moisture;
+                    if (trashBean != null) {
+                        trash.setText(trashBean.min + "-" + trashBean.max);
+                        if (trashBean.min.equals(trashBean.max)) {
+                            trash.setText(trashBean.min);
+                            if (trashBean.min.equals("0")) {
+                                trash.setText("0及以下");
+                            } else if (trashBean.min.equals("5")) {
+                                trash.setText("5及以上");
+                            }
+                        }
+                    }
+                    if (moistureBean != null) {
+                        mMoisture.setText(moistureBean.min + "-" + moistureBean.max);
+                        if (moistureBean.min.equals(moistureBean.max)) {
+                            mMoisture.setText(moistureBean.min);
+                            if (moistureBean.min.equals("0")) {
+                                mMoisture.setText("0及以下");
+                            } else if (moistureBean.min.equals("10")) {
+                                mMoisture.setText("10及以上");
+                            }
+                        }
+                    }
+                    String settlementMethod = data.value.settlementMethod;
+                    if (TextUtils.isEmpty(settlementMethod)) {
+                        mSettlementMethod.setText("--");
+                    } else {
+                        mSettlementMethod.setText(settlementMethod);
+                    }
+                    boolean baleCotton = data.value.baleCotton;
+                    if (baleCotton) {
+                        tvColor.setText("品级");
                     }
                     dismissProgressBar();
                 }

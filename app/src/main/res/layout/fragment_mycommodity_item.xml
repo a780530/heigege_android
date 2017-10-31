@@ -164,45 +164,80 @@
                 android:textSize="30px" />
         </com.zhy.autolayout.AutoLinearLayout>
     </com.zhy.autolayout.AutoLinearLayout>
-
     <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
-        android:layout_height="61px"
+        android:layout_height="wrap_content"
         android:background="@drawable/ll_background_normal"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24px"
+            android:layout_marginTop="19.5px"
+            android:src="@mipmap/ic_common_factory" />
+
+        <TextView
+            android:id="@+id/commodiy_factory"
+            android:layout_width="634px"
+            android:layout_height="34px"
+            android:layout_marginBottom="14.5px"
+            android:layout_marginLeft="8px"
+            android:layout_marginRight="16px"
+            android:layout_marginTop="14.5px"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="我的的的的的的的的的的的的的的d ddddddddddddddddddd"
+            android:textColor="#333333"
+            android:textSize="26px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:background="@drawable/ll_background_normal"
+        android:layout_width="match_parent"
+        android:layout_height="55px"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/commodiy_type"
-            android:layout_width="200px"
+            android:layout_width="240px"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="22px"
-            android:drawableLeft="@mipmap/ic_common_cutton"
+            android:drawableLeft="@mipmap/ic_common_cuttonblack"
             android:drawablePadding="8px"
+            android:paddingLeft="20px"
             android:text="锯齿细绒棉"
-            android:textColor="@color/drop_color"
+            android:textColor="#333333"
             android:textSize="26px" />
 
+
         <TextView
-            android:id="@+id/commodiy_factory"
-            android:layout_width="match_parent"
+            android:id="@+id/tv_store_range"
+            android:layout_width="240px"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="80px"
-            android:layout_marginRight="26px"
-            android:drawableLeft="@mipmap/ic_common_factory"
+            android:drawableLeft="@mipmap/ic_store_sts"
             android:drawablePadding="8px"
-            android:ellipsize="end"
-            android:singleLine="true"
-            android:text="锯齿细绒棉锯齿细绒棉锯齿细绒棉锯齿细绒棉"
+            android:paddingLeft="20px"
+            android:text="3320KM"
+            android:textColor="#333333"
+            android:textSize="26px" />
+
+
+        <TextView
+            android:id="@+id/tv_store_date"
+            android:layout_width="240px"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@mipmap/ic_commom_date"
+            android:drawablePadding="8px"
+            android:paddingLeft="20px"
+            android:text="2017-5-26"
             android:textColor="#333333"
             android:textSize="26px" />
     </com.zhy.autolayout.AutoLinearLayout>
-
     <com.zhy.autolayout.AutoLinearLayout
+        android:background="@drawable/ll_background_normal"
         android:id="@+id/ll_MycommodityButton"
         android:layout_width="match_parent"
         android:layout_height="100px"
-        android:background="@drawable/ll_background_normal"
         android:gravity="center_vertical|right">
 
         <Button

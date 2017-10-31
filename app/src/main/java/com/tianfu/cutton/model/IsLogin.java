@@ -66,6 +66,7 @@ public class IsLogin {
         public Object havePassword;
         public Object deviceCode;
         public int loginTimes;
+        public String pushOffTime;
         public String userLevel;
     }
 }

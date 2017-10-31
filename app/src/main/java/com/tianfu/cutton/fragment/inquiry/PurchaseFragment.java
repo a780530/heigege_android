@@ -116,6 +116,23 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
     private boolean isUpData = true;
     private boolean isShowSort = false;
     private boolean isShowType = false;
+    private int keyType = 0;//记录排序规则
+    private PopWindow popWindowKey;
+    private TextView tv_sort_type1;
+    private TextView tv_sort_type2;
+    private TextView tv_sort_type3;
+    private TextView tv_sort_type4;
+    private ImageView iv_sort_type1;
+    private ImageView iv_sort_type2;
+    private ImageView iv_sort_type3;
+    private ImageView iv_sort_type4;
+    private DoubleSeekBar doubleseekbarTrash;
+    private DoubleSeekBar doubleSeekBarMoisture;
+    private TextView tvTrash;
+    private TextView tvMoisture;
+    private ImageView iv_black_method;
+    private MultiCheckGroupView methodGroup;
+    private Map<String,String> mapMethod;
 
     public PurchaseFragment() {
         // Required empty public constructor
@@ -157,8 +174,13 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
         Button btSelectSure = (Button) mRootView.findViewById(R.id.btSelectSure);
         btSelectSure.setOnClickListener(this);
 
+        RelativeLayout rl_method = (RelativeLayout) mRootView.findViewById(R.id.rl_method);
+        rl_method.setOnClickListener(this);
+        iv_black_method = (ImageView) mRootView.findViewById(R.id.iv_black_method);
+        methodGroup = (MultiCheckGroupView) mRootView.findViewById(R.id.methodGroup);
         RelativeLayout rl_keyword = (RelativeLayout) mRootView.findViewById(R.id.rl_keyword);
         rl_keyword.setOnClickListener(this);
+
         iv_black_keyword = (ImageView) mRootView.findViewById(R.id.iv_black_keyword);
         keyword_group = (MultiCheckGroupView) mRootView.findViewById(R.id.keyword_group);
 
@@ -175,6 +197,11 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
         doubleseekbar_house = (DoubleSeekBar) mRootView.findViewById(R.id.doubleseekbar_house);
         doubleseekbar_elasticity = (DoubleSeekBar) mRootView.findViewById(R.id.doubleseekbar_elasticity);
         doubleseekbar_length = (DoubleSeekBar) mRootView.findViewById(R.id.doubleseekbar_length);
+
+        doubleseekbarTrash = (DoubleSeekBar) mRootView.findViewById(R.id.doubleseekbar_trash);
+        doubleSeekBarMoisture = (DoubleSeekBar) mRootView.findViewById(R.id.doubleSeekBar_moisture);
+        tvTrash = (TextView) mRootView.findViewById(R.id.tv_trash);
+        tvMoisture = (TextView) mRootView.findViewById(R.id.tv_moisture);
 
         tv_house = (TextView) mRootView.findViewById(R.id.tv_house);
         tv_elasticity = (TextView) mRootView.findViewById(R.id.tv_elasticity);
@@ -194,29 +221,18 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
         doubleseekbar_house.setOnDoubleValueChangeListener(new DoubleSeekBar.DoubleSeekBarValueChangeListener() {
             @Override
             public void onDoubleValueChange(float lowValue, float highValue) {
-          /*      bt_c1.setTextColor(getResources().getColor(R.color.drop_color));
-                bt_c2.setTextColor(getResources().getColor(R.color.drop_color));
-                bt_a.setTextColor(getResources().getColor(R.color.drop_color));
-                bt_b1.setTextColor(getResources().getColor(R.color.drop_color));
-                bt_b2.setTextColor(getResources().getColor(R.color.drop_color));
-                bt_c1.setBackgroundResource(R.drawable.btn_bottom_background_right_press);
-                bt_c2.setBackgroundResource(R.drawable.btn_bottom_background_right_press);
-                bt_a.setBackgroundResource(R.drawable.btn_bottom_background_right_press);
-                bt_b1.setBackgroundResource(R.drawable.btn_bottom_background_right_press);
-                bt_b2.setBackgroundResource(R.drawable.btn_bottom_background_right_press);
-                tv_house.setText(lowVal "-" + highValue);*/
                 tv_house.setText(lowValue + "-" + highValue);
-                if ((lowValue+"").equals("3.5")&&(highValue+"").equals("3.6")){
+                if ((lowValue + "").equals("3.5") && (highValue + "").equals("3.6")) {
                     bt_b1.setBackgroundResource(R.drawable.btn_bottom_background_left_press);
                     bt_b1.setTextColor(getResources().getColor(R.color.white));
-                }else if ((lowValue+"").equals("3.7")&&(highValue+"").equals("4.2")){
+                } else if ((lowValue + "").equals("3.7") && (highValue + "").equals("4.2")) {
                     bt_a.setBackgroundResource(R.drawable.btn_bottom_background_left_press);
                     bt_a.setTextColor(getResources().getColor(R.color.white));
-                }else if ((lowValue+"").equals("4.3")&&(highValue+"").equals("4.9")){
+                } else if ((lowValue + "").equals("4.3") && (highValue + "").equals("4.9")) {
                     bt_b2.setBackgroundResource(R.drawable.btn_bottom_background_left_press);
                     bt_b2.setTextColor(getResources().getColor(R.color.white));
-                }else if (lowValue == highValue) {
-                    if ((highValue+"").equals("3.4")) {
+                } else if (lowValue == highValue) {
+                    if ((highValue + "").equals("3.4")) {
                         bt_c1.setBackgroundResource(R.drawable.btn_bottom_background_left_press);
                         bt_c1.setTextColor(getResources().getColor(R.color.white));
                         tv_house.setText("3.4及以下");
@@ -225,7 +241,7 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
                         bt_c2.setBackgroundResource(R.drawable.btn_bottom_background_left_press);
                         bt_c2.setTextColor(getResources().getColor(R.color.white));
                     }
-                }else {
+                } else {
                     bt_c1.setBackgroundResource(R.drawable.btn_bottom_background_right_press);
                     bt_c2.setBackgroundResource(R.drawable.btn_bottom_background_right_press);
                     bt_a.setBackgroundResource(R.drawable.btn_bottom_background_right_press);
@@ -258,11 +274,46 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
             @Override
             public void onDoubleValueChange(float lowValue, float highValue) {
                 tv_length.setText((int) lowValue + "-" + (int) highValue);
-                if ((int) lowValue== (int) highValue){
-                    if ((int) lowValue==25){
-                        tv_length.setText("25以下");
-                    }else if ((int) lowValue==32){
-                        tv_length.setText("32以上");
+                if ((int) lowValue == (int) highValue) {
+                    if ((int) lowValue == 25) {
+                        tv_length.setText("25及以下");
+                    } else if ((int) lowValue == 32) {
+                        tv_length.setText("32及以上");
+                    }
+                }
+                if (tvOrigin.getText().toString().equals("长绒棉")) {
+                    if ((int) lowValue == (int) highValue) {
+                        if ((int) lowValue == 33) {
+                            tv_length.setText("33及以下");
+                        } else if ((int) lowValue == 39) {
+                            tv_length.setText("39及以上");
+                        }
+                    }
+                }
+            }
+        });
+        doubleseekbarTrash.setOnDoubleValueChangeListener(new DoubleSeekBar.DoubleSeekBarValueChangeListener() {
+            @Override
+            public void onDoubleValueChange(float lowValue, float highValue) {
+                tvTrash.setText((int) lowValue + "-" + (int) highValue);
+                if ((int) lowValue == (int) highValue) {
+                    if ((int) lowValue == 0) {
+                        tvTrash.setText("0及以下");
+                    } else if ((int) lowValue == 5) {
+                        tvTrash.setText("5及以上");
+                    }
+                }
+            }
+        });
+        doubleSeekBarMoisture.setOnDoubleValueChangeListener(new DoubleSeekBar.DoubleSeekBarValueChangeListener() {
+            @Override
+            public void onDoubleValueChange(float lowValue, float highValue) {
+                tvMoisture.setText((int) lowValue + "-" + (int) highValue);
+                if ((int) lowValue == (int) highValue) {
+                    if ((int) lowValue == 0) {
+                        tvMoisture.setText("0及以下");
+                    } else if ((int) lowValue == 10) {
+                        tvMoisture.setText("10及以上");
                     }
                 }
             }
@@ -282,9 +333,9 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
                     String[] split = s.split("-");
                     String[] split1 = split[0].split("\\.");
                     String[] split2 = split[1].split("\\.");
-                    String min = split1[0]+split1[1];
-                    String max = split2[0]+split2[1];
-                    doubleseekbar_house.setValues(Integer.valueOf(min),Integer.valueOf(max));
+                    String min = split1[0] + split1[1];
+                    String max = split2[0] + split2[1];
+                    doubleseekbar_house.setValues(Integer.valueOf(min), Integer.valueOf(max));
                 }
                 String elasticityStr = tv_elasticity.getText().toString();
                 if (elasticityStr.equals("24及以下")) {
@@ -296,19 +347,37 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
                     doubleseekbar_elasticity.setValues(Integer.valueOf(splitelasticity[0]), Integer.valueOf(splitelasticity[1]));
                 }
                 String lengthStr = tv_length.getText().toString();
-                if (lengthStr.equals("25以下")) {
+                if (lengthStr.equals("25及以下")) {
                     doubleseekbar_length.setValues(25, 25);
-                } else if (lengthStr.equals("32以上")) {
+                } else if (lengthStr.equals("32及以上")) {
                     doubleseekbar_length.setValues(32, 32);
+                } else if (lengthStr.equals("33及以下")) {
+                    doubleseekbar_length.setValues(33, 33);
+                } else if (lengthStr.equals("39及以上")) {
+                    doubleseekbar_length.setValues(39, 39);
                 } else {
                     String[] splitlength = tv_length.getText().toString().split("-");
                     doubleseekbar_length.setValues(Integer.valueOf(splitlength[0]), Integer.valueOf(splitlength[1]));
                 }
-         /*       String[] split = tv_elasticity.getText().toString().split("-");
-                String[] split1 = tv_length.getText().toString().split("-");
-                doubleseekbar_elasticity.setValues(Integer.valueOf(split[0]), Integer.valueOf(split[1]));
-                doubleseekbar_length.setValues(Integer.valueOf(split1[0]), Integer.valueOf(split1[1]));*/
 
+                String trashStr = tvTrash.getText().toString();
+                if (trashStr.equals("0及以下")) {
+                    doubleseekbarTrash.setValues(0, 0);
+                } else if (trashStr.equals("5及以上")) {
+                    doubleseekbarTrash.setValues(5, 5);
+                } else {
+                    String[] splittrash = trashStr.split("-");
+                    doubleseekbarTrash.setValues(Integer.valueOf(splittrash[0]), Integer.valueOf(splittrash[1]));
+                }
+                String moistureStr = tvMoisture.getText().toString();
+                if (moistureStr.equals("0及以下")) {
+                    doubleSeekBarMoisture.setValues(0, 0);
+                } else if (moistureStr.equals("10及以上")) {
+                    doubleSeekBarMoisture.setValues(10, 10);
+                } else {
+                    String[] splitmoisture = moistureStr.split("-");
+                    doubleSeekBarMoisture.setValues(Integer.valueOf(splitmoisture[0]), Integer.valueOf(splitmoisture[1]));
+                }
             }
 
             @Override
@@ -329,21 +398,17 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
             }
         });
         mapKeyword = new TreeMap<>();
-        mapKeyword.put("0", "双28");
-        mapKeyword.put("1", "双29");
-        mapKeyword.put("2", "超低价");
-        mapKeyword.put("3", "3128B");
-        mapKeyword.put("4", "兵团棉");
-        mapKeyword.put("5", "无三丝");
-        mapKeyword.put("6", "手摘棉");
-        mapKeyword.put("7", "机采棉");
+        mapKeyword.put("0", "2017");
+        mapKeyword.put("1", "2016");
+        keyword_group.setMultiCheck(false);
         keyword_group.addValues(mapKeyword);
 
 
         mapType = new TreeMap<>();
-        mapType.put("0", "锯齿细绒棉");
-        mapType.put("1", "锯齿机采棉");
-        mapType.put("2", "皮辊细绒棉");
+        mapType.put("0", "新疆棉");
+        mapType.put("1", "地产棉");
+        mapType.put("2", "进口棉");
+        type_group.setMultiCheck(false);
         type_group.addValues(mapType);
 
         mapColor = new TreeMap<>();
@@ -360,14 +425,21 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
         mapColor.put("90", "淡黄染棉3级");
         mapColor.put("91", "黄染棉1级");
         mapColor.put("92", "黄染棉2级");
-        color_group.addValues(mapColor);
+       color_group.addValues(mapColor);
+
+        mapMethod = new TreeMap();
+        mapMethod.put("0", "公重");
+        mapMethod.put("1", "毛重");
+        methodGroup.addValues(mapMethod);
+        methodGroup.setMultiCheck(false);
     }
 
     private void ishaveData() {
         List<String> selectedList = keyword_group.getSelectedList();
         List<String> selectedList1 = type_group.getSelectedList();
         List<String> selectedList2 = color_group.getSelectedList();
-        if (selectedList.size() < 1 && selectedList1.size() < 1 && selectedList2.size() < 1 && tv_house.getText().toString().equals("3.4-5.0") && tv_elasticity.getText().toString().equals("24-31") && tv_length.getText().toString().equals("25-32")) {
+        List<String> selectedList3 = methodGroup.getSelectedList();
+        if (selectedList3.size()<1&&selectedList.size() < 1 && selectedList1.size() < 1 && selectedList2.size() < 1 && tv_house.getText().toString().equals("3.4-5.0") && tvMoisture.getText().toString().equals("0-10") && tvTrash.getText().toString().equals("0-5") && tv_elasticity.getText().toString().equals("24-31") && (tv_length.getText().toString().equals("25-32") || tv_length.getText().toString().equals("33-39"))) {
             iv_shaixuan.setImageResource(R.mipmap.ic_store_funnel);
             tv_shaixuan.setTextColor(getResources().getColor(R.color.drop_color));
         } else {
@@ -444,12 +516,20 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
         bt_b2.setTextColor(getResources().getColor(R.color.drop_color));
         type_group.clearSelected();
         color_group.clearSelected();
+        methodGroup.clearSelected();
         iv_shaixuan.setImageResource(R.mipmap.ic_store_funnel);
         tv_shaixuan.setTextColor(getResources().getColor(R.color.drop_color));
-
+        tvOrigin.setText("品类");
+        doubleseekbar_elasticity.setLowHighValue(24, 31, 24, 31);
+        doubleseekbar_elasticity.setValues(24, 31);
+        doubleseekbar_length.setLowHighValue(25, 32, 25, 32);
+        doubleseekbar_length.setValues(25, 32);
+        keyType = 0;
         tv_house.setText("3.4-5.0");
         tv_elasticity.setText("24-31");
         tv_length.setText("25-32");
+        tvTrash.setText("0-5");
+        tvMoisture.setText("0-10");
         hashMap.clear();
         hashMap.put("deviceNo", Common.deviceNo);
         hashMap.put("from", Common.from);
@@ -584,6 +664,7 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
                 isShowType = false;
                 break;
             case R.id.ll_sort:
+                pageNo=1;
            /*     if (originGroup != null) {
                     originGroup.clearFixed();
                 }
@@ -607,6 +688,7 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
                 isSeletct = true;
                 break;
             case R.id.ll_purchase_price:
+                pageNo=1;
                 isShowSort = false;
                 isShowType = false;
               /*  if (originGroup != null) {
@@ -647,7 +729,8 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
                     } else {
                         iv_origin.setImageResource(R.mipmap.ic_common_upblack);
                     }*/
-                    showOrigin();
+                    showKey(keyType);
+//                    showOrigin();
                 } else {
                     isShowType = false;
                 }
@@ -735,6 +818,97 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
                     type_group.showMyLayout();
                 }
                 break;
+            case R.id.ll_sort_type1:
+                pageNo = 1;
+                showColor(1);
+                if (keyType == 1) {
+                    keyType = 0;
+                    hashMap.remove("keyword");
+                    if (mDatas != null) {
+                        mDatas.clear();
+                    }
+                    showData(hashMap);
+                    showData(hashMap);
+                    tvOrigin.setText("品类");
+                    tvOrigin.setTextColor(getResources().getColor(R.color.drop_color));
+                } else {
+                    hashMap.put("keyword", "[\"手摘棉\"]");
+                    if (mDatas != null) {
+                        mDatas.clear();
+                    }
+                    showData(hashMap);
+                    tvOrigin.setText("手摘棉");
+                    tvOrigin.setTextColor(getResources().getColor(R.color.tab_tv_selected));
+                    keyType = 1;
+                }
+                popWindowKey.dismiss();
+                isShowType = false;
+                break;
+            case R.id.ll_sort_type2:
+                pageNo = 1;
+                showColor(1);
+                if (keyType == 2) {
+                    keyType = 0;
+                    tvOrigin.setText("品类");
+                    hashMap.remove("keyword");
+                    if (mDatas != null) {
+                        mDatas.clear();
+                    }
+                    showData(hashMap);
+                    tvOrigin.setTextColor(getResources().getColor(R.color.drop_color));
+                } else {
+                    tvOrigin.setText("机采棉");
+                    hashMap.put("keyword", "[\"机采棉\"]");
+                    if (mDatas != null) {
+                        mDatas.clear();
+                    }
+                    showData(hashMap);
+                    tvOrigin.setTextColor(getResources().getColor(R.color.tab_tv_selected));
+                    keyType = 2;
+                }
+                popWindowKey.dismiss();
+                isShowType = false;
+                break;
+            case R.id.ll_sort_type3:
+                pageNo = 1;
+                if (keyType == 3) {
+                    tvOrigin.setText("品类");
+                    hashMap.remove("keyword");
+                    showData(hashMap);
+                    showColor(1);
+                    tvOrigin.setTextColor(getResources().getColor(R.color.drop_color));
+                    keyType = 0;
+                } else {
+                    tvOrigin.setText("皮辊棉");
+                    hashMap.put("keyword", "[\"皮辊棉\"]");
+                    showData(hashMap);
+                    showColor(2);
+                    tvOrigin.setTextColor(getResources().getColor(R.color.tab_tv_selected));
+                    keyType = 3;
+                }
+                popWindowKey.dismiss();
+                isShowType = false;
+                break;
+            case R.id.ll_sort_type4:
+                pageNo = 1;
+                if (keyType == 4) {
+                    showColor(1);
+                    tvOrigin.setText("品类");
+                    hashMap.remove("keyword");
+                    showData(hashMap);
+                    tvOrigin.setTextColor(getResources().getColor(R.color.drop_color));
+                    keyType = 0;
+                } else {
+                    showColor(4);
+                    tvOrigin.setText("长绒棉");
+                    hashMap.put("keyword", "[\"长绒棉\"]");
+                    showData(hashMap);
+                    tvOrigin.setTextColor(getResources().getColor(R.color.tab_tv_selected));
+                    keyType = 4;
+                }
+                popWindowKey.dismiss();
+                isShowType = false;
+                break;
             case R.id.rl_color:
                 if (color_group.isShowMyLayout()) {
                     color_group.hideMyLayout();
@@ -742,6 +916,15 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
                 } else {
                     iv_black_color.setImageResource(R.mipmap.ic_sort_down);
                     color_group.showMyLayout();
+                }
+                break;
+            case R.id.rl_method:
+                if (methodGroup.isShowMyLayout()) {
+                    methodGroup.hideMyLayout();
+                    iv_black_method.setImageResource(R.mipmap.ic_sort_up);
+                } else {
+                    iv_black_method.setImageResource(R.mipmap.ic_sort_down);
+                    methodGroup.showMyLayout();
                 }
                 break;
             case R.id.bt_c1:
@@ -828,12 +1011,21 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
                 keyword_group.clearSelected();
                 type_group.clearSelected();
                 color_group.clearSelected();
+                methodGroup.clearSelected();
                 tv_house.setText("3.4-5.0");
                 tv_length.setText("25-32");
+                doubleseekbar_length.setValues(25, 32);
+                if (tvOrigin.getText().toString().equals("长绒棉")) {
+                    tv_length.setText("33-39");
+                    doubleseekbar_length.setValues(33, 39);
+                }
                 tv_elasticity.setText("24-31");
+                tvTrash.setText("0-5");
+                tvMoisture.setText("0-10");
                 doubleseekbar_house.setValues(34, 50);
                 doubleseekbar_elasticity.setValues(24, 31);
-                doubleseekbar_length.setValues(25, 32);
+                doubleseekbarTrash.setValues(0, 5);
+                doubleSeekBarMoisture.setValues(0, 10);
                 break;
             case R.id.btSelectSure:
                 List<String> selectedkeyword = keyword_group.getSelectedList();
@@ -844,15 +1036,30 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
                 List<String> originValue = new ArrayList<>();
                 List<String> selectedcolor = color_group.getSelectedList();
                 color_group.commit();
+                List<String> selectedMethod = methodGroup.getSelectedList();
+                methodGroup.commit();
+                List<String> methodValue= new ArrayList<>();
+
+                if (selectedMethod.size() > 0) {
+                    for (String temp : selectedMethod) {
+                        String s = mapMethod.get(temp);
+                        hashMap.put("settlementMethod", s);
+                        methodValue.add(s);
+                    }
+                } else {
+                    hashMap.remove("settlementMethod");
+                }
+
+
                 List<String> colorValue = new ArrayList<>();
                 if (selectedkeyword.size() > 0) {
                     for (String temp : selectedkeyword) {
                         String s = mapKeyword.get(temp);
                         keyValue.add(s);
                     }
-                    hashMap.put("keyword", ListToListString.getString(keyValue));
+                    hashMap.put("createYear", ListToListString.getString(keyValue));
                 } else {
-                    hashMap.remove("keyword");
+                    hashMap.remove("createYear");
                 }
                 if (selectedcolor.size() > 0) {
                     for (String temp : selectedcolor) {
@@ -896,8 +1103,9 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
                         } else if (s.equals("黄染棉2级")) {
                             s = "yellow2";
                             colorValue.add(s);
+                        } else {
+                            colorValue.add(s);
                         }
-                        System.out.println("list:----------" + colorValue.toString());
                         hashMap.put("colorGrade", ListToListString.getString(colorValue));
                     }
                 } else {
@@ -907,11 +1115,10 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
                     for (String temp : selectedtype) {
                         String s = mapType.get(temp);
                         originValue.add(s);
-                        System.out.println(ListToListString.getString(originValue).toString());
                     }
-                    hashMap.put("type", ListToListString.getString(originValue));
+                    hashMap.put("origin", ListToListString.getString(originValue));
                 } else {
-                    hashMap.remove("type");
+                    hashMap.remove("origin");
                 }
                 Gson gson = new Gson();
                 String strHorse = tv_house.getText().toString();
@@ -947,15 +1154,23 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
                 }
 
                 String strLength = tv_length.getText().toString();
-                if (strLength.equals("25以下")){
+                if (strLength.equals("25及以下")) {
                     MicronAverage micronAverage2 = new MicronAverage("25", "25");
                     String jsonString2 = gson.toJson(micronAverage2);
                     hashMap.put("lengthAverage", jsonString2);
-                }else if (strLength.equals("32以上")){
+                } else if (strLength.equals("32及以上")) {
                     MicronAverage micronAverage2 = new MicronAverage("32", "32");
                     String jsonString2 = gson.toJson(micronAverage2);
                     hashMap.put("lengthAverage", jsonString2);
-                }else{
+                } else if (strLength.equals("33及以下")) {
+                    MicronAverage micronAverage2 = new MicronAverage("33", "33");
+                    String jsonString2 = gson.toJson(micronAverage2);
+                    hashMap.put("lengthAverage", jsonString2);
+                } else if (strLength.equals("39及以上")) {
+                    MicronAverage micronAverage2 = new MicronAverage("39", "39");
+                    String jsonString2 = gson.toJson(micronAverage2);
+                    hashMap.put("lengthAverage", jsonString2);
+                } else {
                     String[] split2 = strLength.split("-");
                     MicronAverage micronAverage2 = new MicronAverage(split2[0].toString(), split2[1].toString());
                     String jsonString2 = gson.toJson(micronAverage2);
@@ -964,25 +1179,250 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
 
 
                 String strElasticity = tv_elasticity.getText().toString();
-                if (strElasticity.equals("24及以下")){
+                if (strElasticity.equals("24及以下")) {
                     MicronAverage micronAverage3 = new MicronAverage("24", "24");
                     String jsonString3 = gson.toJson(micronAverage3);
                     hashMap.put("breakLoadAverage", jsonString3);
-                }else if (strElasticity.equals("31及以上")){
+                } else if (strElasticity.equals("31及以上")) {
                     MicronAverage micronAverage3 = new MicronAverage("31", "31");
                     String jsonString3 = gson.toJson(micronAverage3);
                     hashMap.put("breakLoadAverage", jsonString3);
-                }else{
+                } else {
                     String[] split3 = strElasticity.split("-");
                     MicronAverage micronAverage3 = new MicronAverage(split3[0].toString(), split3[1].toString());
                     String jsonString3 = gson.toJson(micronAverage3);
                     hashMap.put("breakLoadAverage", jsonString3);
                 }
+
+                String strTrash = tvTrash.getText().toString();
+                if (strTrash.equals("0及以下")) {
+                    MicronAverage micronAverage3 = new MicronAverage("0", "0");
+                    String jsonString3 = gson.toJson(micronAverage3);
+                    hashMap.put("trash", jsonString3);
+                } else if (strTrash.equals("5及以上")) {
+                    MicronAverage micronAverage3 = new MicronAverage("5", "5");
+                    String jsonString3 = gson.toJson(micronAverage3);
+                    hashMap.put("trash", jsonString3);
+                } else {
+                    String[] split3 = strTrash.split("-");
+                    MicronAverage micronAverage3 = new MicronAverage(split3[0].toString(), split3[1].toString());
+                    String jsonString3 = gson.toJson(micronAverage3);
+                    hashMap.put("trash", jsonString3);
+                }
+
+
+                String strMoisture = tvMoisture.getText().toString();
+                if (strMoisture.equals("0及以下")) {
+                    MicronAverage micronAverage3 = new MicronAverage("0", "0");
+                    String jsonString3 = gson.toJson(micronAverage3);
+                    hashMap.put("moisture", jsonString3);
+                } else if (strMoisture.equals("10及以上")) {
+                    MicronAverage micronAverage3 = new MicronAverage("10", "10");
+                    String jsonString3 = gson.toJson(micronAverage3);
+                    hashMap.put("moisture", jsonString3);
+                } else {
+                    String[] split3 = strMoisture.split("-");
+                    MicronAverage micronAverage3 = new MicronAverage(split3[0].toString(), split3[1].toString());
+                    String jsonString3 = gson.toJson(micronAverage3);
+                    hashMap.put("moisture", jsonString3);
+                }
+
                 showData(hashMap);
                 drawerLayout.closeDrawer(Gravity.RIGHT);
 
                 break;
         }
+    }
+
+    private void showColor(int i) {
+        switch (i) {
+            case 1:
+                if (drawerLayout != null) {
+                    doubleseekbar_length.setLowHighValue(25, 32, 25, 32);
+                    doubleseekbar_length.setValues(25, 32);
+                    tv_length.setText("25-32");
+                }
+                mapColor.put("0", "白棉1级");
+                mapColor.put("1", "白棉2级");
+                mapColor.put("2", "白棉3级");
+                mapColor.put("3", "白棉4级");
+                mapColor.put("4", "白棉5级");
+                mapColor.put("5", "淡点污棉1级");
+                mapColor.put("6", "淡点污棉2级");
+                mapColor.put("7", "淡点污棉3级");
+                mapColor.put("8", "淡黄染棉1级");
+                mapColor.put("9", "淡黄染棉2级");
+                mapColor.put("90", "淡黄染棉3级");
+                mapColor.put("91", "黄染棉1级");
+                mapColor.put("92", "黄染棉2级");
+                color_group.addValues(mapColor);
+                break;
+            case 2:
+                if (drawerLayout != null) {
+                    doubleseekbar_length.setLowHighValue(25, 32, 25, 32);
+                    doubleseekbar_length.setValues(25, 32);
+                    tv_length.setText("25-32");
+                }
+                mapColor.clear();
+                mapColor.put("0", "1级");
+                mapColor.put("1", "2级");
+                mapColor.put("2", "3级");
+                mapColor.put("3", "4级");
+                mapColor.put("4", "5级");
+                mapColor.put("5", "6级");
+                mapColor.put("6", "7级");
+                color_group.addValues(mapColor);
+                break;
+            case 3:
+                if (drawerLayout != null) {
+                    doubleseekbar_length.setLowHighValue(33, 39, 33, 39);
+                    doubleseekbar_length.setValues(33, 39);
+                    tv_length.setText("33-39");
+                }
+                mapColor.clear();
+                mapColor.put("0", "1级");
+                mapColor.put("1", "2级");
+                mapColor.put("2", "3级");
+                mapColor.put("3", "4级");
+                mapColor.put("4", "5级");
+                mapColor.put("5", "6级");
+                mapColor.put("6", "7级");
+                color_group.addValues(mapColor);
+                break;
+            case 4:
+                if (drawerLayout != null) {
+                    doubleseekbar_length.setLowHighValue(33, 39, 33, 39);
+                    doubleseekbar_length.setValues(33, 39);
+                    tv_length.setText("33-39");
+                }
+                mapColor.clear();
+                mapColor.put("0", "1级");
+                mapColor.put("1", "2级");
+                mapColor.put("2", "3级");
+                mapColor.put("3", "4级");
+                mapColor.put("4", "5级");
+                color_group.addValues(mapColor);
+                break;
+        }
+    }
+
+    private void showKey(int keyType) {
+        LayoutInflater inflater = (LayoutInflater) getActivity()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View conentView = inflater.inflate(R.layout.popup_drop_quality_keyword, null);
+        popWindowKey = new PopWindow(getActivity(), conentView);
+        initKeyView(conentView);
+        popWindowKey.showAsDropDown(popWindowKey, ll_purchase_origin, 0, 0);
+     /*   if (Build.VERSION.SDK_INT < 24) {
+            popWindowKey.showAsDropDown(ll_keyQuality, 0, 0);
+        } else {
+            int[] location = new int[2];
+            // 获取控件在屏幕的位置
+            ll_keyQuality.getLocationOnScreen(location);
+            popWindowKey.showAtLocation(ll_keyQuality, Gravity.NO_GRAVITY, 0, location[1] + ll_keyQuality.getHeight() + 0);
+        }*/
+        popWindowKey.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                if (tvOrigin.getText().equals("品类")) {
+                    iv_origin.setImageResource(R.mipmap.ic_common_downblack);
+                    tvOrigin.setTextColor(getResources().getColor(R.color.drop_color));
+                } else {
+                    tvOrigin.setTextColor(getResources().getColor(R.color.tab_tv_selected));
+                    iv_origin.setImageResource(R.mipmap.ic_common_downred);
+                }
+            }
+        });
+        switch (keyType) {
+            case 1:
+                tv_sort_type1.setTextColor(getResources().getColor(R.color.tab_tv_selected));
+                tv_sort_type2.setTextColor(getResources().getColor(R.color.drop_color));
+                tv_sort_type3.setTextColor(getResources().getColor(R.color.drop_color));
+                tv_sort_type4.setTextColor(getResources().getColor(R.color.drop_color));
+                iv_sort_type1.setVisibility(View.VISIBLE);
+                iv_sort_type2.setVisibility(View.GONE);
+                iv_sort_type3.setVisibility(View.GONE);
+                iv_sort_type4.setVisibility(View.GONE);
+                break;
+            case 2:
+                tv_sort_type1.setTextColor(getResources().getColor(R.color.drop_color));
+                tv_sort_type2.setTextColor(getResources().getColor(R.color.tab_tv_selected));
+                tv_sort_type3.setTextColor(getResources().getColor(R.color.drop_color));
+                tv_sort_type4.setTextColor(getResources().getColor(R.color.drop_color));
+                iv_sort_type1.setVisibility(View.GONE);
+                iv_sort_type2.setVisibility(View.VISIBLE);
+                iv_sort_type3.setVisibility(View.GONE);
+                iv_sort_type4.setVisibility(View.GONE);
+                break;
+            case 3:
+                tv_sort_type1.setTextColor(getResources().getColor(R.color.drop_color));
+                tv_sort_type2.setTextColor(getResources().getColor(R.color.drop_color));
+                tv_sort_type3.setTextColor(getResources().getColor(R.color.tab_tv_selected));
+                tv_sort_type4.setTextColor(getResources().getColor(R.color.drop_color));
+                iv_sort_type1.setVisibility(View.GONE);
+                iv_sort_type2.setVisibility(View.GONE);
+                iv_sort_type3.setVisibility(View.VISIBLE);
+                iv_sort_type4.setVisibility(View.GONE);
+                break;
+            case 4:
+                tv_sort_type1.setTextColor(getResources().getColor(R.color.drop_color));
+                tv_sort_type2.setTextColor(getResources().getColor(R.color.drop_color));
+                tv_sort_type3.setTextColor(getResources().getColor(R.color.drop_color));
+                tv_sort_type4.setTextColor(getResources().getColor(R.color.tab_tv_selected));
+                iv_sort_type1.setVisibility(View.GONE);
+                iv_sort_type2.setVisibility(View.GONE);
+                iv_sort_type3.setVisibility(View.GONE);
+                iv_sort_type4.setVisibility(View.VISIBLE);
+                break;
+            case 0:
+                tv_sort_type1.setTextColor(getResources().getColor(R.color.drop_color));
+                tv_sort_type2.setTextColor(getResources().getColor(R.color.drop_color));
+                tv_sort_type3.setTextColor(getResources().getColor(R.color.drop_color));
+                tv_sort_type4.setTextColor(getResources().getColor(R.color.drop_color));
+//                 .setTextColor(getResources().getColor(R.color.tab_tv_selected));
+                iv_sort_type1.setVisibility(View.GONE);
+                iv_sort_type2.setVisibility(View.GONE);
+                iv_sort_type3.setVisibility(View.GONE);
+                iv_sort_type4.setVisibility(View.GONE);
+                break;
+        }
+    }
+
+    private void initKeyView(View conentView) {
+        LinearLayout ll_sort_type1 = (LinearLayout) conentView.findViewById(R.id.ll_sort_type1);
+        ll_sort_type1.setOnClickListener(this);
+        LinearLayout ll_sort_type2 = (LinearLayout) conentView.findViewById(R.id.ll_sort_type2);
+        ll_sort_type2.setOnClickListener(this);
+        LinearLayout ll_sort_type3 = (LinearLayout) conentView.findViewById(R.id.ll_sort_type3);
+        ll_sort_type3.setOnClickListener(this);
+        LinearLayout ll_sort_type4 = (LinearLayout) conentView.findViewById(R.id.ll_sort_type4);
+        ll_sort_type4.setOnClickListener(this);
+        tv_sort_type1 = (TextView) conentView.findViewById(R.id.tv_sort_type1);
+        tv_sort_type2 = (TextView) conentView.findViewById(R.id.tv_sort_type2);
+        tv_sort_type3 = (TextView) conentView.findViewById(R.id.tv_sort_type3);
+        tv_sort_type4 = (TextView) conentView.findViewById(R.id.tv_sort_type4);
+        iv_sort_type1 = (ImageView) conentView.findViewById(R.id.iv_sort_type1);
+        iv_sort_type2 = (ImageView) conentView.findViewById(R.id.iv_sort_type2);
+        iv_sort_type3 = (ImageView) conentView.findViewById(R.id.iv_sort_type3);
+        iv_sort_type4 = (ImageView) conentView.findViewById(R.id.iv_sort_type4);
+//          = (ImageView) conentView.findViewById(R.id. );
+        FrameLayout fl_dismiss = (FrameLayout) conentView.findViewById(R.id.fl_dismiss);
+        FrameLayout afl_dismiss = (FrameLayout) conentView.findViewById(R.id.afl_dismiss);
+        afl_dismiss.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popWindowKey.dismiss();
+                isShowType = false;
+            }
+        });
+        fl_dismiss.setAlpha(0.3f);
+        fl_dismiss.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popWindowKey.dismiss();
+                isShowType = false;
+            }
+        });
     }
 
     private void showOrigin() {
@@ -1013,7 +1453,7 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
         mapLocation.put("3", "地产棉");
         mapLocation.put("4", "进口棉");
         originGroup.addValues(mapLocation);
-        popOriginWindow.showAsDropDown(popOriginWindow,ll_purchase_sort,0,0);
+        popOriginWindow.showAsDropDown(popOriginWindow, ll_purchase_sort, 0, 0);
       /*  if (Build.VERSION.SDK_INT < 24) {
             popOriginWindow.showAsDropDown(ll_purchase_sort, 0, 0);
         } else {
@@ -1051,7 +1491,7 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
         tv_zonghe = (TextView) conentView.findViewById(R.id.tv_zonghe);
         iv_zonghe = (ImageView) conentView.findViewById(R.id.iv_zonghe);
         ll_sort.setOnClickListener(this);
-        popWindow.showAsDropDown(popWindow,ll_purchase_sort,0,0);
+        popWindow.showAsDropDown(popWindow, ll_purchase_sort, 0, 0);
      /*   if (Build.VERSION.SDK_INT < 24) {
             popWindow.showAsDropDown(ll_purchase_sort, 0, 0);
         } else {
@@ -1098,11 +1538,11 @@ public class PurchaseFragment extends BaseFragment implements View.OnClickListen
             ;
             return true;
         }
-        if (popWindow!=null&&popWindow.isShowing()){
+        if (popWindow != null && popWindow.isShowing()) {
             popWindow.dismiss();
             return true;
         }
-        if (popOriginWindow!=null&&popOriginWindow.isShowing()){
+        if (popOriginWindow != null && popOriginWindow.isShowing()) {
             popOriginWindow.dismiss();
             return true;
         }

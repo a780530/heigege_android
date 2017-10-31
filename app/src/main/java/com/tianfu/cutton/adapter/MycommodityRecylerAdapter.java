@@ -2,6 +2,7 @@ package com.tianfu.cutton.adapter;
 
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -12,6 +13,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.tianfu.cutton.R;
 import com.tianfu.cutton.activity.base.BaseApplication;
 import com.tianfu.cutton.model.MyStoreBean;
+import com.tianfu.cutton.utils.StringJudgeUtils;
 
 import java.util.List;
 
@@ -117,6 +119,24 @@ public class MycommodityRecylerAdapter extends BaseQuickAdapter<MyStoreBean.Valu
             view.setText(R.id.commodiy_factory, item.storage);
         } else {
             view.setText(R.id.commodiy_factory, "-");
+        }
+        TextView tvView = view.getView(R.id.tv_store_range);
+        if (!TextUtils.isEmpty(item.isRule)){
+            if (item.isRule.equals("0")){
+                view.setText(R.id.tv_store_range, "--");
+                tvView.setTextColor(BaseApplication.getContextObject().getResources().getColor(R.color.drop_color));
+            }else{
+                StringJudgeUtils.judgeStringSts(item.sts,tvView);
+            }
+        }else{
+            tvView.setTextColor(BaseApplication.getContextObject().getResources().getColor(R.color.drop_color));
+            view.setText(R.id.tv_store_range, "--");
+        }
+        if (item.updateTime != null && !"".equals(item.updateTime)) {
+            String[] split = item.updateTime.split(" ");
+            view.setText(R.id.tv_store_date, split[0]);
+        } else {
+            view.setText(R.id.tv_store_date, "--");
         }
     }
 }

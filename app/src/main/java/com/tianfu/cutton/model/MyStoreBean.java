@@ -55,7 +55,9 @@ public class MyStoreBean {
             public String moisture;
             public String trash;
             public String factory;
+            public String sts;
             public String position;
+            public String isRule;
             public String grossweight;
             public String stdweight;
             public String checkStorage;

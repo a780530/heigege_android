@@ -59,17 +59,4 @@ public class MyScrollView extends NestedScrollView {
 
         return super.onInterceptTouchEvent(ev);
     }
-
-//    class YScrollDetector extends GestureDetector.SimpleOnGestureListener {
-//        @Override
-//        public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-//            if (canScroll)
-//                if (Math.abs(distanceY) >= Math.abs(distanceX)) {
-//                    canScroll = true;
-//                } else {
-//                    canScroll = false;
-//                }
-//            return canScroll;
-//        }
-//    }
 }

@@ -61,7 +61,7 @@ public class PurchaseorderbySelfDetailsBean {
          * endTime : null
          * sorts : null
          */
-
+        public boolean baleCotton;
         public String id;
         public String createTime;
         public String updateTime;
@@ -82,13 +82,17 @@ public class PurchaseorderbySelfDetailsBean {
         public String area;
         public String address;
         public String address2;
+        public String settlementMethod;
         public String remark;
         public String purchaseStatus;
+
         public int supplyNum;
         public String micronGrade;
         public MicronAverageBean micronAverage;
         public BreakLoadAverageBean breakLoadAverage;
         public LengthAverageBean lengthAverage;
+        public Trash trash;
+        public Moisture moisture;
         public String purchaseStatusName;
         public Object supplyId;
         public Object supplyStatus;
@@ -104,7 +108,7 @@ public class PurchaseorderbySelfDetailsBean {
         public List<String> colorGrade2;
         public List<String> origin2;
         public List<String> type2;
-
+        public List<String>  createYear;
         public List<String> getKeyword() {
             return keyword;
         }
@@ -132,7 +136,24 @@ public class PurchaseorderbySelfDetailsBean {
             public int min;
             public int max;
         }
+        public static class Trash {
+            /**
+             * min : 1
+             * max : 2
+             */
 
+            public String min;
+            public String max;
+        }
+        public static class Moisture {
+            /**
+             * min : 1
+             * max : 2
+             */
+
+            public String min;
+            public String max;
+        }
         public static class LengthAverageBean {
             /**
              * min : 3

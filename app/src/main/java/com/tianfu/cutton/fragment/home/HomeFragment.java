@@ -42,9 +42,10 @@ import com.tianfu.cutton.activity.base.BaseFragment;
 import com.tianfu.cutton.activity.home.SortActivity;
 import com.tianfu.cutton.activity.home.UploadingResourceActivity;
 import com.tianfu.cutton.activity.login.LoginActivity;
-import com.tianfu.cutton.activity.purchase.HomePurchaseDetailsActivity;
+import com.tianfu.cutton.activity.purchase.PurchaseDetailsActivity;
 import com.tianfu.cutton.activity.purchase.ReleasePurchaseActivity;
 import com.tianfu.cutton.activity.store.SearchActivity;
+import com.tianfu.cutton.activity.store.SearchContentActivity;
 import com.tianfu.cutton.activity.store.StoreBatchActivity;
 import com.tianfu.cutton.activity.store.StoreKunActivity;
 import com.tianfu.cutton.adapter.HomeNewPriceAdapter;
@@ -238,6 +239,14 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
             sellerRecycler.setLayoutManager(layoutManager);
             sellerAdapter = new SellerAdapter(R.layout.home_recommended_seller_item, mSellerDatas);
             sellerRecycler.setAdapter(sellerAdapter);
+            sellerAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                    Intent intent = new Intent(getActivity(), SearchContentActivity.class);
+                    intent.putExtra("contact", mSellerDatas.get(position).userName);
+                    startActivity(intent);
+                }
+            });
         } else {
             sellerAdapter.notifyDataSetChanged();
         }
@@ -245,7 +254,6 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
     }
 
     private void initMapViewPager(final List<List<String>> valueZiCotton, final List<List<String>> valuePiCotton, final List<List<String>> valueCotton, final List<String> date1, final List<String> date2, final List<String> date3) {
-        tvIndex = (TextView) mRootView.findViewById(R.id.tvIndex);
         mapViewPager = (ViewPager) mRootView.findViewById(R.id.mapViewPager);
         mapViewPager.setPageMargin(dip2px(BaseApplication.getContextObject(), 10));
         mapViewPager.setOffscreenPageLimit(3);
@@ -618,6 +626,7 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
 
     private void initNewPriceView(final int size, final List<AreaLintPriceByLastBean.ValueBean> value) {
         mViewPager = (ViewPager) mRootView.findViewById(R.id.id_viewpager);
+        mViewPager.addOnPageChangeListener(this);
         mViewPager.setAdapter(new PagerAdapter() {
             @Override
             public int getCount() {
@@ -734,9 +743,6 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
 
     @Override
     public void onPageScrollStateChanged(int state) {
-      /*  if (state == ViewPager.SCROLL_STATE_IDLE) {
-            mapViewPager.setCurrentItem(currentPosition, false);
-        }*/
     }
 
 
@@ -827,6 +833,7 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
             }
         });
         iv_message = (ImageView) mRootView.findViewById(R.id.iv_message);
+        tvIndex = (TextView) mRootView.findViewById(R.id.tvIndex);
         iv_message.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -933,6 +940,7 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
             }
         });
         mPtrrame = (PtrClassicFrameLayout) mRootView.findViewById(R.id.ptr_purchase_frame);
+        mPtrrame.disableWhenHorizontalMove(true);
         initPtr();
     }
 
@@ -1081,7 +1089,7 @@ public class HomeFragment extends BaseFragment implements ViewPager.OnPageChange
                     Intent intent = new Intent();
                     PurchaseDynamicsBean.ValueBean valueBean = mDatas.get(position);
                     intent.putExtra("PurchaseDynamicsBean", valueBean);
-                    intent.setClass(getActivity(), HomePurchaseDetailsActivity.class);
+                    intent.setClass(getActivity(), PurchaseDetailsActivity.class);
                     startActivity(intent);
                 }
             });

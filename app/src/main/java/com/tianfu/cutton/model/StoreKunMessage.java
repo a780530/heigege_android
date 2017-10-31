@@ -127,6 +127,7 @@ public class StoreKunMessage {
         public String releaseDate;
         public String property;
         public String rdAverage;
+        public String isCheap;
         public String plusBAverage;
         public String vehicleweight;
         public String emptyweight;

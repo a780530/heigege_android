@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -87,6 +88,7 @@ public class StoreKunMessageFragment extends Fragment {
     private String productId;
     private LinearLayout sl_haveData;
     private StoreKunMessage.ValueBean item;
+    private ImageView ivIsCheap;
 
     public StoreKunMessageFragment() {
         // Required empty public constructor
@@ -141,6 +143,7 @@ public class StoreKunMessageFragment extends Fragment {
         tvStoreKunMoney1 = (TextView) mRootView.findViewById(R.id.tv_store_kun_money);
         nodata = (LinearLayout) mRootView.findViewById(R.id.nodata);
         sl_haveData = (LinearLayout) mRootView.findViewById(R.id.sl_haveData);
+        ivIsCheap = (ImageView) mRootView.findViewById(R.id.ivIsCheap);
     }
 
     private void initData() {
@@ -256,6 +259,17 @@ public class StoreKunMessageFragment extends Fragment {
                         tvKunReleaseDate.setText(item.releaseDate);
                     } else {
                         tvKunReleaseDate.setText("--");
+                    }
+//                    ivIsCheap
+                    if (TextUtils.isEmpty(item.isCheap)){
+                        ivIsCheap.setVisibility(View.GONE);
+                    }else{
+                        if (item.isCheap.equals("0")){
+                            ivIsCheap.setVisibility(View.GONE);
+                        }else{
+                            ivIsCheap.setVisibility(View.VISIBLE);
+                        }
+
                     }
                 } else {
 

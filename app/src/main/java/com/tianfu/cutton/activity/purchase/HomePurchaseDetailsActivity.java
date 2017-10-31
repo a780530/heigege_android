@@ -98,6 +98,7 @@ public class HomePurchaseDetailsActivity extends AppCompatActivity {
         tvTitle.setText("采购单详情");
         Intent intent = getIntent();
         PurchaseDynamicsBean.ValueBean purchaseDynamicsBean = (PurchaseDynamicsBean.ValueBean) intent.getSerializableExtra("PurchaseDynamicsBean");
+        String purchaseSn = purchaseDynamicsBean.purchaseSn;
         initData(purchaseDynamicsBean);
     }
 

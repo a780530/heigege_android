@@ -145,6 +145,24 @@ public class DoubleSeekBar extends View {
         this.highValue = highValue;
     }
 
+    public void setLowHighValue(int lowValue, int highValue, int defaultLow, int defaultHigh) {
+        this.lowValue = lowValue;
+        this.highValue = highValue;
+        if (this.lowValue >= this.highValue) {
+            this.lowValue = 0;
+            this.highValue = 9;
+        }
+        this.defaultLow = defaultLow;
+        this.defaultHigh = defaultHigh;
+        if (this.defaultLow < this.lowValue) {
+            this.defaultLow = lowValue;
+        }
+        if (this.defaultHigh > this.highValue) {
+            this.defaultHigh = this.highValue;
+        }
+        requestLayout();
+    }
+
     public void setValues(float lV, float rV) {
         int tLV;
         int tRV;
@@ -327,7 +345,6 @@ public class DoubleSeekBar extends View {
                 break;
         }
         getParent().requestDisallowInterceptTouchEvent(flag);
-
         return true;
     }
 

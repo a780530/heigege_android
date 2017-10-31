@@ -12,6 +12,7 @@ import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -114,6 +115,16 @@ public class SupplyOrderDetailsActivity extends BaseActivity {
     TextView tvTitle;
     @BindView(R.id.ll_title)
     AutoRelativeLayout llTitle;
+    @BindView(R.id.trash)
+    TextView trash;
+    @BindView(R.id.mMoisture)
+    TextView mMoisture;
+    @BindView(R.id.mSettlementMethod)
+    TextView mSettlementMethod;
+    @BindView(R.id.tvColor)
+    TextView tvColor;
+    @BindView(R.id.batchCount)
+    TextView batchCount;
     private ListSupplyOrderBySelfBean.ValueBean.RowsBean rowsBean;
     private String telephone;
     private String ids;
@@ -136,6 +147,11 @@ public class SupplyOrderDetailsActivity extends BaseActivity {
     private void initdata() {
         Intent intent = getIntent();
         rowsBean = (ListSupplyOrderBySelfBean.ValueBean.RowsBean) intent.getSerializableExtra("RowsBeanSupply");
+        if (TextUtils.isEmpty(rowsBean.batchCount)) {
+            batchCount.setText("--");
+        }else {
+            batchCount.setText(rowsBean.batchCount);
+        }
         ids = rowsBean.supplyId;
         List<String> keyword = rowsBean.keyword;
         if (keyword != null && keyword.size() != 0) {
@@ -166,7 +182,7 @@ public class SupplyOrderDetailsActivity extends BaseActivity {
 
         List<String> originList = rowsBean.origin2;//产地
         if (originList == null) {
-            supplyDetailsOrigin.setText("---");
+            supplyDetailsOrigin.setText("--");
         } else {
             String str = "";
             for (int i = 0; i < originList.size(); i++) {
@@ -177,7 +193,7 @@ public class SupplyOrderDetailsActivity extends BaseActivity {
 
         List<String> listColor = rowsBean.colorGrade2;//颜色及
         if (listColor == null || listColor.size() < 1) {
-            supplyDetailsColorGrade.setText("---");
+            supplyDetailsColorGrade.setText("--");
         } else {
             String str = "";
             int count = 0;
@@ -234,15 +250,58 @@ public class SupplyOrderDetailsActivity extends BaseActivity {
                 }
             }
         }
-        List<String> type2 = rowsBean.type2;//加工
+  /*      List<String> type2 = rowsBean.type2;//棉花年度
         if (type2 == null) {
-            supplyDetailsType.setText("---");
+            supplyDetailsType.setText("--");
         } else {
             String str = "";
             for (int i = 0; i < type2.size(); i++) {
                 str += type2.get(i) + "   ";
             }
             supplyDetailsType.setText(str);
+        }*/
+        String settlementMethod = rowsBean.settlementMethod;
+        if (TextUtils.isEmpty(settlementMethod)) {
+            mSettlementMethod.setText("--");
+        } else {
+            mSettlementMethod.setText(settlementMethod);
+        }
+        ListSupplyOrderBySelfBean.ValueBean.RowsBean.TrashBean trashBean = rowsBean.trash;
+        ListSupplyOrderBySelfBean.ValueBean.RowsBean.MoistureBean moistureBean = rowsBean.moisture;
+        if (trashBean != null) {
+            this.trash.setText(trashBean.min + "-" + trashBean.max);
+            if (trashBean.min.equals(trashBean.max)) {
+                this.trash.setText(trashBean.min);
+                if (trashBean.min.equals("0")) {
+                    this.trash.setText("0及以下");
+                } else if (trashBean.min.equals("5")) {
+                    this.trash.setText("5及以上");
+                }
+            }
+        }
+        if (moistureBean != null) {
+            mMoisture.setText(moistureBean.min + "-" + moistureBean.max);
+            if (moistureBean.min.equals(moistureBean.max)) {
+                mMoisture.setText(moistureBean.min);
+                if (moistureBean.min.equals("0")) {
+                    mMoisture.setText("0及以下");
+                } else if (moistureBean.min.equals("10")) {
+                    mMoisture.setText("10及以上");
+                }
+            }
+        }
+        if (rowsBean.createYear != null && rowsBean.createYear.size() != 0) {
+            String s = "";
+            for (int i = 0; i < rowsBean.createYear.size(); i++) {
+                if (i != rowsBean.createYear.size() - 1) {
+                    s = s + rowsBean.createYear.get(i) + "/";
+                } else {
+                    s = s + rowsBean.createYear.get(i);
+                }
+            }
+            supplyDetailsType.setText(s);
+        } else {
+            supplyDetailsType.setText("--");
         }
 
         String contacts = rowsBean.contacts;//联系人
@@ -254,28 +313,38 @@ public class SupplyOrderDetailsActivity extends BaseActivity {
         String province = rowsBean.province;//省
         String city = rowsBean.city;
         String area = rowsBean.area;
-        if (address.equals("") && province == null) {
-            supplyDetailsAddress.setText("---");
+   /*     if (address.equals("") && province == null) {
+            supplyDetailsAddress.setText("--");
         } else if (province == null) {
             supplyDetailsAddress.setText(address);
         } else {
             supplyDetailsAddress.setText(province + city + area + address);
+        }*/
+        if (TextUtils.isEmpty(rowsBean.address2)) {
+            supplyDetailsAddress.setText("--");
+        } else {
+            supplyDetailsAddress.setText(rowsBean.address2);
         }
         String deadline = rowsBean.deadline;//截至日期
         if (deadline == null) {
-            supplyDetailsDeadtime.setText("---");
+            supplyDetailsDeadtime.setText("--");
         } else {
             supplyDetailsDeadtime.setText(deadline);
         }
+
+        boolean baleCotton = rowsBean.baleCotton;
+        if (baleCotton) {
+            tvColor.setText("品级");
+        }
         String receiveDate = rowsBean.receiveDate;//送达日期
         if (receiveDate == null) {
-            supplyDetailsRecevitime.setText("---");
+            supplyDetailsRecevitime.setText("--");
         } else {
             supplyDetailsRecevitime.setText(receiveDate);
         }
         String remark = rowsBean.remark;//需求说明
         if (remark == null) {
-            supplyDetailsRemark.setText("---");
+            supplyDetailsRemark.setText("--");
         } else {
             supplyDetailsRemark.setText(remark);
         }

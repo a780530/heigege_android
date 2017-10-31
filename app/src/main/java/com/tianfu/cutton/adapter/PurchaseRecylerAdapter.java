@@ -36,15 +36,15 @@ public class PurchaseRecylerAdapter extends BaseQuickAdapter<ListPurchaseOrder.V
         initview(helper);
         int minPrice = item.minPrice;
 
-        if (minPrice == 0&&item.maxPrice==0) {
+        if (minPrice == 0 && item.maxPrice == 0) {
             helper.setText(R.id.tv_purchase_money, "价格面议");
             tv_purchase_commany.setVisibility(View.GONE);
-        } else if (minPrice==item.maxPrice){
+        } else if (minPrice == item.maxPrice) {
             tv_purchase_commany.setVisibility(View.VISIBLE);
-            helper.setText(R.id.tv_purchase_money, minPrice+"");
-        }else{
+            helper.setText(R.id.tv_purchase_money, minPrice + "");
+        } else {
             tv_purchase_commany.setVisibility(View.VISIBLE);
-            helper.setText(R.id.tv_purchase_money, minPrice+"-"+item.maxPrice);
+            helper.setText(R.id.tv_purchase_money, minPrice + "-" + item.maxPrice);
         }
 
         ;
@@ -52,12 +52,12 @@ public class PurchaseRecylerAdapter extends BaseQuickAdapter<ListPurchaseOrder.V
             helper.setText(R.id.tv_purchase_elasticity, "24-31");
         } else {
             helper.setText(R.id.tv_purchase_elasticity, item.breakLoadAverage.min + "-" + item.breakLoadAverage.max);
-            if (item.breakLoadAverage.min.equals(item.breakLoadAverage.max)){
+            if (item.breakLoadAverage.min.equals(item.breakLoadAverage.max)) {
                 helper.setText(R.id.tv_purchase_elasticity, item.breakLoadAverage.min + "");
-                if (item.breakLoadAverage.max.equals("31")){
-                    helper.setText(R.id.tv_purchase_elasticity,"31及以上");
-                }else if (item.breakLoadAverage.max.equals("24")){
-                    helper.setText(R.id.tv_purchase_elasticity,"24及以下");
+                if (item.breakLoadAverage.max.equals("31")) {
+                    helper.setText(R.id.tv_purchase_elasticity, "31及以上");
+                } else if (item.breakLoadAverage.max.equals("24")) {
+                    helper.setText(R.id.tv_purchase_elasticity, "24及以下");
                 }
             }
         }
@@ -65,12 +65,12 @@ public class PurchaseRecylerAdapter extends BaseQuickAdapter<ListPurchaseOrder.V
             helper.setText(R.id.tv_purchase_length, "25-32");
         } else {
             helper.setText(R.id.tv_purchase_length, item.lengthAverage.min + "-" + item.lengthAverage.max);
-            if (item.lengthAverage.min.equals(item.lengthAverage.max)){
+            if (item.lengthAverage.min.equals(item.lengthAverage.max)) {
                 helper.setText(R.id.tv_purchase_length, item.lengthAverage.min + "");
-                if (item.lengthAverage.max.equals("32")){
-                    helper.setText(R.id.tv_purchase_length,"32及以上");
-                }else if (item.lengthAverage.max.equals("25")){
-                    helper.setText(R.id.tv_purchase_length,"25及以下");
+                if (item.lengthAverage.max.equals("32")) {
+                    helper.setText(R.id.tv_purchase_length, "32及以上");
+                } else if (item.lengthAverage.max.equals("25")) {
+                    helper.setText(R.id.tv_purchase_length, "25及以下");
                 }
             }
         }
@@ -78,12 +78,12 @@ public class PurchaseRecylerAdapter extends BaseQuickAdapter<ListPurchaseOrder.V
             helper.setText(R.id.tv_purchase_horse, "3.4-5.0");
         } else {
             helper.setText(R.id.tv_purchase_horse, item.micronAverage.min + "-" + item.micronAverage.max);
-            if (item.micronAverage.min.equals(item.micronAverage.max)){
+            if (item.micronAverage.min.equals(item.micronAverage.max)) {
                 helper.setText(R.id.tv_purchase_horse, item.micronAverage.min + "");
-                if (item.micronAverage.max.equals("5.0")){
-                    helper.setText(R.id.tv_purchase_horse,"5.0及以上");
-                }else if (item.micronAverage.max.equals("3.4")){
-                    helper.setText(R.id.tv_purchase_horse,"3.4及以下");
+                if (item.micronAverage.max.equals("5.0")) {
+                    helper.setText(R.id.tv_purchase_horse, "5.0及以上");
+                } else if (item.micronAverage.max.equals("3.4")) {
+                    helper.setText(R.id.tv_purchase_horse, "3.4及以下");
                 }
             }
         }
@@ -92,10 +92,23 @@ public class PurchaseRecylerAdapter extends BaseQuickAdapter<ListPurchaseOrder.V
         } else {
             helper.setText(R.id.tv_purchase_cotton, item.colorGrade2.get(0));
         }
-        if (item.type2 == null) {
+    /*    if (item.type2 == null) {
             helper.setText(R.id.tv_purchase_type, "--");
         } else {
             helper.setText(R.id.tv_purchase_type, item.type2.get(0));
+        }*/
+        if (item.createYear != null && item.createYear.size() != 0) {
+            String s = "";
+            for (int i = 0; i < item.createYear.size(); i++) {
+                if (i != item.createYear.size() - 1) {
+                    s = s + item.createYear.get(i) + "/";
+                } else {
+                    s = s + item.createYear.get(i);
+                }
+            }
+            helper.setText(R.id.tv_purchase_type, s);
+        } else {
+            helper.setText(R.id.tv_purchase_type, "--");
         }
         if (item.origin2 == null) {
             helper.setText(R.id.tv_purchase_origin, "--");
@@ -104,7 +117,7 @@ public class PurchaseRecylerAdapter extends BaseQuickAdapter<ListPurchaseOrder.V
         }
         if (item.address2.equals("")) {
             helper.setText(R.id.tv_purchase_address, "--");
-        }  else {
+        } else {
             helper.setText(R.id.tv_purchase_address, item.address2);
         }
 

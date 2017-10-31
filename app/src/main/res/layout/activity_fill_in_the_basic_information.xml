@@ -196,7 +196,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40px"
                 android:layout_weight="1"
-                android:text="送达日期"
+                android:text="送到时间"
                 android:textColor="#333333"
                 android:textSize="28px" />
 
@@ -206,7 +206,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="16px"
                 android:gravity="right"
-                android:hint="请选择送达日期"
+                android:hint="请选择送到时间"
                 android:textColor="#333333"
                 android:textSize="26px" />
 
@@ -320,7 +320,38 @@
                 android:textColor="#333333"
                 android:textSize="26px" />
         </com.zhy.autolayout.AutoRelativeLayout>
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:paddingBottom="20px"
+            android:paddingTop="20px"
+            android:gravity="center_vertical"
+            android:background="@drawable/ll_background_normal"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="40px"
+                android:text="结算类型"
+                android:textColor="@color/drop_color"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/tv_account"
+                android:layout_width="200px"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="40px"
+                android:drawablePadding="8px"
+                android:drawableRight="@mipmap/ic_common_downblack"
+                android:gravity="right"
+                android:text="公重"
+                android:textColor="@color/drop_color"
+                android:textSize="28px" />
+        </com.zhy.autolayout.AutoRelativeLayout>
         <com.zhy.autolayout.AutoRelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

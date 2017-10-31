@@ -37,6 +37,7 @@ public class MyfavoritesBean {
             public String micronAverage;
             public String moisture;
             public String trash;
+            public String stdweightPrice;
             public String factory;
             public String contact;
             public String mobile;

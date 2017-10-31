@@ -10,6 +10,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -81,8 +82,8 @@ public class StoreFragment extends BaseFragment implements View.OnClickListener,
     /*private TextView tvJtoY;
     private TextView tvYtoJ;*/
     private ImageView ivZhineng;
-/*    private ImageView ivJtoY;
-    private ImageView ivYtoJ;*/
+    /*    private ImageView ivJtoY;
+        private ImageView ivYtoJ;*/
     private LinearLayout ll_zhineng;
     private LinearLayout ll_jtoY;
     private LinearLayout ll_ytoJ;
@@ -163,7 +164,10 @@ public class StoreFragment extends BaseFragment implements View.OnClickListener,
     private ImageView sts_price_up;
     private ImageView sts_price_down;
     private PopupWindow popWindowList;
+    private boolean isShowContanc = true;
     private TextView tv_location;
+    private EditText et_contact;
+    private ImageView iv_contact;
 
     public StoreFragment() {
         // Required empty public constructor
@@ -349,6 +353,9 @@ public class StoreFragment extends BaseFragment implements View.OnClickListener,
 
         RelativeLayout rl_date = (RelativeLayout) mRootView.findViewById(R.id.rl_date);
         rl_date.setOnClickListener(this);
+        RelativeLayout rl_contact = (RelativeLayout) mRootView.findViewById(R.id.rl_contact);
+        rl_contact.setOnClickListener(this);
+        iv_contact = (ImageView) mRootView.findViewById(R.id.iv_contact);
         iv_date = (ImageView) mRootView.findViewById(R.id.iv_date);
         date_group = (MultiCheckGroupView) mRootView.findViewById(R.id.date_group);
 
@@ -406,7 +413,7 @@ public class StoreFragment extends BaseFragment implements View.OnClickListener,
                 drawerLayout.setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
                 ((MainActivity) getActivity()).mTabLayout.setVisibility(View.VISIBLE);
                 ishaveData();
-                if (popWindowList!=null){
+                if (popWindowList != null) {
                     popWindowList.dismiss();
                 }
                 WindowManager.LayoutParams attr = getActivity().getWindow().getAttributes();
@@ -426,6 +433,7 @@ public class StoreFragment extends BaseFragment implements View.OnClickListener,
         mapKeyword.put("2", "皮辊棉");
         mapKeyword.put("3", "长绒棉");
         keyword_group.addValues(mapKeyword);
+        keyword_group.setMultiCheck(false);
 
 
         mapType = new TreeMap<>();
@@ -451,12 +459,30 @@ public class StoreFragment extends BaseFragment implements View.OnClickListener,
         color_group.addValues(mapColor);
         mapDate = new TreeMap<>();
         mapDate.put("0", "2017");
+        mapDate.put("1", "2016");
         date_group.addValues(mapDate);
+        date_group.setMultiCheck(false);
         mapLocation = new TreeMap<>();
         mapLocation.put("0", "新疆棉");
         mapLocation.put("3", "地产棉");
         mapLocation.put("4", "进口棉");
         origin_group.addValues(mapLocation);
+        origin_group.setMultiCheck(false);
+
+
+        et_contact = (EditText) mRootView.findViewById(R.id.et_Contact);
+        et_contact.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+
+                } else {
+                    WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
+                    lp.flags |= WindowManager.LayoutParams.FLAG_FULLSCREEN;
+                    getActivity().getWindow().setAttributes(lp);
+                }
+            }
+        });
     }
 
     private void initProdata() {
@@ -641,6 +667,7 @@ public class StoreFragment extends BaseFragment implements View.OnClickListener,
         tv_trash.setText("0-5");
         tv_moisture.setText("0-10");
         tv_location.setText("请选择仓库名称");
+        et_contact.getText().clear();
         hashMap.clear();
         hashMap.put("deviceNo", Common.deviceNo);
         hashMap.put("from", Common.from);
@@ -747,7 +774,7 @@ public class StoreFragment extends BaseFragment implements View.OnClickListener,
         View conentView = inflater.inflate(R.layout.popup_store_down, null);
         initPopview(conentView);
         popDistance = new PopWindow(getActivity(), conentView);
-        popDistance.showAsDropDown(popDistance,llDropDown,0,0);
+        popDistance.showAsDropDown(popDistance, llDropDown, 0, 0);
   /*      if (Build.VERSION.SDK_INT < 24) {
             popDistance.showAsDropDown(llDropDown, 0, 0);
         } else {
@@ -869,8 +896,13 @@ public class StoreFragment extends BaseFragment implements View.OnClickListener,
                 tv_moisture.setText("0-10");
                 doubleSeekBar_moisture.setValues(0, 10);
                 tv_location.setText("请选择仓库名称");
+                et_contact.getText().clear();
                 break;
             case R.id.btSelectSure://确定
+                String etContact = et_contact.getText().toString().trim();
+                if (!TextUtils.isEmpty(etContact)){
+                    hashMap.put("contact",etContact);
+                }
                 List<String> selectedkeyword = keyword_group.getSelectedList();
                 keyword_group.commit();
                 List<String> keyValue = new ArrayList<>();
@@ -909,7 +941,7 @@ public class StoreFragment extends BaseFragment implements View.OnClickListener,
                 } else {
                     for (String temp : selectedcolor) {
                         String s = mapColor.get(temp);
-                        if (s.equals("白棉1级")) {
+                       /* if (s.equals("白棉1级")) {
                             s = "white1";
                             colorValue.add(s);
                         } else if (s.equals("白棉2级")) {
@@ -948,7 +980,8 @@ public class StoreFragment extends BaseFragment implements View.OnClickListener,
                         } else if (s.equals("黄染棉2级")) {
                             s = "yellow2";
                             colorValue.add(s);
-                        }
+                        }*/
+                        colorValue.add(s);
                     }
                     hashMap.put("colorGradeName", ListToListString.getString(colorValue));
                 }
@@ -1022,7 +1055,7 @@ public class StoreFragment extends BaseFragment implements View.OnClickListener,
                 }
                 hashMap.put("trash", "[" + trash[0] + "," + trash[1] + "]");
                 hashMap.put("moisture", "[" + moisture[0] + moisture[1] + "]");
-                if (!tv_location.getText().toString().equals("请选择仓库名称")){
+                if (!tv_location.getText().toString().equals("请选择仓库名称")) {
                     String[] split = tv_location.getText().toString().split("");
                     hashMap.put("location", split[0]);
                     hashMap.put("storage", split[1]);
@@ -1139,12 +1172,23 @@ public class StoreFragment extends BaseFragment implements View.OnClickListener,
                 }
                 break;
             case R.id.rl_date:
-                if (this.date_group.isShowMyLayout()) {
-                    this.date_group.hideMyLayout();
+                if (date_group.isShowMyLayout()) {
+                    date_group.hideMyLayout();
                     iv_date.setImageResource(R.mipmap.ic_sort_up);
                 } else {
                     iv_date.setImageResource(R.mipmap.ic_sort_down);
-                    this.date_group.showMyLayout();
+                    date_group.showMyLayout();
+                }
+                break;
+            case R.id.rl_contact:
+                if (isShowContanc) {
+                    isShowContanc = false;
+                    et_contact.setVisibility(View.GONE);
+                    iv_contact.setImageResource(R.mipmap.ic_sort_up);
+                }else{
+                    isShowContanc  = true;
+                    et_contact.setVisibility(View.VISIBLE);
+                    iv_contact.setImageResource(R.mipmap.ic_sort_down);
                 }
                 break;
             case R.id.ll_drop_down:
@@ -1601,7 +1645,7 @@ public class StoreFragment extends BaseFragment implements View.OnClickListener,
         List<String> selectedcolor = color_group.getSelectedList();
         List<String> selectedorigin = origin_group.getSelectedList();
         List<String> selecteddate = date_group.getSelectedList();
-        if (selectedkeyword.size() < 1 && selectedcolor.size() < 1 && selectedorigin.size() < 1 && selecteddate.size() < 1 && tv_house.getText().equals("3.4-5.0") && tv_elasticity.getText().equals("24-31") && tv_length.getText().equals("25-32") && tv_trash.getText().equals("0-5") && tv_moisture.getText().equals("0-10")) {
+        if (TextUtils.isEmpty(tv_location.getText().toString().trim())&&TextUtils.isEmpty(et_contact.getText().toString().trim())&&selectedkeyword.size() < 1 && selectedcolor.size() < 1 && selectedorigin.size() < 1 && selecteddate.size() < 1 && tv_house.getText().equals("3.4-5.0") && tv_elasticity.getText().equals("24-31") && tv_length.getText().equals("25-32") && tv_trash.getText().equals("0-5") && tv_moisture.getText().equals("0-10")) {
             tv_shaixuan.setTextColor(getResources().getColor(R.color.drop_color));
             imageView.setImageResource(R.mipmap.ic_store_funnel);
         } else {

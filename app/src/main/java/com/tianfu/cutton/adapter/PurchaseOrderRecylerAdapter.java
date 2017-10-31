@@ -121,11 +121,25 @@ public class PurchaseOrderRecylerAdapter extends BaseQuickAdapter<PurchaseOrderB
         } else {
             viewHolder.setText(R.id.tv_cotton, item.colorGrade2.get(0));
         }
-        if (item.type2 == null) {
+     /*   if (item.type2 == null) {
             viewHolder.setText(R.id.tv_type, "--");
         } else {
             viewHolder.setText(R.id.tv_type, item.type2.get(0));
+        }*/
+        if (item.createYear != null && item.createYear.size() != 0) {
+            String s = "";
+            for (int i = 0; i < item.createYear.size(); i++) {
+                if (i != item.createYear.size() - 1) {
+                    s = s + item.createYear.get(i) + "/";
+                } else {
+                    s = s + item.createYear.get(i);
+                }
+            }
+            viewHolder.setText(R.id.tv_type, s);
+        } else {
+            viewHolder.setText(R.id.tv_type, "--");
         }
+
         if (item.origin2 == null) {
             viewHolder.setText(R.id.tv_origin, "--");
         } else {
